@@ -1,0 +1,30 @@
+---
+const { t } = Astro.props;
+---
+
+<section class="hero section" id="hero" aria-labelledby="hero-title">
+  <div class="hero__content">
+    <p class="eyebrow" data-i18n="hero.eyebrow">{t.hero.eyebrow}</p>
+    <h1 id="hero-title" data-i18n="hero.title">{t.hero.title}</h1>
+    <p class="hero__role" data-i18n="hero.role">{t.hero.role}</p>
+    <p class="hero__text" data-i18n="hero.text">{t.hero.text}</p>
+    <div class="hero__actions">
+      <a class="button button--primary" href="#projects" data-i18n="hero.projects">{t.hero.projects}</a>
+      <a class="button button--ghost" href="#contact" data-cv-link data-i18n="hero.cv">{t.hero.cv}</a>
+      <a class="button button--plain" href="#contact" data-i18n="hero.contact">{t.hero.contact}</a>
+    </div>
+  </div>
+  <div class="hero__visual" aria-hidden="true">
+    <div class="xr-device">
+      <div class="xr-device__lens"></div>
+      <div class="xr-device__lens"></div>
+      <div class="xr-device__line"></div>
+    </div>
+    <div class="hero__panel">
+      <span>XR</span>
+      <span>Health</span>
+      <span>Research</span>
+      <span>Medical Viz</span>
+    </div>
+  </div>
+</section>

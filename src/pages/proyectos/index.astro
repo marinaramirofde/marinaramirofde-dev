@@ -1,0 +1,28 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import { getDictionary } from "../../i18n";
+import { portfolioConfig } from "../../config/portfolio.config";
+const t = getDictionary(portfolioConfig.defaultLocale);
+const projects = [
+  ["XR Medical Viewer", "xr-medical-viewer"],
+  ["AR Research Prototype", "ar-research-prototype"],
+  ["Immersive Education Lab", "immersive-education-lab"]
+];
+---
+
+<BaseLayout title={`Proyectos · ${portfolioConfig.brandName}`}>
+  <article class="content-page">
+    <p class="eyebrow">Selected work</p>
+    <h1 data-i18n="projects.title">{t.projects.title}</h1>
+    <p data-i18n="projects.text">{t.projects.text}</p>
+    <div class="card-grid" style="margin-top:2rem">
+      {projects.map(([title, slug]) => (
+        <article class="project-card">
+          <div class="project-card__media" aria-hidden="true"></div>
+          <h2 style="font-size:1.5rem">{title}</h2>
+          <a href={`/proyectos/${slug}`}>Case study</a>
+        </article>
+      ))}
+    </div>
+  </article>
+</BaseLayout>

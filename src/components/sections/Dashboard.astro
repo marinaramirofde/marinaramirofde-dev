@@ -1,0 +1,19 @@
+---
+const { t } = Astro.props;
+const dashboardItems = t.dashboard.items as Array<[string, string]>;
+---
+
+<section class="section section--dark dashboard" id="dashboard" aria-labelledby="dashboard-title">
+  <div class="section__heading">
+    <p class="eyebrow">CV Dashboard</p>
+    <h2 id="dashboard-title" data-i18n="dashboard.title">{t.dashboard.title}</h2>
+  </div>
+  <div class="dashboard__grid">
+    {dashboardItems.map((item, index) => (
+      <article class="metric">
+        <span data-i18n={`dashboard.items.${index}.0`}>{item[0]}</span>
+        <strong data-i18n={`dashboard.items.${index}.1`}>{item[1]}</strong>
+      </article>
+    ))}
+  </div>
+</section>

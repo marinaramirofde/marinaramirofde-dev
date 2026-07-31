@@ -1,0 +1,18 @@
+---
+import { portfolioConfig } from "../../config/portfolio.config";
+const { t } = Astro.props;
+const href = portfolioConfig.socialLinks.whatsappCommunity || "#contact";
+---
+
+<section class="section community" id="community" aria-labelledby="community-title">
+  <div class="community__avatars" aria-hidden="true">
+    <span>XR</span><span>DEV</span><span>AI</span><span>HEALTH</span>
+  </div>
+  <div>
+    <p class="eyebrow">Community</p>
+    <h2 id="community-title" data-i18n="community.title">{t.community.title}</h2>
+    <p data-i18n="community.text">{t.community.text}</p>
+    <p class="community__members" data-i18n="community.members">{t.community.members}</p>
+    <a class="button button--secondary" href={href} data-i18n="community.cta">{t.community.cta}</a>
+  </div>
+</section>

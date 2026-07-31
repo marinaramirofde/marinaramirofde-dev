@@ -1,0 +1,21 @@
+---
+import { portfolioConfig } from "../../config/portfolio.config";
+const { t } = Astro.props;
+---
+
+{portfolioConfig.intro.enabled && (
+  <section class="xr-intro" aria-label={t.intro.label} data-xr-intro data-duration={portfolioConfig.intro.durationMs} data-storage-key={portfolioConfig.intro.sessionStorageKey}>
+    <canvas class="xr-intro__canvas" data-xr-canvas></canvas>
+    <div class="xr-intro__fallback" aria-hidden="true">
+      <div class="xr-lens xr-lens--left"></div>
+      <div class="xr-lens xr-lens--right"></div>
+      <div class="xr-bridge"></div>
+    </div>
+    <button class="xr-intro__skip" type="button" data-xr-skip data-i18n="intro.skip">{t.intro.skip}</button>
+  </section>
+)}
+
+<script>
+  import { initXrIntro } from "../../scripts/xrIntro";
+  initXrIntro();
+</script>

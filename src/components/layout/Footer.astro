@@ -1,0 +1,21 @@
+---
+import { portfolioConfig } from "../../config/portfolio.config";
+const { t } = Astro.props;
+---
+
+<footer class="footer">
+  <div class="footer__inner">
+    <div>
+      <p class="eyebrow">{portfolioConfig.handle}</p>
+      <p>{portfolioConfig.role}</p>
+    </div>
+    <nav aria-label="Footer navigation">
+      <a href="#services" data-i18n="footer.services">{t.footer.services}</a>
+      <a href="#contact" data-i18n="footer.social">{t.footer.social}</a>
+      <a href="#contact" data-i18n="footer.cv">{t.footer.cv}</a>
+      <a href="#community" data-i18n="footer.community">{t.footer.community}</a>
+    </nav>
+  </div>
+  <p class="footer__copyright">© {new Date().getFullYear()} Marina Ramiro. <span data-i18n="footer.copyright">{t.footer.copyright}</span></p>
+  <strong class="footer__name">MARINA RAMIRO</strong>
+</footer>

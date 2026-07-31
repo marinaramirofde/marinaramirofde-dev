@@ -1,0 +1,57 @@
+---
+import "../styles/global.css";
+import { portfolioConfig } from "../config/portfolio.config";
+import { getDictionary } from "../i18n";
+import Navbar from "../components/navigation/Navbar.astro";
+import Footer from "../components/layout/Footer.astro";
+import ScrollToTop from "../components/widgets/ScrollToTop.astro";
+
+const locale = portfolioConfig.defaultLocale;
+const t = getDictionary(locale);
+const title = Astro.props.title ?? t.meta.title;
+const description = Astro.props.description ?? t.meta.description;
+const canonical = new URL(Astro.url.pathname, Astro.site ?? `https://${portfolioConfig.domain}`).toString();
+---
+
+<!doctype html>
+<html lang={locale}>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#050505" />
+    <title data-i18n="meta.title">{title}</title>
+    <meta name="description" content={description} data-i18n-content="meta.description" />
+    <link rel="canonical" href={canonical} />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <link rel="manifest" href="/site.webmanifest" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content={title} data-i18n-content="meta.title" />
+    <meta property="og:description" content={description} data-i18n-content="meta.description" />
+    <meta property="og:url" content={canonical} />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} data-i18n-content="meta.title" />
+    <meta name="twitter:description" content={description} data-i18n-content="meta.description" />
+    <script is:inline type="application/ld+json" set:html={JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "Person",
+      name: portfolioConfig.brandName,
+      alternateName: portfolioConfig.handle,
+      jobTitle: portfolioConfig.role,
+      url: `https://${portfolioConfig.domain}`,
+      knowsAbout: ["XR", "Software Engineering", "Medical Visualization", "Virtual Reality", "Augmented Reality"]
+    })} />
+  </head>
+  <body>
+    <a class="skip-link" href="#main" data-i18n="common.skipContent">{t.common.skipContent}</a>
+    <Navbar t={t} />
+    <main id="main">
+      <slot />
+    </main>
+    <Footer t={t} />
+    <ScrollToTop label={t.common.scrollTop} />
+    <script>
+      import { initSite } from "../scripts/site";
+      initSite();
+    </script>
+  </body>
+</html>

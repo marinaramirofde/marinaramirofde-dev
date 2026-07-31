@@ -1,0 +1,43 @@
+---
+import { portfolioConfig } from "../../config/portfolio.config";
+import { socialItems } from "../../data/social";
+const { t } = Astro.props;
+const action = portfolioConfig.form.endpoint || "#";
+---
+
+<section class="section section--dark contact" id="contact" aria-labelledby="contact-title">
+  <div class="contact__intro">
+    <p class="eyebrow">Contact</p>
+    <h2 id="contact-title" data-i18n="contact.title">{t.contact.title}</h2>
+    <p data-i18n="contact.text">{t.contact.text}</p>
+    <div class="contact__socials">
+      {socialItems.map((item) => (
+        <a href={item.href || "#"} aria-disabled={!item.href}>{item.label}</a>
+      ))}
+    </div>
+  </div>
+  <form class="contact-form" action={action} method="post">
+    <label>
+      <span data-i18n="contact.name">{t.contact.name}</span>
+      <input type="text" name="name" autocomplete="name" required />
+    </label>
+    <label>
+      <span data-i18n="contact.email">{t.contact.email}</span>
+      <input type="email" name="email" autocomplete="email" required />
+    </label>
+    <label>
+      <span data-i18n="contact.subject">{t.contact.subject}</span>
+      <input type="text" name="subject" required />
+    </label>
+    <label>
+      <span data-i18n="contact.message">{t.contact.message}</span>
+      <textarea name="message" rows="5" required></textarea>
+    </label>
+    <label class="checkbox">
+      <input type="checkbox" name="consent" required />
+      <span data-i18n="contact.consent">{t.contact.consent}</span>
+    </label>
+    <button class="button button--primary" type="submit" data-i18n="contact.submit">{t.contact.submit}</button>
+    {!portfolioConfig.form.endpoint && <p class="form-note" data-i18n="contact.note">{t.contact.note}</p>}
+  </form>
+</section>

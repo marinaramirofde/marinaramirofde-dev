@@ -1,0 +1,9 @@
+{
+  "name": "Marina Ramiro",
+  "short_name": "Marina Ramiro",
+  "description": "XR Developer & Software Engineer focused on health, research and medical visualization.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#050505"
+}

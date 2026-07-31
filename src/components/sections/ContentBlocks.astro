@@ -1,0 +1,104 @@
+---
+import { services } from "../../data/services";
+import { skills } from "../../data/skills";
+import { galleryItems } from "../../data/gallery";
+const { t } = Astro.props;
+const projectCards = [
+  ["XR Medical Viewer", "WebXR · Three.js · Health"],
+  ["AR Research Prototype", "Unity · C# · Visualization"],
+  ["Immersive Education Lab", "XR · UX · Community"]
+];
+---
+
+<section class="section section--soft split" id="about" aria-labelledby="about-title">
+  <div>
+    <p class="eyebrow">About</p>
+    <h2 id="about-title" data-i18n="about.title">{t.about.title}</h2>
+  </div>
+  <div>
+    <p data-i18n="about.text">{t.about.text}</p>
+    <a class="inline-link" href="/sobre-mi" data-i18n="about.cta">{t.about.cta}</a>
+  </div>
+</section>
+
+<section class="section projects" id="projects" aria-labelledby="projects-title">
+  <div class="section__heading">
+    <p class="eyebrow">Selected work</p>
+    <h2 id="projects-title" data-i18n="projects.title">{t.projects.title}</h2>
+    <p data-i18n="projects.text">{t.projects.text}</p>
+  </div>
+  <div class="card-grid">
+    {projectCards.map(([title, meta]) => (
+      <article class="project-card">
+        <div class="project-card__media" aria-hidden="true"></div>
+        <h3>{title}</h3>
+        <p>{meta}</p>
+        <a href={`/proyectos/${title.toLowerCase().replaceAll(" ", "-")}`}>Case study</a>
+      </article>
+    ))}
+  </div>
+  <a class="button button--primary" href="/proyectos" data-i18n="projects.cta">{t.projects.cta}</a>
+</section>
+
+<section class="section section--dark split" id="research" aria-labelledby="research-title">
+  <div>
+    <p class="eyebrow">Research</p>
+    <h2 id="research-title" data-i18n="research.title">{t.research.title}</h2>
+  </div>
+  <p data-i18n="research.text">{t.research.text}</p>
+</section>
+
+<section class="section section--soft timeline" id="events" aria-labelledby="events-title">
+  <div class="section__heading">
+    <p class="eyebrow">Agenda</p>
+    <h2 id="events-title" data-i18n="events.title">{t.events.title}</h2>
+    <p data-i18n="events.text">{t.events.text}</p>
+  </div>
+  <div class="timeline__row"><span>2026</span><strong>XR, health and innovation events</strong></div>
+  <div class="timeline__row"><span>Future</span><strong>Configurable event cards</strong></div>
+</section>
+
+<section class="section split" id="talks" aria-labelledby="talks-title">
+  <div>
+    <p class="eyebrow">Talks</p>
+    <h2 id="talks-title" data-i18n="talks.title">{t.talks.title}</h2>
+  </div>
+  <p data-i18n="talks.text">{t.talks.text}</p>
+</section>
+
+<section class="section section--dark services" id="services" aria-labelledby="services-title">
+  <div class="section__heading">
+    <p class="eyebrow">Services</p>
+    <h2 id="services-title" data-i18n="services.title">{t.services.title}</h2>
+    <p data-i18n="services.text">{t.services.text}</p>
+  </div>
+  <div class="pill-grid">
+    {services.map((service) => <span>{service}</span>)}
+  </div>
+</section>
+
+<section class="section section--soft skills" id="skills" aria-labelledby="skills-title">
+  <div class="section__heading">
+    <p class="eyebrow">Stack</p>
+    <h2 id="skills-title" data-i18n="skills.title">{t.skills.title}</h2>
+  </div>
+  <div class="tag-cloud">
+    {skills.map((skill) => <span>{skill}</span>)}
+  </div>
+</section>
+
+<section class="section gallery" id="gallery" aria-labelledby="gallery-title">
+  <div class="section__heading">
+    <p class="eyebrow">Media</p>
+    <h2 id="gallery-title" data-i18n="gallery.title">{t.gallery.title}</h2>
+    <p data-i18n="gallery.text">{t.gallery.text}</p>
+  </div>
+  <div class="gallery__grid">
+    {galleryItems.map((item) => (
+      <figure class={`gallery-item gallery-item--${item.accent}`}>
+        <div aria-hidden="true"></div>
+        <figcaption>{item.title} · {item.type}</figcaption>
+      </figure>
+    ))}
+  </div>
+</section>

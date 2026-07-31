@@ -1,0 +1,14 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import { getDictionary } from "../i18n";
+import { portfolioConfig } from "../config/portfolio.config";
+const t = getDictionary(portfolioConfig.defaultLocale);
+---
+
+<BaseLayout title={`Charlas · ${portfolioConfig.brandName}`}>
+  <article class="content-page">
+    <p class="eyebrow">Talks</p>
+    <h1 data-i18n="talks.title">{t.talks.title}</h1>
+    <p data-i18n="talks.text">{t.talks.text}</p>
+  </article>
+</BaseLayout>

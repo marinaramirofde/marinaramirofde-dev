@@ -1,0 +1,15 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import { getDictionary } from "../i18n";
+import { portfolioConfig } from "../config/portfolio.config";
+const t = getDictionary(portfolioConfig.defaultLocale);
+---
+
+<BaseLayout title={`Sobre mí · ${portfolioConfig.brandName}`}>
+  <article class="content-page">
+    <p class="eyebrow">{portfolioConfig.handle}</p>
+    <h1 data-i18n="about.title">{t.about.title}</h1>
+    <p data-i18n="about.text">{t.about.text}</p>
+    <p>Esta página queda preparada para ampliar biografía, trayectoria, enfoque profesional, CV y colaboraciones.</p>
+  </article>
+</BaseLayout>

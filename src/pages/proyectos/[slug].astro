@@ -1,0 +1,36 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import { portfolioConfig } from "../../config/portfolio.config";
+
+export function getStaticPaths() {
+  const projectEntries = [
+    {
+      slug: "xr-medical-viewer",
+      title: "XR Medical Viewer",
+      summary: "Base para documentar un visor medico inmersivo con Three.js, WebXR y arquitectura estatica."
+    },
+    {
+      slug: "ar-research-prototype",
+      title: "AR Research Prototype",
+      summary: "Base para documentar prototipos de realidad aumentada aplicados a investigacion y visualizacion."
+    },
+    {
+      slug: "immersive-education-lab",
+      title: "Immersive Education Lab",
+      summary: "Base para documentar experiencias educativas inmersivas, talleres y comunidad."
+    }
+  ];
+  return projectEntries.map((project) => ({ params: { slug: project.slug }, props: { project } }));
+}
+
+const { project } = Astro.props;
+---
+
+<BaseLayout title={project.title + " · " + portfolioConfig.brandName} description={project.summary}>
+  <article class="content-page">
+    <p class="eyebrow">Case study</p>
+    <h1>{project.title}</h1>
+    <p>{project.summary}</p>
+    <p>Ficha preparada para incorporar contexto, rol, stack, proceso, resultados, imagenes, video y enlaces.</p>
+  </article>
+</BaseLayout>

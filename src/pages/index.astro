@@ -1,0 +1,22 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import { getDictionary } from "../i18n";
+import { portfolioConfig } from "../config/portfolio.config";
+import XrIntro from "../components/three/XrIntro.astro";
+import Hero from "../components/sections/Hero.astro";
+import Dashboard from "../components/sections/Dashboard.astro";
+import ContentBlocks from "../components/sections/ContentBlocks.astro";
+import Community from "../components/sections/Community.astro";
+import ContactForm from "../components/forms/ContactForm.astro";
+
+const t = getDictionary(portfolioConfig.defaultLocale);
+---
+
+<BaseLayout>
+  <XrIntro t={t} />
+  <Hero t={t} />
+  <Dashboard t={t} />
+  <ContentBlocks t={t} />
+  <Community t={t} />
+  <ContactForm t={t} />
+</BaseLayout>

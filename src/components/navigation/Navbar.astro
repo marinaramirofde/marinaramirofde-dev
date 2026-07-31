@@ -1,0 +1,36 @@
+---
+import { portfolioConfig } from "../../config/portfolio.config";
+const { t } = Astro.props;
+const navItems = [
+  ["about", "#about", t.nav.about],
+  ["projects", "#projects", t.nav.projects],
+  ["research", "#research", t.nav.research],
+  ["events", "#events", t.nav.events],
+  ["talks", "#talks", t.nav.talks],
+  ["services", "#services", t.nav.services],
+  ["contact", "#contact", t.nav.contact]
+];
+const linkedinHref = portfolioConfig.socialLinks.linkedin || "#contact";
+---
+
+<header class="site-header" data-site-header>
+  <nav class="navbar" aria-label="Primary navigation">
+    <a class="brand" href="/" aria-label="Marina Ramiro home">Marina Ramiro</a>
+    <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="nav-menu" aria-label={t.nav.menu} data-nav-toggle>
+      <span></span><span></span><span></span>
+    </button>
+    <div class="nav-menu" id="nav-menu" data-nav-menu>
+      {navItems.map(([id, href, label]) => (
+        <a href={href} data-section-link={id} data-i18n={`nav.${id}`}>{label}</a>
+      ))}
+      <div class="language-switcher" aria-label="Language selector">
+        <button type="button" class="is-active" data-lang-choice="es" aria-pressed="true">ESP</button>
+        <span aria-hidden="true">|</span>
+        <button type="button" data-lang-choice="en" aria-pressed="false">EN</button>
+      </div>
+      <a class="linkedin-mark" href={linkedinHref} aria-label={t.nav.linkedin} data-i18n-aria="nav.linkedin">
+        in
+      </a>
+    </div>
+  </nav>
+</header>
