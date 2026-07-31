@@ -14,7 +14,7 @@ export const portfolioConfig: PortfolioConfig = {
   },
   features: {
     animations: true,
-    xrIntro: true,
+    xrIntro: false,
     scrollProgress: true
   },
   form: {
@@ -24,7 +24,7 @@ export const portfolioConfig: PortfolioConfig = {
   socialLinks: {
     instagram: "",
     youtube: "",
-    linkedin: "",
+    linkedin: "https://www.linkedin.com/in/marinaramirofde",
     github: "",
     whatsapp: "",
     whatsappCommunity: "",
