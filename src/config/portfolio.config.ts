@@ -8,7 +8,7 @@ export const portfolioConfig: PortfolioConfig = {
   defaultLocale: "es",
   supportedLocales: ["es", "en"],
   intro: {
-    enabled: true,
+    enabled: false,
     durationMs: 4200,
     sessionStorageKey: "marina-xr-intro-seen"
   },

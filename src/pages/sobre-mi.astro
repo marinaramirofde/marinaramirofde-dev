@@ -7,9 +7,17 @@ const t = getDictionary(portfolioConfig.defaultLocale);
 
 <BaseLayout title={`Sobre mí · ${portfolioConfig.brandName}`}>
   <article class="content-page">
-    <p class="eyebrow">{portfolioConfig.handle}</p>
-    <h1 data-i18n="about.title">{t.about.title}</h1>
-    <p data-i18n="about.text">{t.about.text}</p>
-    <p>Esta página queda preparada para ampliar biografía, trayectoria, enfoque profesional, CV y colaboraciones.</p>
+    <header class="content-page__hero" data-reveal>
+      <p class="eyebrow">{portfolioConfig.handle} / Profile</p>
+      <h1 data-i18n="about.title">{t.about.title}</h1>
+      <p data-i18n="about.text">{t.about.text}</p>
+    </header>
+    <div class="content-page__visual" aria-hidden="true" data-reveal>
+      <span>XR</span><span>SOFTWARE</span><span>HEALTH</span><span>RESEARCH</span>
+      <i></i>
+    </div>
+    <div class="content-page__columns" data-reveal>
+      <p>XR Developer</p><p>Software Engineer</p><p>Medical Visualization</p>
+    </div>
   </article>
 </BaseLayout>

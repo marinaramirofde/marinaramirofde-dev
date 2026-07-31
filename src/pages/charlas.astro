@@ -7,8 +7,14 @@ const t = getDictionary(portfolioConfig.defaultLocale);
 
 <BaseLayout title={`Charlas · ${portfolioConfig.brandName}`}>
   <article class="content-page">
-    <p class="eyebrow">Talks</p>
-    <h1 data-i18n="talks.title">{t.talks.title}</h1>
-    <p data-i18n="talks.text">{t.talks.text}</p>
+    <header class="content-page__hero" data-reveal>
+      <p class="eyebrow">Talks / Knowledge</p>
+      <h1 data-i18n="talks.title">{t.talks.title}</h1>
+      <p data-i18n="talks.text">{t.talks.text}</p>
+    </header>
+    <div class="content-page__visual content-page__visual--line" aria-hidden="true" data-reveal>
+      <span>XR</span><span>CODE</span><span>DESIGN</span><span>IMPACT</span>
+      <i></i>
+    </div>
   </article>
 </BaseLayout>

@@ -15,8 +15,11 @@ const linkedinHref = portfolioConfig.socialLinks.linkedin || "#contact";
 
 <header class="site-header" data-site-header>
   <nav class="navbar" aria-label="Primary navigation">
-    <a class="brand" href="/" aria-label="Marina Ramiro home">Marina Ramiro</a>
-    <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="nav-menu" aria-label={t.nav.menu} data-nav-toggle>
+    <a class="brand" href="/" aria-label="Marina Ramiro home">
+      <span class="brand__mark" aria-hidden="true">MR</span>
+      <span>Marina Ramiro</span>
+    </a>
+    <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="nav-menu" aria-label={t.nav.menu} data-nav-toggle data-open-label={t.nav.menu} data-close-label={t.nav.close}>
       <span></span><span></span><span></span>
     </button>
     <div class="nav-menu" id="nav-menu" data-nav-menu>
@@ -25,12 +28,12 @@ const linkedinHref = portfolioConfig.socialLinks.linkedin || "#contact";
       ))}
       <div class="language-switcher" aria-label="Language selector">
         <button type="button" class="is-active" data-lang-choice="es" aria-pressed="true">ESP</button>
-        <span aria-hidden="true">|</span>
+        <span aria-hidden="true">/</span>
         <button type="button" data-lang-choice="en" aria-pressed="false">EN</button>
       </div>
       <div class="contact-icons" aria-label="Contact links">
         <span class="contact-icons__divider" aria-hidden="true"></span>
-        <a class="contact-icon contact-icon--linkedin" href={linkedinHref} target="_blank" rel="noreferrer" aria-label={t.nav.linkedin} data-i18n-aria="nav.linkedin">
+        <a class="contact-icon contact-icon--linkedin" href={linkedinHref} target="_blank" rel="noreferrer" aria-label={t.nav.linkedin} data-i18n-aria="nav.linkedin" title="LinkedIn">
           <span aria-hidden="true">in</span>
         </a>
       </div>

@@ -6,25 +6,27 @@ const action = portfolioConfig.form.endpoint || "#";
 ---
 
 <section class="section section--dark contact" id="contact" aria-labelledby="contact-title">
-  <div class="contact__intro">
-    <p class="eyebrow">Contact</p>
+  <div class="contact__intro" data-reveal>
+    <p class="eyebrow">Contact / Let's talk</p>
     <h2 id="contact-title" data-i18n="contact.title">{t.contact.title}</h2>
     <p data-i18n="contact.text">{t.contact.text}</p>
     <div class="contact__socials">
       {socialItems.map((item) => (
-        <a href={item.href || "#"} aria-disabled={!item.href}>{item.label}</a>
+        <a href={item.href || "#"} aria-disabled={!item.href}>{item.label}<span aria-hidden="true">↗</span></a>
       ))}
     </div>
   </div>
-  <form class="contact-form" action={action} method="post">
-    <label>
-      <span data-i18n="contact.name">{t.contact.name}</span>
-      <input type="text" name="name" autocomplete="name" required />
-    </label>
-    <label>
-      <span data-i18n="contact.email">{t.contact.email}</span>
-      <input type="email" name="email" autocomplete="email" required />
-    </label>
+  <form class="contact-form" action={action} method="post" data-reveal>
+    <div class="contact-form__row">
+      <label>
+        <span data-i18n="contact.name">{t.contact.name}</span>
+        <input type="text" name="name" autocomplete="name" required />
+      </label>
+      <label>
+        <span data-i18n="contact.email">{t.contact.email}</span>
+        <input type="email" name="email" autocomplete="email" required />
+      </label>
+    </div>
     <label>
       <span data-i18n="contact.subject">{t.contact.subject}</span>
       <input type="text" name="subject" required />

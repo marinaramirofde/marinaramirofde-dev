@@ -4,21 +4,9 @@ import { portfolioConfig } from "../../config/portfolio.config";
 
 export function getStaticPaths() {
   const projectEntries = [
-    {
-      slug: "xr-medical-viewer",
-      title: "XR Medical Viewer",
-      summary: "Base para documentar un visor medico inmersivo con Three.js, WebXR y arquitectura estatica."
-    },
-    {
-      slug: "ar-research-prototype",
-      title: "AR Research Prototype",
-      summary: "Base para documentar prototipos de realidad aumentada aplicados a investigacion y visualizacion."
-    },
-    {
-      slug: "immersive-education-lab",
-      title: "Immersive Education Lab",
-      summary: "Base para documentar experiencias educativas inmersivas, talleres y comunidad."
-    }
+    { slug: "xr-medical-viewer", code: "XR-01", title: "XR Medical Viewer", summary: "Base para documentar un visor médico inmersivo con Three.js, WebXR y arquitectura estática.", stack: "Three.js / WebXR / Health" },
+    { slug: "ar-research-prototype", code: "AR-02", title: "AR Research Prototype", summary: "Base para documentar prototipos de realidad aumentada aplicados a investigación y visualización.", stack: "Unity / C# / AR" },
+    { slug: "immersive-education-lab", code: "VR-03", title: "Immersive Education Lab", summary: "Base para documentar experiencias educativas inmersivas, talleres y comunidad.", stack: "XR / UX / Community" }
   ];
   return projectEntries.map((project) => ({ params: { slug: project.slug }, props: { project } }));
 }
@@ -27,10 +15,17 @@ const { project } = Astro.props;
 ---
 
 <BaseLayout title={project.title + " · " + portfolioConfig.brandName} description={project.summary}>
-  <article class="content-page">
-    <p class="eyebrow">Case study</p>
-    <h1>{project.title}</h1>
-    <p>{project.summary}</p>
-    <p>Ficha preparada para incorporar contexto, rol, stack, proceso, resultados, imagenes, video y enlaces.</p>
+  <article class="content-page content-page--wide">
+    <header class="content-page__hero" data-reveal>
+      <p class="eyebrow">Case study / {project.code}</p>
+      <h1>{project.title}</h1>
+      <p>{project.summary}</p>
+    </header>
+    <div class="case-visual" aria-hidden="true" data-reveal><span>{project.code}</span><i></i></div>
+    <div class="case-meta" data-reveal>
+      <div><span>Discipline</span><strong>Immersive technology</strong></div>
+      <div><span>Stack</span><strong>{project.stack}</strong></div>
+      <div><span>Status</span><strong>Documentation in progress</strong></div>
+    </div>
   </article>
 </BaseLayout>

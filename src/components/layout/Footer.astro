@@ -4,18 +4,30 @@ const { t } = Astro.props;
 ---
 
 <footer class="footer">
-  <div class="footer__inner">
+  <div class="footer__top">
     <div>
       <p class="eyebrow">{portfolioConfig.handle}</p>
-      <p>{portfolioConfig.role}</p>
+      <p class="footer__role">{portfolioConfig.role}</p>
     </div>
-    <nav aria-label="Footer navigation">
-      <a href="#services" data-i18n="footer.services">{t.footer.services}</a>
-      <a href="#contact" data-i18n="footer.social">{t.footer.social}</a>
-      <a href="#contact" data-i18n="footer.cv">{t.footer.cv}</a>
-      <a href="#community" data-i18n="footer.community">{t.footer.community}</a>
-    </nav>
+    <a class="footer__availability" href="#contact"><i></i>Open to meaningful projects</a>
   </div>
-  <p class="footer__copyright">© {new Date().getFullYear()} Marina Ramiro. <span data-i18n="footer.copyright">{t.footer.copyright}</span></p>
-  <strong class="footer__name">MARINA RAMIRO</strong>
+  <div class="footer__inner">
+    <nav aria-label="Footer navigation">
+      <a href="#about" data-i18n="nav.about">{t.nav.about}</a>
+      <a href="#projects" data-i18n="nav.projects">{t.nav.projects}</a>
+      <a href="#research" data-i18n="nav.research">{t.nav.research}</a>
+      <a href="#services" data-i18n="footer.services">{t.footer.services}</a>
+      <a href="#community" data-i18n="footer.community">{t.footer.community}</a>
+      <a href="#contact" data-i18n="nav.contact">{t.nav.contact}</a>
+    </nav>
+    <div class="footer__links">
+      <a href={portfolioConfig.socialLinks.linkedin || "#contact"} target="_blank" rel="noreferrer">LinkedIn ↗</a>
+      <a href={portfolioConfig.socialLinks.cv || "#contact"} data-i18n="footer.cv">{t.footer.cv}</a>
+    </div>
+  </div>
+  <div class="footer__base">
+    <p>© {new Date().getFullYear()} Marina Ramiro. <span data-i18n="footer.copyright">{t.footer.copyright}</span></p>
+    <a href="#hero">Back to top ↑</a>
+  </div>
+  <strong class="footer__name" aria-hidden="true">MARINA RAMIRO</strong>
 </footer>
