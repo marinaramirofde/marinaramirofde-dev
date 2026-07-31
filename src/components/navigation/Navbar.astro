@@ -1,18 +1,19 @@
 ---
 import { portfolioConfig } from "../../config/portfolio.config";
 const { t } = Astro.props;
+const basePath = import.meta.env.BASE_URL.endsWith("/") ? import.meta.env.BASE_URL : `${import.meta.env.BASE_URL}/`;
 const navItems = [
-  ["about", "#about", t.nav.about], ["projects", "#projects", t.nav.projects],
-  ["research", "#research", t.nav.research], ["events", "#events", t.nav.events],
-  ["talks", "#talks", t.nav.talks], ["services", "#services", t.nav.services],
-  ["contact", "#contact", t.nav.contact]
+  ["about", `${basePath}#about`, t.nav.about], ["projects", `${basePath}#projects`, t.nav.projects],
+  ["research", `${basePath}#research`, t.nav.research], ["events", `${basePath}#events`, t.nav.events],
+  ["talks", `${basePath}#talks`, t.nav.talks], ["services", `${basePath}#services`, t.nav.services],
+  ["contact", `${basePath}#contact`, t.nav.contact]
 ];
-const linkedinHref = portfolioConfig.socialLinks.linkedin || "#contact";
+const linkedinHref = portfolioConfig.socialLinks.linkedin || `${basePath}#contact`;
 ---
 
 <header class="site-header" data-site-header>
   <nav class="navbar" aria-label="Primary navigation">
-    <a class="brand" href="/" aria-label="Marina Ramiro Fernández home">
+    <a class="brand" href={basePath} aria-label="Marina Ramiro Fernández home">
       <span class="brand__mark" aria-hidden="true">MRF</span>
       <span>Marina Ramiro Fernández</span>
     </a>

@@ -4,6 +4,7 @@ const { t } = Astro.props;
 const services = t.services.items as string[];
 const galleryItems = t.gallery.items as Array<[string, string]>;
 const projectMeta = t.projects.meta as string[];
+const basePath = import.meta.env.BASE_URL.endsWith("/") ? import.meta.env.BASE_URL : `${import.meta.env.BASE_URL}/`;
 const projectCards = [
   { title: "XR Medical Viewer", code: "XR-01", accent: "blue" },
   { title: "AR Research Prototype", code: "AR-02", accent: "orange" },
@@ -23,7 +24,7 @@ const projectCards = [
       <div class="about__facts" aria-label="Professional profile">
         {t.about.facts.map((fact: string, index: number) => <span data-i18n={`about.facts.${index}`}>{fact}</span>)}
       </div>
-      <a class="inline-link" href="/sobre-mi"><span data-i18n="about.cta">{t.about.cta}</span><i aria-hidden="true">↗</i></a>
+      <a class="inline-link" href={`${basePath}sobre-mi`}><span data-i18n="about.cta">{t.about.cta}</span><i aria-hidden="true">↗</i></a>
     </div>
   </div>
 </section>
@@ -40,14 +41,14 @@ const projectCards = [
   <div class="card-grid">
     {projectCards.map((project, index) => (
       <article class={`project-card project-card--${project.accent}`} data-reveal style={`--reveal-delay: ${index * 90}ms`}>
-        <a class="project-card__media" href={`/proyectos/${project.title.toLowerCase().replaceAll(" ", "-")}`} aria-label={project.title}>
+        <a class="project-card__media" href={`${basePath}proyectos/${project.title.toLowerCase().replaceAll(" ", "-")}`} aria-label={project.title}>
           <span class="project-card__code">{project.code}</span><span class="project-card__shape" aria-hidden="true"></span><span class="project-card__arrow" aria-hidden="true">↗</span>
         </a>
         <div class="project-card__body"><p data-i18n={`projects.meta.${index}`}>{projectMeta[index]}</p><h3>{project.title}</h3></div>
       </article>
     ))}
   </div>
-  <a class="button button--primary projects__cta" href="/proyectos" data-i18n="projects.cta">{t.projects.cta}</a>
+  <a class="button button--primary projects__cta" href={`${basePath}proyectos`} data-i18n="projects.cta">{t.projects.cta}</a>
 </section>
 
 <section class="section section--dark research" id="research" aria-labelledby="research-title">
