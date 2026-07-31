@@ -11,6 +11,7 @@ const navItems = [
   ["contact", "#contact", t.nav.contact]
 ];
 const linkedinHref = portfolioConfig.socialLinks.linkedin || "#contact";
+const emailHref = portfolioConfig.socialLinks.email ? `mailto:${portfolioConfig.socialLinks.email}` : "#contact";
 ---
 
 <header class="site-header" data-site-header>
@@ -28,9 +29,17 @@ const linkedinHref = portfolioConfig.socialLinks.linkedin || "#contact";
         <span aria-hidden="true">|</span>
         <button type="button" data-lang-choice="en" aria-pressed="false">EN</button>
       </div>
-      <a class="linkedin-mark" href={linkedinHref} aria-label={t.nav.linkedin} data-i18n-aria="nav.linkedin">
-        in
-      </a>
+      <div class="contact-icons" aria-label="Contact links">
+        <span class="contact-icons__divider" aria-hidden="true"></span>
+        <a class="contact-icon contact-icon--linkedin" href={linkedinHref} aria-label={t.nav.linkedin} data-i18n-aria="nav.linkedin">
+          <span aria-hidden="true">in</span>
+        </a>
+        <a class="contact-icon contact-icon--gmail" href={emailHref} aria-label="Email">
+          <span aria-hidden="true">
+            <i></i><i></i><i></i><i></i>
+          </span>
+        </a>
+      </div>
     </div>
   </nav>
 </header>

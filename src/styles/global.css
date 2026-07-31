@@ -844,3 +844,109 @@ p {
     transition-duration: 0.01ms !important;
   }
 }
+
+.contact-icons {
+  align-items: center;
+  display: inline-flex;
+  gap: 0.42rem;
+  margin-left: 0.25rem;
+  padding-left: 0.35rem;
+}
+
+.contact-icons__divider {
+  background: rgba(5, 5, 5, 0.22);
+  display: inline-block;
+  height: 22px;
+  width: 1px;
+}
+
+.contact-icon {
+  align-items: center;
+  border-radius: 11px !important;
+  display: inline-flex;
+  height: 40px;
+  justify-content: center;
+  min-height: 40px !important;
+  overflow: hidden;
+  padding: 0 !important;
+  text-decoration: none;
+  transition: transform 160ms ease, box-shadow 160ms ease, background 160ms ease;
+  width: 40px;
+}
+
+.contact-icon:hover {
+  transform: translateY(-2px) rotate(-2deg);
+}
+
+.contact-icon--linkedin {
+  background: #2a66c7;
+  box-shadow: 0 10px 22px rgba(42, 102, 199, 0.28);
+  color: var(--color-paper) !important;
+  font-family: Arial, sans-serif;
+  font-size: 1.15rem !important;
+  font-weight: 800 !important;
+}
+
+.contact-icon--gmail {
+  background: #202124;
+  border-radius: 999px !important;
+  position: relative;
+}
+
+.contact-icon--gmail > span {
+  display: block;
+  height: 22px;
+  position: relative;
+  width: 28px;
+}
+
+.contact-icon--gmail > span::before {
+  background: var(--color-paper);
+  border-radius: 2px;
+  content: "";
+  inset: 4px 3px 2px;
+  position: absolute;
+}
+
+.contact-icon--gmail i {
+  display: block;
+  position: absolute;
+}
+
+.contact-icon--gmail i:nth-child(1) {
+  background: #ea4335;
+  height: 15px;
+  left: 0;
+  top: 4px;
+  transform: skewY(32deg);
+  width: 5px;
+}
+
+.contact-icon--gmail i:nth-child(2) {
+  background: #4285f4;
+  height: 15px;
+  right: 0;
+  top: 4px;
+  transform: skewY(-32deg);
+  width: 5px;
+}
+
+.contact-icon--gmail i:nth-child(3) {
+  border-left: 5px solid #fbbc04;
+  border-top: 5px solid transparent;
+  height: 0;
+  left: 4px;
+  top: 4px;
+  transform: rotate(28deg);
+  width: 16px;
+}
+
+.contact-icon--gmail i:nth-child(4) {
+  border-right: 5px solid #34a853;
+  border-top: 5px solid transparent;
+  height: 0;
+  right: 4px;
+  top: 4px;
+  transform: rotate(-28deg);
+  width: 16px;
+}
