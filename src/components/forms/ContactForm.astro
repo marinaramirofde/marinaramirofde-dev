@@ -3,6 +3,14 @@ import { portfolioConfig } from "../../config/portfolio.config";
 import { socialItems } from "../../data/social";
 const { t } = Astro.props;
 const action = portfolioConfig.form.endpoint || "#";
+const socialMarks: Record<string, string> = {
+  instagram: "IG",
+  youtube: "YT",
+  linkedin: "in",
+  github: "GH",
+  email: "@",
+  whatsapp: "WA"
+};
 ---
 
 <section class="section section--dark contact" id="contact" aria-labelledby="contact-title">
@@ -10,13 +18,20 @@ const action = portfolioConfig.form.endpoint || "#";
     <p class="eyebrow">Contact / Let's talk</p>
     <h2 id="contact-title" data-i18n="contact.title">{t.contact.title}</h2>
     <p data-i18n="contact.text">{t.contact.text}</p>
-    <div class="contact__socials">
+    <div class="contact__socials" aria-label="Social links">
       {socialItems.map((item) => (
-        <a href={item.href || "#"} aria-disabled={!item.href}>{item.label}<span aria-hidden="true">↗</span></a>
+        <a href={item.href || "#"} aria-disabled={!item.href}>
+          <span class={`social-mark social-mark--${item.id}`} aria-hidden="true">{socialMarks[item.id]}</span>
+          <span>{item.label}</span>
+        </a>
       ))}
     </div>
   </div>
   <form class="contact-form" action={action} method="post" data-reveal>
+    <div class="contact-form__header">
+      <span>01</span>
+      <p data-i18n="contact.text">{t.contact.text}</p>
+    </div>
     <div class="contact-form__row">
       <label>
         <span data-i18n="contact.name">{t.contact.name}</span>
@@ -39,7 +54,9 @@ const action = portfolioConfig.form.endpoint || "#";
       <input type="checkbox" name="consent" required />
       <span data-i18n="contact.consent">{t.contact.consent}</span>
     </label>
-    <button class="button button--primary" type="submit" data-i18n="contact.submit">{t.contact.submit}</button>
-    {!portfolioConfig.form.endpoint && <p class="form-note" data-i18n="contact.note">{t.contact.note}</p>}
+    <div class="contact-form__footer">
+      <button class="button button--primary" type="submit" data-i18n="contact.submit">{t.contact.submit}</button>
+      {!portfolioConfig.form.endpoint && <p class="form-note" data-i18n="contact.note">{t.contact.note}</p>}
+    </div>
   </form>
 </section>

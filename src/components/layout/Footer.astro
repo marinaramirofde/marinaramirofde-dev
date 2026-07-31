@@ -21,13 +21,12 @@ const { t } = Astro.props;
       <a href="#contact" data-i18n="nav.contact">{t.nav.contact}</a>
     </nav>
     <div class="footer__links">
-      <a href={portfolioConfig.socialLinks.linkedin || "#contact"} target="_blank" rel="noreferrer">LinkedIn ↗</a>
+      <a href={portfolioConfig.socialLinks.linkedin || "#contact"} target="_blank" rel="noreferrer">LinkedIn</a>
       <a href={portfolioConfig.socialLinks.cv || "#contact"} data-i18n="footer.cv">{t.footer.cv}</a>
     </div>
   </div>
   <div class="footer__base">
-    <p>© {new Date().getFullYear()} Marina Ramiro. <span data-i18n="footer.copyright">{t.footer.copyright}</span></p>
-    <a href="#hero">Back to top ↑</a>
+    <p>&copy; {new Date().getFullYear()} Marina Ramiro. <span data-i18n="footer.copyright">{t.footer.copyright}</span></p>
   </div>
   <strong class="footer__name" aria-hidden="true">MARINA RAMIRO</strong>
 </footer>
