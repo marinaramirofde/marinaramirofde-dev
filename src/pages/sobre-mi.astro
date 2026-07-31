@@ -7,9 +7,15 @@ const t = getDictionary(portfolioConfig.defaultLocale);
 
 <BaseLayout title={`Sobre mí · ${portfolioConfig.brandName}`}>
   <article class="content-page">
-    <p class="eyebrow">{portfolioConfig.handle}</p>
-    <h1 data-i18n="about.title">{t.about.title}</h1>
-    <p data-i18n="about.text">{t.about.text}</p>
-    <p>Esta página queda preparada para ampliar biografía, trayectoria, enfoque profesional, CV y colaboraciones.</p>
+    <header class="content-page__hero" data-reveal>
+      <p class="eyebrow">MRF / <span data-i18n="pages.profile">{t.pages.profile}</span></p>
+      <h1 data-i18n="about.title">{t.about.title}</h1><p data-i18n="about.text">{t.about.text}</p>
+    </header>
+    <div class="content-page__visual" aria-hidden="true" data-reveal>
+      <span>XR</span><span data-i18n="pages.software">{t.pages.software}</span><span data-i18n="pages.health">{t.pages.health}</span><span data-i18n="pages.research">{t.pages.research}</span><i></i>
+    </div>
+    <div class="content-page__columns" data-reveal>
+      {t.pages.roles.map((role: string, index: number) => <p data-i18n={`pages.roles.${index}`}>{role}</p>)}
+    </div>
   </article>
 </BaseLayout>

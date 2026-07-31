@@ -4,15 +4,20 @@ const dashboardItems = t.dashboard.items as Array<[string, string]>;
 ---
 
 <section class="section section--dark dashboard" id="dashboard" aria-labelledby="dashboard-title">
-  <div class="section__heading">
-    <p class="eyebrow">CV Dashboard</p>
-    <h2 id="dashboard-title" data-i18n="dashboard.title">{t.dashboard.title}</h2>
+  <div class="dashboard__intro" data-reveal>
+    <div class="section__index" aria-hidden="true">01</div>
+    <div class="section__heading">
+      <p class="eyebrow" data-i18n="dashboard.eyebrow">{t.dashboard.eyebrow}</p>
+      <h2 id="dashboard-title" data-i18n="dashboard.title">{t.dashboard.title}</h2>
+    </div>
+    <p class="dashboard__summary" data-i18n="dashboard.summary">{t.dashboard.summary}</p>
   </div>
   <div class="dashboard__grid">
     {dashboardItems.map((item, index) => (
-      <article class="metric">
-        <span data-i18n={`dashboard.items.${index}.0`}>{item[0]}</span>
-        <strong data-i18n={`dashboard.items.${index}.1`}>{item[1]}</strong>
+      <article class="metric" data-reveal style={`--reveal-delay: ${index * 70}ms`}>
+        <span class="metric__number">0{index + 1}</span>
+        <p data-i18n={`dashboard.items.${index}.0`}>{item[0]}</p>
+        <strong data-i18n={`dashboard.items.${index}.1`}>{item[1]}</strong><i aria-hidden="true"></i>
       </article>
     ))}
   </div>

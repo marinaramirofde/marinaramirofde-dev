@@ -1,21 +1,25 @@
 ---
 import { portfolioConfig } from "../../config/portfolio.config";
 const { t } = Astro.props;
+const basePath = import.meta.env.BASE_URL.endsWith("/") ? import.meta.env.BASE_URL : `${import.meta.env.BASE_URL}/`;
 ---
 
 <footer class="footer">
-  <div class="footer__inner">
-    <div>
-      <p class="eyebrow">{portfolioConfig.handle}</p>
-      <p>{portfolioConfig.role}</p>
-    </div>
-    <nav aria-label="Footer navigation">
-      <a href="#services" data-i18n="footer.services">{t.footer.services}</a>
-      <a href="#contact" data-i18n="footer.social">{t.footer.social}</a>
-      <a href="#contact" data-i18n="footer.cv">{t.footer.cv}</a>
-      <a href="#community" data-i18n="footer.community">{t.footer.community}</a>
-    </nav>
+  <div class="footer__top">
+    <div><p class="eyebrow">MRF</p><p class="footer__role" data-i18n="hero.role">{t.hero.role}</p></div>
+    <a class="footer__availability" href={`${basePath}#contact`}><i></i><span data-i18n="footer.availability">{t.footer.availability}</span></a>
   </div>
-  <p class="footer__copyright">© {new Date().getFullYear()} Marina Ramiro. <span data-i18n="footer.copyright">{t.footer.copyright}</span></p>
-  <strong class="footer__name">MARINA RAMIRO</strong>
+  <div class="footer__inner">
+    <nav aria-label="Footer navigation">
+      <a href={`${basePath}#about`} data-i18n="nav.about">{t.nav.about}</a><a href={`${basePath}#projects`} data-i18n="nav.projects">{t.nav.projects}</a>
+      <a href={`${basePath}#research`} data-i18n="nav.research">{t.nav.research}</a><a href={`${basePath}#services`} data-i18n="footer.services">{t.footer.services}</a>
+      <a href={`${basePath}#community`} data-i18n="footer.community">{t.footer.community}</a><a href={`${basePath}#contact`} data-i18n="nav.contact">{t.nav.contact}</a>
+    </nav>
+    <div class="footer__links">
+      <a href={portfolioConfig.socialLinks.linkedin || "#contact"} target="_blank" rel="noreferrer">LinkedIn</a>
+      <a href={portfolioConfig.socialLinks.cv || "#contact"} data-i18n="footer.cv">{t.footer.cv}</a>
+    </div>
+  </div>
+  <div class="footer__base"><p>&copy; {new Date().getFullYear()} Marina Ramiro Fernández. <span data-i18n="footer.copyright">{t.footer.copyright}</span></p></div>
+  <strong class="footer__name" aria-hidden="true">MARINA RAMIRO</strong>
 </footer>

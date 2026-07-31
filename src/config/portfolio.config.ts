@@ -1,20 +1,20 @@
 import type { PortfolioConfig } from "../types/portfolio";
 
 export const portfolioConfig: PortfolioConfig = {
-  brandName: "Marina Ramiro",
+  brandName: "Marina Ramiro Fernández",
   handle: "marinaramirofde_dev",
-  role: "XR Developer & Software Engineer",
+  role: "Ingeniera Informática · Desarrolladora de Realidad Extendida (XR)",
   domain: "marinaramirofde.dev",
   defaultLocale: "es",
   supportedLocales: ["es", "en"],
   intro: {
-    enabled: true,
+    enabled: false,
     durationMs: 4200,
     sessionStorageKey: "marina-xr-intro-seen"
   },
   features: {
     animations: true,
-    xrIntro: true,
+    xrIntro: false,
     scrollProgress: true
   },
   form: {
@@ -24,7 +24,7 @@ export const portfolioConfig: PortfolioConfig = {
   socialLinks: {
     instagram: "",
     youtube: "",
-    linkedin: "",
+    linkedin: "https://www.linkedin.com/in/marinaramirofde",
     github: "",
     whatsapp: "",
     whatsappCommunity: "",

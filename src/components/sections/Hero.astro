@@ -1,10 +1,10 @@
 ---
 const { t } = Astro.props;
+const panelItems = t.hero.panel as string[];
 ---
 
 <section class="hero section" id="hero" aria-labelledby="hero-title">
-  <div class="hero__content">
-    <p class="eyebrow" data-i18n="hero.eyebrow">{t.hero.eyebrow}</p>
+  <div class="hero__content" data-reveal>
     <h1 id="hero-title" data-i18n="hero.title">{t.hero.title}</h1>
     <p class="hero__role" data-i18n="hero.role">{t.hero.role}</p>
     <p class="hero__text" data-i18n="hero.text">{t.hero.text}</p>
@@ -13,18 +13,23 @@ const { t } = Astro.props;
       <a class="button button--ghost" href="#contact" data-cv-link data-i18n="hero.cv">{t.hero.cv}</a>
       <a class="button button--plain" href="#contact" data-i18n="hero.contact">{t.hero.contact}</a>
     </div>
+    <div class="hero__meta" aria-label="Areas of expertise">
+      <span><i></i>XR / VR / AR</span>
+      <span data-i18n="hero.health">{t.hero.health}</span>
+      <span data-i18n="hero.location">{t.hero.location}</span>
+    </div>
   </div>
-  <div class="hero__visual" aria-hidden="true">
+  <div class="hero__visual" aria-hidden="true" data-reveal data-hero-visual>
+    <div class="hero__visual-topline">
+      <span data-i18n="hero.system">{t.hero.system}</span>
+      <span class="hero__signal" data-i18n="hero.online">{t.hero.online}</span>
+    </div>
+    <div class="xr-orbit xr-orbit--outer"></div><div class="xr-orbit xr-orbit--inner"></div>
     <div class="xr-device">
-      <div class="xr-device__lens"></div>
-      <div class="xr-device__lens"></div>
-      <div class="xr-device__line"></div>
+      <span class="xr-device__bridge"></span><div class="xr-device__lens"></div><div class="xr-device__lens"></div><span class="xr-device__sensor"></span>
     </div>
     <div class="hero__panel">
-      <span>XR</span>
-      <span>Health</span>
-      <span>Research</span>
-      <span>Medical Viz</span>
+      {panelItems.map((item, index) => <span><b>0{index + 1}</b><i data-i18n={`hero.panel.${index}`}>{item}</i></span>)}
     </div>
   </div>
 </section>

@@ -17,7 +17,7 @@ function getInitialLocale(): Locale {
   const stored = localStorage.getItem(localeKey) as Locale | null;
   if (stored && portfolioConfig.supportedLocales.includes(stored)) return stored;
 
-  const browserLocale = navigator.language.toLowerCase().startsWith("en") ? "en" : "es";
+  const browserLocale: Locale = navigator.language.toLowerCase().startsWith("en") ? "en" : "es";
   localStorage.setItem(localeKey, browserLocale);
   return browserLocale;
 }
@@ -54,6 +54,14 @@ function applyLocale(locale: Locale) {
     button.classList.toggle("is-active", isActive);
     button.setAttribute("aria-pressed", String(isActive));
   });
+
+  const toggle = document.querySelector<HTMLButtonElement>("[data-nav-toggle]");
+  if (toggle) {
+    toggle.dataset.openLabel = dictionary.nav.menu;
+    toggle.dataset.closeLabel = dictionary.nav.close;
+    const isOpen = toggle.getAttribute("aria-expanded") === "true";
+    toggle.setAttribute("aria-label", isOpen ? dictionary.nav.close : dictionary.nav.menu);
+  }
 }
 
 function initNavigation() {
@@ -62,17 +70,32 @@ function initNavigation() {
   const menu = document.querySelector<HTMLElement>("[data-nav-menu]");
   const links = document.querySelectorAll<HTMLAnchorElement>("[data-section-link]");
 
+  const setMenuOpen = (isOpen: boolean) => {
+    toggle?.setAttribute("aria-expanded", String(isOpen));
+    toggle?.setAttribute("aria-label", isOpen ? toggle.dataset.closeLabel ?? "Close menu" : toggle.dataset.openLabel ?? "Open menu");
+    menu?.classList.toggle("is-open", isOpen);
+    document.body.classList.toggle("menu-open", isOpen && window.innerWidth <= 1180);
+  };
+
   toggle?.addEventListener("click", () => {
-    const nextState = toggle.getAttribute("aria-expanded") !== "true";
-    toggle.setAttribute("aria-expanded", String(nextState));
-    menu?.classList.toggle("is-open", nextState);
+    setMenuOpen(toggle.getAttribute("aria-expanded") !== "true");
   });
 
-  links.forEach((link) => {
-    link.addEventListener("click", () => {
-      toggle?.setAttribute("aria-expanded", "false");
-      menu?.classList.remove("is-open");
-    });
+  links.forEach((link) => link.addEventListener("click", () => setMenuOpen(false)));
+
+  document.addEventListener("keydown", (event) => {
+    if (event.key === "Escape") {
+      setMenuOpen(false);
+      toggle?.focus();
+    }
+  });
+
+  document.addEventListener("click", (event) => {
+    if (!header?.contains(event.target as Node)) setMenuOpen(false);
+  });
+
+  window.addEventListener("resize", () => {
+    if (window.innerWidth > 1180) setMenuOpen(false);
   });
 
   const onScroll = () => {
@@ -82,7 +105,7 @@ function initNavigation() {
   onScroll();
   window.addEventListener("scroll", onScroll, { passive: true });
 
-  const observer = new IntersectionObserver(
+  const sectionObserver = new IntersectionObserver(
     (entries) => {
       entries.forEach((entry) => {
         if (!entry.isIntersecting) return;
@@ -91,10 +114,51 @@ function initNavigation() {
         });
       });
     },
-    { rootMargin: "-45% 0px -50% 0px", threshold: 0.01 }
+    { rootMargin: "-40% 0px -52% 0px", threshold: 0.01 }
   );
 
-  document.querySelectorAll<HTMLElement>("main section[id]").forEach((section) => observer.observe(section));
+  document.querySelectorAll<HTMLElement>("main section[id]").forEach((section) => sectionObserver.observe(section));
+}
+
+function initRevealAnimations() {
+  const elements = document.querySelectorAll<HTMLElement>("[data-reveal]");
+  if (!elements.length) return;
+
+  // Reveal immediately when motion is reduced and avoid registering unnecessary observers.
+  if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+    elements.forEach((element) => element.classList.add("is-revealed"));
+    return;
+  }
+
+  const observer = new IntersectionObserver(
+    (entries, currentObserver) => {
+      entries.forEach((entry) => {
+        if (!entry.isIntersecting) return;
+        entry.target.classList.add("is-revealed");
+        currentObserver.unobserve(entry.target);
+      });
+    },
+    { rootMargin: "0px 0px -8% 0px", threshold: 0.12 }
+  );
+
+  elements.forEach((element) => observer.observe(element));
+}
+
+function initHeroMotion() {
+  const visual = document.querySelector<HTMLElement>("[data-hero-visual]");
+  if (!visual || !window.matchMedia("(pointer: fine)").matches || window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+
+  // Add restrained depth to the hero without competing with its future WebGL scene.
+  visual.addEventListener("pointermove", (event) => {
+    const bounds = visual.getBoundingClientRect();
+    const x = (event.clientX - bounds.left) / bounds.width - 0.5;
+    const y = (event.clientY - bounds.top) / bounds.height - 0.5;
+    visual.style.transform = `perspective(900px) rotateX(${y * -3}deg) rotateY(${x * 3}deg)`;
+  });
+
+  visual.addEventListener("pointerleave", () => {
+    visual.style.transform = "perspective(900px) rotateX(0deg) rotateY(0deg)";
+  });
 }
 
 function initScrollTop() {
@@ -102,6 +166,7 @@ function initScrollTop() {
   if (!button) return;
   const circle = button.querySelector<SVGCircleElement>("circle");
   const circumference = 2 * Math.PI * 17;
+
   if (circle) {
     circle.style.strokeDasharray = `${circumference}`;
     circle.style.strokeDashoffset = `${circumference}`;
@@ -120,9 +185,10 @@ function initScrollTop() {
 }
 
 export function initSite() {
-  const locale = getInitialLocale();
-  applyLocale(locale);
+  applyLocale(getInitialLocale());
   initNavigation();
+  initRevealAnimations();
+  initHeroMotion();
   initScrollTop();
 
   document.querySelectorAll<HTMLButtonElement>("[data-lang-choice]").forEach((button) => {

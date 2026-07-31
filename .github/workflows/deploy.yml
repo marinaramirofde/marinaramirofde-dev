@@ -2,7 +2,9 @@ name: Deploy Astro site to GitHub Pages
 
 on:
   push:
-    branches: [main]
+    branches:
+      - main
+      - feature/personalization
   workflow_dispatch:
 
 permissions:
@@ -12,7 +14,11 @@ permissions:
 
 concurrency:
   group: pages
-  cancel-in-progress: false
+  cancel-in-progress: true
+
+env:
+  SITE_URL: https://marinaramirofde.github.io
+  BASE_PATH: /marinaramirofde-dev
 
 jobs:
   build:
@@ -29,6 +35,8 @@ jobs:
         with:
           node-version: 20
           cache: pnpm
+      - name: Configure Pages
+        uses: actions/configure-pages@v5
       - name: Install dependencies
         run: pnpm install --frozen-lockfile
       - name: Build
@@ -37,6 +45,7 @@ jobs:
         uses: actions/upload-pages-artifact@v3
         with:
           path: dist
+
   deploy:
     environment:
       name: github-pages

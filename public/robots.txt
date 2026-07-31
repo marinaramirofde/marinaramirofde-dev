@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://marinaramirofde.dev/sitemap-index.xml
+Sitemap: https://marinaramirofde.github.io/marinaramirofde-dev/sitemap-index.xml

@@ -4,11 +4,9 @@ import { getDictionary } from "../i18n";
 import { portfolioConfig } from "../config/portfolio.config";
 const t = getDictionary(portfolioConfig.defaultLocale);
 ---
-
 <BaseLayout title={`Investigación · ${portfolioConfig.brandName}`}>
   <article class="content-page">
-    <p class="eyebrow">Research</p>
-    <h1 data-i18n="research.title">{t.research.title}</h1>
-    <p data-i18n="research.text">{t.research.text}</p>
+    <header class="content-page__hero" data-reveal><p class="eyebrow" data-i18n="pages.researchEyebrow">{t.pages.researchEyebrow}</p><h1 data-i18n="research.title">{t.research.title}</h1><p data-i18n="research.text">{t.research.text}</p></header>
+    <div class="content-page__visual content-page__visual--line" aria-hidden="true" data-reveal><span>DATOS</span><span>XR</span><span>SALUD</span><span>3D</span><i></i></div>
   </article>
 </BaseLayout>

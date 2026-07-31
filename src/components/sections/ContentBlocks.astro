@@ -1,103 +1,119 @@
 ---
-import { services } from "../../data/services";
 import { skills } from "../../data/skills";
-import { galleryItems } from "../../data/gallery";
 const { t } = Astro.props;
+const services = t.services.items as string[];
+const galleryItems = t.gallery.items as Array<[string, string]>;
+const projectMeta = t.projects.meta as string[];
+const basePath = import.meta.env.BASE_URL.endsWith("/") ? import.meta.env.BASE_URL : `${import.meta.env.BASE_URL}/`;
 const projectCards = [
-  ["XR Medical Viewer", "WebXR · Three.js · Health"],
-  ["AR Research Prototype", "Unity · C# · Visualization"],
-  ["Immersive Education Lab", "XR · UX · Community"]
+  { title: "XR Medical Viewer", code: "XR-01", accent: "blue" },
+  { title: "AR Research Prototype", code: "AR-02", accent: "orange" },
+  { title: "Immersive Education Lab", code: "VR-03", accent: "rose" }
 ];
 ---
 
-<section class="section section--soft split" id="about" aria-labelledby="about-title">
-  <div>
-    <p class="eyebrow">About</p>
-    <h2 id="about-title" data-i18n="about.title">{t.about.title}</h2>
-  </div>
-  <div>
-    <p data-i18n="about.text">{t.about.text}</p>
-    <a class="inline-link" href="/sobre-mi" data-i18n="about.cta">{t.about.cta}</a>
+<section class="section section--soft about" id="about" aria-labelledby="about-title">
+  <div class="section__index" aria-hidden="true">02</div>
+  <div class="split">
+    <div data-reveal>
+      <p class="eyebrow" data-i18n="about.eyebrow">{t.about.eyebrow}</p>
+      <h2 id="about-title" data-i18n="about.title">{t.about.title}</h2>
+    </div>
+    <div class="about__copy" data-reveal>
+      <p data-i18n="about.text">{t.about.text}</p>
+      <div class="about__facts" aria-label="Professional profile">
+        {t.about.facts.map((fact: string, index: number) => <span data-i18n={`about.facts.${index}`}>{fact}</span>)}
+      </div>
+      <a class="inline-link" href={`${basePath}sobre-mi`}><span data-i18n="about.cta">{t.about.cta}</span><i aria-hidden="true">↗</i></a>
+    </div>
   </div>
 </section>
 
 <section class="section projects" id="projects" aria-labelledby="projects-title">
-  <div class="section__heading">
-    <p class="eyebrow">Selected work</p>
-    <h2 id="projects-title" data-i18n="projects.title">{t.projects.title}</h2>
-    <p data-i18n="projects.text">{t.projects.text}</p>
+  <div class="projects__header" data-reveal>
+    <div class="section__index" aria-hidden="true">03</div>
+    <div class="section__heading">
+      <p class="eyebrow" data-i18n="projects.eyebrow">{t.projects.eyebrow}</p>
+      <h2 id="projects-title" data-i18n="projects.title">{t.projects.title}</h2>
+      <p data-i18n="projects.text">{t.projects.text}</p>
+    </div>
   </div>
   <div class="card-grid">
-    {projectCards.map(([title, meta]) => (
-      <article class="project-card">
-        <div class="project-card__media" aria-hidden="true"></div>
-        <h3>{title}</h3>
-        <p>{meta}</p>
-        <a href={`/proyectos/${title.toLowerCase().replaceAll(" ", "-")}`}>Case study</a>
+    {projectCards.map((project, index) => (
+      <article class={`project-card project-card--${project.accent}`} data-reveal style={`--reveal-delay: ${index * 90}ms`}>
+        <a class="project-card__media" href={`${basePath}proyectos/${project.title.toLowerCase().replaceAll(" ", "-")}`} aria-label={project.title}>
+          <span class="project-card__code">{project.code}</span><span class="project-card__shape" aria-hidden="true"></span><span class="project-card__arrow" aria-hidden="true">↗</span>
+        </a>
+        <div class="project-card__body"><p data-i18n={`projects.meta.${index}`}>{projectMeta[index]}</p><h3>{project.title}</h3></div>
       </article>
     ))}
   </div>
-  <a class="button button--primary" href="/proyectos" data-i18n="projects.cta">{t.projects.cta}</a>
+  <a class="button button--primary projects__cta" href={`${basePath}proyectos`} data-i18n="projects.cta">{t.projects.cta}</a>
 </section>
 
-<section class="section section--dark split" id="research" aria-labelledby="research-title">
-  <div>
-    <p class="eyebrow">Research</p>
-    <h2 id="research-title" data-i18n="research.title">{t.research.title}</h2>
+<section class="section section--dark research" id="research" aria-labelledby="research-title">
+  <div class="section__index" aria-hidden="true">04</div>
+  <div class="research__grid">
+    <div data-reveal><p class="eyebrow" data-i18n="research.eyebrow">{t.research.eyebrow}</p><h2 id="research-title" data-i18n="research.title">{t.research.title}</h2></div>
+    <div class="research__copy" data-reveal>
+      <p data-i18n="research.text">{t.research.text}</p>
+      <div class="research__diagram" aria-hidden="true">
+        {t.research.diagram.map((item: string, index: number) => <><span data-i18n={`research.diagram.${index}`}>{item}</span>{index < 2 && <i></i>}</>)}
+      </div>
+    </div>
   </div>
-  <p data-i18n="research.text">{t.research.text}</p>
 </section>
 
-<section class="section section--soft timeline" id="events" aria-labelledby="events-title">
-  <div class="section__heading">
-    <p class="eyebrow">Agenda</p>
-    <h2 id="events-title" data-i18n="events.title">{t.events.title}</h2>
-    <p data-i18n="events.text">{t.events.text}</p>
+<section class="section section--soft events" id="events" aria-labelledby="events-title">
+  <div class="events__header" data-reveal>
+    <div class="section__index" aria-hidden="true">05</div>
+    <div class="section__heading">
+      <p class="eyebrow" data-i18n="events.eyebrow">{t.events.eyebrow}</p>
+      <h2 id="events-title" data-i18n="events.title">{t.events.title}</h2><p data-i18n="events.text">{t.events.text}</p>
+    </div>
   </div>
-  <div class="timeline__row"><span>2026</span><strong>XR, health and innovation events</strong></div>
-  <div class="timeline__row"><span>Future</span><strong>Configurable event cards</strong></div>
+  <div class="timeline">
+    <article class="timeline__row" data-reveal><span data-i18n="events.year">{t.events.year}</span><strong data-i18n="events.first">{t.events.first}</strong><i data-i18n="events.upcoming">{t.events.upcoming}</i></article>
+    <article class="timeline__row" data-reveal><span data-i18n="events.archive">{t.events.archive}</span><strong data-i18n="events.second">{t.events.second}</strong><i data-i18n="events.explore">{t.events.explore}</i></article>
+  </div>
 </section>
 
-<section class="section split" id="talks" aria-labelledby="talks-title">
-  <div>
-    <p class="eyebrow">Talks</p>
-    <h2 id="talks-title" data-i18n="talks.title">{t.talks.title}</h2>
+<section class="section talks" id="talks" aria-labelledby="talks-title">
+  <div class="section__index" aria-hidden="true">06</div>
+  <div class="talks__layout">
+    <div data-reveal><p class="eyebrow" data-i18n="talks.eyebrow">{t.talks.eyebrow}</p><h2 id="talks-title" data-i18n="talks.title">{t.talks.title}</h2></div>
+    <blockquote data-reveal><span aria-hidden="true">“</span><p data-i18n="talks.text">{t.talks.text}</p></blockquote>
   </div>
-  <p data-i18n="talks.text">{t.talks.text}</p>
 </section>
 
 <section class="section section--dark services" id="services" aria-labelledby="services-title">
-  <div class="section__heading">
-    <p class="eyebrow">Services</p>
-    <h2 id="services-title" data-i18n="services.title">{t.services.title}</h2>
-    <p data-i18n="services.text">{t.services.text}</p>
+  <div class="services__header" data-reveal>
+    <div class="section__index" aria-hidden="true">07</div>
+    <div class="section__heading"><p class="eyebrow" data-i18n="services.eyebrow">{t.services.eyebrow}</p><h2 id="services-title" data-i18n="services.title">{t.services.title}</h2><p data-i18n="services.text">{t.services.text}</p></div>
   </div>
-  <div class="pill-grid">
-    {services.map((service) => <span>{service}</span>)}
+  <div class="service-list">
+    {services.map((service, index) => <div class="service-item" data-reveal style={`--reveal-delay: ${index * 50}ms`}><span>0{index + 1}</span><strong data-i18n={`services.items.${index}`}>{service}</strong></div>)}
   </div>
 </section>
 
 <section class="section section--soft skills" id="skills" aria-labelledby="skills-title">
-  <div class="section__heading">
-    <p class="eyebrow">Stack</p>
-    <h2 id="skills-title" data-i18n="skills.title">{t.skills.title}</h2>
+  <div class="skills__header" data-reveal>
+    <div class="section__index" aria-hidden="true">08</div>
+    <div class="section__heading"><p class="eyebrow" data-i18n="skills.eyebrow">{t.skills.eyebrow}</p><h2 id="skills-title" data-i18n="skills.title">{t.skills.title}</h2></div>
   </div>
-  <div class="tag-cloud">
-    {skills.map((skill) => <span>{skill}</span>)}
-  </div>
+  <div class="tag-cloud" data-reveal>{skills.map((skill, index) => <span><b>0{index + 1}</b>{skill}</span>)}</div>
 </section>
 
 <section class="section gallery" id="gallery" aria-labelledby="gallery-title">
-  <div class="section__heading">
-    <p class="eyebrow">Media</p>
-    <h2 id="gallery-title" data-i18n="gallery.title">{t.gallery.title}</h2>
-    <p data-i18n="gallery.text">{t.gallery.text}</p>
+  <div class="gallery__header" data-reveal>
+    <div class="section__index" aria-hidden="true">09</div>
+    <div class="section__heading"><p class="eyebrow" data-i18n="gallery.eyebrow">{t.gallery.eyebrow}</p><h2 id="gallery-title" data-i18n="gallery.title">{t.gallery.title}</h2><p data-i18n="gallery.text">{t.gallery.text}</p></div>
   </div>
   <div class="gallery__grid">
-    {galleryItems.map((item) => (
-      <figure class={`gallery-item gallery-item--${item.accent}`}>
-        <div aria-hidden="true"></div>
-        <figcaption>{item.title} · {item.type}</figcaption>
+    {galleryItems.map((item, index) => (
+      <figure class={`gallery-item gallery-item--${["blue", "orange", "rose"][index]}`} data-reveal style={`--reveal-delay: ${index * 80}ms`}>
+        <div class="gallery-item__visual" aria-hidden="true"><span>0{index + 1}</span><i></i></div>
+        <figcaption><strong data-i18n={`gallery.items.${index}.0`}>{item[0]}</strong><span data-i18n={`gallery.items.${index}.1`}>{item[1]}</span></figcaption>
       </figure>
     ))}
   </div>

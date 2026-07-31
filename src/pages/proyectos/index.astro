@@ -3,24 +3,27 @@ import BaseLayout from "../../layouts/BaseLayout.astro";
 import { getDictionary } from "../../i18n";
 import { portfolioConfig } from "../../config/portfolio.config";
 const t = getDictionary(portfolioConfig.defaultLocale);
+const basePath = import.meta.env.BASE_URL.endsWith("/") ? import.meta.env.BASE_URL : `${import.meta.env.BASE_URL}/`;
 const projects = [
-  ["XR Medical Viewer", "xr-medical-viewer"],
-  ["AR Research Prototype", "ar-research-prototype"],
-  ["Immersive Education Lab", "immersive-education-lab"]
+  { title: "XR Medical Viewer", slug: "xr-medical-viewer", code: "XR-01", accent: "blue" },
+  { title: "AR Research Prototype", slug: "ar-research-prototype", code: "AR-02", accent: "orange" },
+  { title: "Immersive Education Lab", slug: "immersive-education-lab", code: "VR-03", accent: "rose" }
 ];
 ---
 
 <BaseLayout title={`Proyectos · ${portfolioConfig.brandName}`}>
-  <article class="content-page">
-    <p class="eyebrow">Selected work</p>
-    <h1 data-i18n="projects.title">{t.projects.title}</h1>
-    <p data-i18n="projects.text">{t.projects.text}</p>
-    <div class="card-grid" style="margin-top:2rem">
-      {projects.map(([title, slug]) => (
-        <article class="project-card">
-          <div class="project-card__media" aria-hidden="true"></div>
-          <h2 style="font-size:1.5rem">{title}</h2>
-          <a href={`/proyectos/${slug}`}>Case study</a>
+  <article class="content-page content-page--wide">
+    <header class="content-page__hero" data-reveal>
+      <p class="eyebrow" data-i18n="pages.selectedWork">{t.pages.selectedWork}</p>
+      <h1 data-i18n="projects.title">{t.projects.title}</h1><p data-i18n="projects.text">{t.projects.text}</p>
+    </header>
+    <div class="card-grid">
+      {projects.map((project, index) => (
+        <article class={`project-card project-card--${project.accent}`} data-reveal style={`--reveal-delay: ${index * 80}ms`}>
+          <a class="project-card__media" href={`${basePath}proyectos/${project.slug}`} aria-label={project.title}>
+            <span class="project-card__code">{project.code}</span><span class="project-card__shape" aria-hidden="true"></span><span class="project-card__arrow" aria-hidden="true">↗</span>
+          </a>
+          <div class="project-card__body"><h2>{project.title}</h2><p data-i18n="pages.caseStudy">{t.pages.caseStudy}</p></div>
         </article>
       ))}
     </div>

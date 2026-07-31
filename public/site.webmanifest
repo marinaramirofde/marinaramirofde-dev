@@ -1,8 +1,9 @@
 {
-  "name": "Marina Ramiro",
+  "name": "Marina Ramiro Fernández",
   "short_name": "Marina Ramiro",
-  "description": "XR Developer & Software Engineer focused on health, research and medical visualization.",
-  "start_url": "/",
+  "description": "Ingeniera Informática y Desarrolladora de Realidad Extendida (XR).",
+  "start_url": "./",
+  "scope": "./",
   "display": "standalone",
   "background_color": "#ffffff",
   "theme_color": "#050505"
