@@ -1,12 +1,13 @@
 ---
-import { services } from "../../data/services";
 import { skills } from "../../data/skills";
-import { galleryItems } from "../../data/gallery";
 const { t } = Astro.props;
+const services = t.services.items as string[];
+const galleryItems = t.gallery.items as Array<[string, string]>;
+const projectMeta = t.projects.meta as string[];
 const projectCards = [
-  { title: "XR Medical Viewer", meta: "WebXR · Three.js · Health", code: "XR-01", accent: "blue" },
-  { title: "AR Research Prototype", meta: "Unity · C# · Visualization", code: "AR-02", accent: "orange" },
-  { title: "Immersive Education Lab", meta: "XR · UX · Community", code: "VR-03", accent: "rose" }
+  { title: "XR Medical Viewer", code: "XR-01", accent: "blue" },
+  { title: "AR Research Prototype", code: "AR-02", accent: "orange" },
+  { title: "Immersive Education Lab", code: "VR-03", accent: "rose" }
 ];
 ---
 
@@ -14,17 +15,15 @@ const projectCards = [
   <div class="section__index" aria-hidden="true">02</div>
   <div class="split">
     <div data-reveal>
-      <p class="eyebrow">About / Profile</p>
+      <p class="eyebrow" data-i18n="about.eyebrow">{t.about.eyebrow}</p>
       <h2 id="about-title" data-i18n="about.title">{t.about.title}</h2>
     </div>
     <div class="about__copy" data-reveal>
       <p data-i18n="about.text">{t.about.text}</p>
       <div class="about__facts" aria-label="Professional profile">
-        <span>Software engineering</span>
-        <span>Extended reality</span>
-        <span>Medical visualization</span>
+        {t.about.facts.map((fact: string, index: number) => <span data-i18n={`about.facts.${index}`}>{fact}</span>)}
       </div>
-      <a class="inline-link" href="/sobre-mi" data-i18n="about.cta">{t.about.cta}<i aria-hidden="true">↗</i></a>
+      <a class="inline-link" href="/sobre-mi"><span data-i18n="about.cta">{t.about.cta}</span><i aria-hidden="true">↗</i></a>
     </div>
   </div>
 </section>
@@ -33,7 +32,7 @@ const projectCards = [
   <div class="projects__header" data-reveal>
     <div class="section__index" aria-hidden="true">03</div>
     <div class="section__heading">
-      <p class="eyebrow">Selected work / 2024—2026</p>
+      <p class="eyebrow" data-i18n="projects.eyebrow">{t.projects.eyebrow}</p>
       <h2 id="projects-title" data-i18n="projects.title">{t.projects.title}</h2>
       <p data-i18n="projects.text">{t.projects.text}</p>
     </div>
@@ -42,14 +41,9 @@ const projectCards = [
     {projectCards.map((project, index) => (
       <article class={`project-card project-card--${project.accent}`} data-reveal style={`--reveal-delay: ${index * 90}ms`}>
         <a class="project-card__media" href={`/proyectos/${project.title.toLowerCase().replaceAll(" ", "-")}`} aria-label={project.title}>
-          <span class="project-card__code">{project.code}</span>
-          <span class="project-card__shape" aria-hidden="true"></span>
-          <span class="project-card__arrow" aria-hidden="true">↗</span>
+          <span class="project-card__code">{project.code}</span><span class="project-card__shape" aria-hidden="true"></span><span class="project-card__arrow" aria-hidden="true">↗</span>
         </a>
-        <div class="project-card__body">
-          <p>{project.meta}</p>
-          <h3>{project.title}</h3>
-        </div>
+        <div class="project-card__body"><p data-i18n={`projects.meta.${index}`}>{projectMeta[index]}</p><h3>{project.title}</h3></div>
       </article>
     ))}
   </div>
@@ -59,14 +53,11 @@ const projectCards = [
 <section class="section section--dark research" id="research" aria-labelledby="research-title">
   <div class="section__index" aria-hidden="true">04</div>
   <div class="research__grid">
-    <div data-reveal>
-      <p class="eyebrow">Research / Health tech</p>
-      <h2 id="research-title" data-i18n="research.title">{t.research.title}</h2>
-    </div>
+    <div data-reveal><p class="eyebrow" data-i18n="research.eyebrow">{t.research.eyebrow}</p><h2 id="research-title" data-i18n="research.title">{t.research.title}</h2></div>
     <div class="research__copy" data-reveal>
       <p data-i18n="research.text">{t.research.text}</p>
       <div class="research__diagram" aria-hidden="true">
-        <span>DATA</span><i></i><span>3D</span><i></i><span>XR</span>
+        {t.research.diagram.map((item: string, index: number) => <><span data-i18n={`research.diagram.${index}`}>{item}</span>{index < 2 && <i></i>}</>)}
       </div>
     </div>
   </div>
@@ -76,80 +67,52 @@ const projectCards = [
   <div class="events__header" data-reveal>
     <div class="section__index" aria-hidden="true">05</div>
     <div class="section__heading">
-      <p class="eyebrow">Agenda / Community</p>
-      <h2 id="events-title" data-i18n="events.title">{t.events.title}</h2>
-      <p data-i18n="events.text">{t.events.text}</p>
+      <p class="eyebrow" data-i18n="events.eyebrow">{t.events.eyebrow}</p>
+      <h2 id="events-title" data-i18n="events.title">{t.events.title}</h2><p data-i18n="events.text">{t.events.text}</p>
     </div>
   </div>
   <div class="timeline">
-    <article class="timeline__row" data-reveal>
-      <span>2026</span><strong>XR, health and innovation events</strong><i aria-hidden="true">Upcoming</i>
-    </article>
-    <article class="timeline__row" data-reveal>
-      <span>Archive</span><strong>Professional meetings & community</strong><i aria-hidden="true">Explore ↗</i>
-    </article>
+    <article class="timeline__row" data-reveal><span data-i18n="events.year">{t.events.year}</span><strong data-i18n="events.first">{t.events.first}</strong><i data-i18n="events.upcoming">{t.events.upcoming}</i></article>
+    <article class="timeline__row" data-reveal><span data-i18n="events.archive">{t.events.archive}</span><strong data-i18n="events.second">{t.events.second}</strong><i data-i18n="events.explore">{t.events.explore}</i></article>
   </div>
 </section>
 
 <section class="section talks" id="talks" aria-labelledby="talks-title">
   <div class="section__index" aria-hidden="true">06</div>
   <div class="talks__layout">
-    <div data-reveal>
-      <p class="eyebrow">Talks / Knowledge</p>
-      <h2 id="talks-title" data-i18n="talks.title">{t.talks.title}</h2>
-    </div>
-    <blockquote data-reveal>
-      <span aria-hidden="true">“</span>
-      <p data-i18n="talks.text">{t.talks.text}</p>
-    </blockquote>
+    <div data-reveal><p class="eyebrow" data-i18n="talks.eyebrow">{t.talks.eyebrow}</p><h2 id="talks-title" data-i18n="talks.title">{t.talks.title}</h2></div>
+    <blockquote data-reveal><span aria-hidden="true">“</span><p data-i18n="talks.text">{t.talks.text}</p></blockquote>
   </div>
 </section>
 
 <section class="section section--dark services" id="services" aria-labelledby="services-title">
   <div class="services__header" data-reveal>
     <div class="section__index" aria-hidden="true">07</div>
-    <div class="section__heading">
-      <p class="eyebrow">Services / Collaboration</p>
-      <h2 id="services-title" data-i18n="services.title">{t.services.title}</h2>
-      <p data-i18n="services.text">{t.services.text}</p>
-    </div>
+    <div class="section__heading"><p class="eyebrow" data-i18n="services.eyebrow">{t.services.eyebrow}</p><h2 id="services-title" data-i18n="services.title">{t.services.title}</h2><p data-i18n="services.text">{t.services.text}</p></div>
   </div>
   <div class="service-list">
-    {services.map((service, index) => (
-      <div class="service-item" data-reveal style={`--reveal-delay: ${index * 50}ms`}>
-        <span>0{index + 1}</span><strong>{service}</strong>
-      </div>
-    ))}
+    {services.map((service, index) => <div class="service-item" data-reveal style={`--reveal-delay: ${index * 50}ms`}><span>0{index + 1}</span><strong data-i18n={`services.items.${index}`}>{service}</strong></div>)}
   </div>
 </section>
 
 <section class="section section--soft skills" id="skills" aria-labelledby="skills-title">
   <div class="skills__header" data-reveal>
     <div class="section__index" aria-hidden="true">08</div>
-    <div class="section__heading">
-      <p class="eyebrow">Stack / Toolkit</p>
-      <h2 id="skills-title" data-i18n="skills.title">{t.skills.title}</h2>
-    </div>
+    <div class="section__heading"><p class="eyebrow" data-i18n="skills.eyebrow">{t.skills.eyebrow}</p><h2 id="skills-title" data-i18n="skills.title">{t.skills.title}</h2></div>
   </div>
-  <div class="tag-cloud" data-reveal>
-    {skills.map((skill, index) => <span><b>0{index + 1}</b>{skill}</span>)}
-  </div>
+  <div class="tag-cloud" data-reveal>{skills.map((skill, index) => <span><b>0{index + 1}</b>{skill}</span>)}</div>
 </section>
 
 <section class="section gallery" id="gallery" aria-labelledby="gallery-title">
   <div class="gallery__header" data-reveal>
     <div class="section__index" aria-hidden="true">09</div>
-    <div class="section__heading">
-      <p class="eyebrow">Media / Process</p>
-      <h2 id="gallery-title" data-i18n="gallery.title">{t.gallery.title}</h2>
-      <p data-i18n="gallery.text">{t.gallery.text}</p>
-    </div>
+    <div class="section__heading"><p class="eyebrow" data-i18n="gallery.eyebrow">{t.gallery.eyebrow}</p><h2 id="gallery-title" data-i18n="gallery.title">{t.gallery.title}</h2><p data-i18n="gallery.text">{t.gallery.text}</p></div>
   </div>
   <div class="gallery__grid">
     {galleryItems.map((item, index) => (
-      <figure class={`gallery-item gallery-item--${item.accent}`} data-reveal style={`--reveal-delay: ${index * 80}ms`}>
+      <figure class={`gallery-item gallery-item--${["blue", "orange", "rose"][index]}`} data-reveal style={`--reveal-delay: ${index * 80}ms`}>
         <div class="gallery-item__visual" aria-hidden="true"><span>0{index + 1}</span><i></i></div>
-        <figcaption><strong>{item.title}</strong><span>{item.type}</span></figcaption>
+        <figcaption><strong data-i18n={`gallery.items.${index}.0`}>{item[0]}</strong><span data-i18n={`gallery.items.${index}.1`}>{item[1]}</span></figcaption>
       </figure>
     ))}
   </div>

@@ -1,9 +1,9 @@
 import type { PortfolioConfig } from "../types/portfolio";
 
 export const portfolioConfig: PortfolioConfig = {
-  brandName: "Marina Ramiro",
+  brandName: "Marina Ramiro Fernández",
   handle: "marinaramirofde_dev",
-  role: "XR Developer & Software Engineer",
+  role: "Ingeniera Informática · Desarrolladora de Realidad Extendida (XR)",
   domain: "marinaramirofde.dev",
   defaultLocale: "es",
   supportedLocales: ["es", "en"],

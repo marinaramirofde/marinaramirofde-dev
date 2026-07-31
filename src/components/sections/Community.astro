@@ -6,14 +6,12 @@ const href = portfolioConfig.socialLinks.whatsappCommunity || "#contact";
 
 <section class="section community" id="community" aria-labelledby="community-title">
   <div class="community__visual" aria-hidden="true" data-reveal>
-    <span class="community__tile community__tile--xr">XR</span>
-    <span class="community__tile community__tile--dev">DEV</span>
-    <span class="community__tile community__tile--ai">AI</span>
-    <span class="community__tile community__tile--health">HEALTH</span>
+    <span class="community__tile community__tile--xr">XR</span><span class="community__tile community__tile--dev">DEV</span>
+    <span class="community__tile community__tile--ai" data-i18n="community.visualAi">{t.community.visualAi}</span><span class="community__tile community__tile--health" data-i18n="community.visualHealth">{t.community.visualHealth}</span>
     <span class="community__orbit"></span>
   </div>
   <div class="community__copy" data-reveal>
-    <p class="eyebrow">Community / Together</p>
+    <p class="eyebrow" data-i18n="community.eyebrow">{t.community.eyebrow}</p>
     <h2 id="community-title" data-i18n="community.title">{t.community.title}</h2>
     <p data-i18n="community.text">{t.community.text}</p>
     <p class="community__members"><i></i><span data-i18n="community.members">{t.community.members}</span></p>

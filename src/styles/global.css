@@ -1400,3 +1400,47 @@ h2 { font-size:4.8rem; font-weight:700; line-height:.95; }
     grid-template-columns: 1fr;
   }
 }
+
+/* Identity and social logo refinements */
+.brand__mark {
+  font-size: 0.53rem;
+}
+.contact-icon {
+  border-radius: 8px !important;
+  box-shadow: 0 5px 14px rgba(23, 105, 170, 0.22);
+  font-size: 0.94rem;
+  height: 34px;
+  min-height: 34px !important;
+  width: 34px;
+}
+.hero__panel i {
+  font-style: normal;
+}
+.social-mark svg {
+  fill: none;
+  height: 22px;
+  stroke: currentColor;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-width: 1.8;
+  width: 22px;
+}
+.social-mark svg .icon-fill {
+  fill: currentColor;
+  stroke: none;
+}
+.social-mark--linkedin svg,
+.social-mark--github svg {
+  fill: currentColor;
+  stroke: none;
+}
+@media (max-width: 560px) {
+  .brand {
+    gap: 0.45rem;
+  }
+  .brand > span:last-child {
+    max-width: 155px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+}

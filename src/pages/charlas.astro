@@ -4,17 +4,9 @@ import { getDictionary } from "../i18n";
 import { portfolioConfig } from "../config/portfolio.config";
 const t = getDictionary(portfolioConfig.defaultLocale);
 ---
-
 <BaseLayout title={`Charlas · ${portfolioConfig.brandName}`}>
   <article class="content-page">
-    <header class="content-page__hero" data-reveal>
-      <p class="eyebrow">Talks / Knowledge</p>
-      <h1 data-i18n="talks.title">{t.talks.title}</h1>
-      <p data-i18n="talks.text">{t.talks.text}</p>
-    </header>
-    <div class="content-page__visual content-page__visual--line" aria-hidden="true" data-reveal>
-      <span>XR</span><span>CODE</span><span>DESIGN</span><span>IMPACT</span>
-      <i></i>
-    </div>
+    <header class="content-page__hero" data-reveal><p class="eyebrow" data-i18n="pages.talksEyebrow">{t.pages.talksEyebrow}</p><h1 data-i18n="talks.title">{t.talks.title}</h1><p data-i18n="talks.text">{t.talks.text}</p></header>
+    <div class="content-page__visual content-page__visual--line" aria-hidden="true" data-reveal>{t.pages.talkWords.map((word: string, index: number) => <span data-i18n={`pages.talkWords.${index}`}>{word}</span>)}<i></i></div>
   </article>
 </BaseLayout>
