@@ -23,7 +23,7 @@ export const portfolioConfig: PortfolioConfig = {
   },
   socialLinks: {
     instagram: "",
-    youtube: "",
+    youtube: "https://www.youtube.com/@marinaramirofde",
     linkedin: "https://www.linkedin.com/in/marinaramirofde",
     github: "",
     whatsapp: "",

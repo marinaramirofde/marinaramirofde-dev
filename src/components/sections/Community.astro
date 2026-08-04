@@ -2,19 +2,46 @@
 import { portfolioConfig } from "../../config/portfolio.config";
 const { t } = Astro.props;
 const href = portfolioConfig.socialLinks.whatsappCommunity || "#contact";
+const basePath = import.meta.env.BASE_URL.endsWith("/") ? import.meta.env.BASE_URL : `${import.meta.env.BASE_URL}/`;
+const defaultHighlights: Array<[string, string]> = [
+  ["Apoyo", "Dudas, animo y acompanamiento"],
+  ["Aprendizaje", "Recursos, cursos y materiales"],
+  ["Networking", "Conexion con chicas tech"],
+  ["Oportunidades", "Eventos, retos y colaboraciones"],
+  ["Recursos", "Herramientas y guias compartidas"],
+  ["Crecimiento", "Aprender y avanzar juntas"]
+];
+const highlightIcons = ["?", "i", "<>" , "↗", "#", "↑"];
+const highlights = (t.community.highlights ?? defaultHighlights) as Array<[string, string]>;
 ---
 
-<section class="section community" id="community" aria-labelledby="community-title">
-  <div class="community__visual" aria-hidden="true" data-reveal>
-    <span class="community__tile community__tile--xr">XR</span><span class="community__tile community__tile--dev">DEV</span>
-    <span class="community__tile community__tile--ai" data-i18n="community.visualAi">{t.community.visualAi}</span><span class="community__tile community__tile--health" data-i18n="community.visualHealth">{t.community.visualHealth}</span>
-    <span class="community__orbit"></span>
-  </div>
+<section class="section community community--network" id="community" aria-labelledby="community-title">
   <div class="community__copy" data-reveal>
     <p class="eyebrow" data-i18n="community.eyebrow">{t.community.eyebrow}</p>
     <h2 id="community-title" data-i18n="community.title">{t.community.title}</h2>
     <p data-i18n="community.text">{t.community.text}</p>
-    <p class="community__members"><i></i><span data-i18n="community.members">{t.community.members}</span></p>
-    <a class="button button--light" href={href} data-i18n="community.cta">{t.community.cta}<span aria-hidden="true">↗</span></a>
+    <div class="community__highlights" aria-label="Cosas que se comparten en la comunidad">
+      {highlights.map((item, index) => (
+        <span class={`community-pill community-pill--${index}`} data-reveal style={`--reveal-delay: ${index * 45}ms`}>
+          <i aria-hidden="true">{highlightIcons[index]}</i>
+          <strong data-i18n={`community.highlights.${index}.0`}>{item[0]}</strong>
+          <small data-i18n={`community.highlights.${index}.1`}>{item[1]}</small>
+        </span>
+      ))}
+    </div>
+  </div>
+
+  <div class="community__media" data-reveal>
+    <div class="community__visual community__visual--image">
+      <span class="community-network-bg" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></span>
+      <span class="community-widget community-widget--heart" aria-hidden="true"><i>♥</i><small data-i18n="community.widgetCommunity">{t.community.widgetCommunity}</small></span>
+      <span class="community-widget community-widget--insight" aria-hidden="true"><b data-i18n="community.widgetIdeasTitle">{t.community.widgetIdeasTitle}</b><small data-i18n="community.widgetIdeasText">{t.community.widgetIdeasText}</small></span>
+      <span class="community-widget community-widget--progress" aria-hidden="true"><b data-i18n="community.widgetProjectTitle">{t.community.widgetProjectTitle}</b><small data-i18n="community.widgetProjectText">{t.community.widgetProjectText}</small></span>
+      <img src={`${basePath}community-tech-network.png`} alt="Comunidad de chicas tech compartiendo conocimiento con portatiles, gafas XR y dispositivos electronicos" loading="lazy" decoding="async" />
+    </div>
+    <div class="community__media-actions">
+      <p class="community__members"><i></i><span data-i18n="community.members">{t.community.members}</span></p>
+      <a class="button button--light" href={href} data-i18n="community.cta">{t.community.cta}<span aria-hidden="true">↗</span></a>
+    </div>
   </div>
 </section>

@@ -161,6 +161,33 @@ function initHeroMotion() {
   });
 }
 
+
+function initHeroCameraOrbit() {
+  const stage = document.querySelector<HTMLElement>("[data-tech-hero]");
+  if (!stage || window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+
+  const resetCamera = () => {
+    stage.style.setProperty("--camera-x", "0px");
+    stage.style.setProperty("--camera-y", "0px");
+    stage.style.setProperty("--camera-rotate-x", "0deg");
+    stage.style.setProperty("--camera-rotate-y", "0deg");
+  };
+
+  const moveCamera = (event: PointerEvent) => {
+    const bounds = stage.getBoundingClientRect();
+    const x = (event.clientX - bounds.left) / bounds.width - 0.5;
+    const y = (event.clientY - bounds.top) / bounds.height - 0.5;
+
+    stage.style.setProperty("--camera-x", `${x * -58}px`);
+    stage.style.setProperty("--camera-y", `${y * -42}px`);
+    stage.style.setProperty("--camera-rotate-x", `${y * 9}deg`);
+    stage.style.setProperty("--camera-rotate-y", `${x * -15}deg`);
+  };
+
+  stage.addEventListener("pointermove", moveCamera);
+  stage.addEventListener("pointerleave", resetCamera);
+  resetCamera();
+}
 function initScrollTop() {
   const button = document.querySelector<HTMLButtonElement>("[data-scroll-top]");
   if (!button) return;
@@ -189,6 +216,7 @@ export function initSite() {
   initNavigation();
   initRevealAnimations();
   initHeroMotion();
+  initHeroCameraOrbit();
   initScrollTop();
 
   document.querySelectorAll<HTMLButtonElement>("[data-lang-choice]").forEach((button) => {
