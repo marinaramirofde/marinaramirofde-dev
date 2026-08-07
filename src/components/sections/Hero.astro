@@ -1,23 +1,22 @@
 ---
 const { t } = Astro.props;
-const techObjects = [
-  { className: "hero-object--headset", label: "XR" },
-  { className: "hero-object--code", label: "</>" },
-  { className: "hero-object--ai", label: "AI" },
-  { className: "hero-object--medical", label: "+" },
-  { className: "hero-object--data", label: "3D" },
-  { className: "hero-object--chip", label: "C#" }
-];
 ---
 
 <section class="hero section hero--interactive" id="hero" aria-labelledby="hero-title">
-  <div class="hero__stage" data-reveal data-tech-hero>
-    <div class="hero__field" aria-hidden="true">
-      <span class="hero__ring hero__ring--outer"></span>
-      <span class="hero__ring hero__ring--inner"></span>
-      <span class="hero__axis hero__axis--x"></span>
-      <span class="hero__axis hero__axis--y"></span>
-      {techObjects.map((object) => <span class={`hero-object ${object.className}`}><i>{object.label}</i></span>)}
+  <div class="hero__stage hero__stage--headset" data-reveal data-headset-hero aria-label="Interactive XR headset preview">
+    <canvas class="hero-headset" data-headset-canvas></canvas>
+    <div class="hero-headset__fallback" aria-hidden="true">
+      <span class="hero-headset__body"></span>
+      <span class="hero-headset__strap hero-headset__strap--left"></span>
+      <span class="hero-headset__strap hero-headset__strap--right"></span>
+      <span class="hero-headset__lens hero-headset__lens--left"></span>
+      <span class="hero-headset__lens hero-headset__lens--right"></span>
+    </div>
+    <div class="hero-headset__hotspots" aria-hidden="true">
+      <span></span>
+      <span></span>
+      <span></span>
+      <span></span>
     </div>
     <div class="hero__name">
       <h1 id="hero-title" data-i18n="hero.title">{t.hero.title}</h1>
@@ -39,3 +38,8 @@ const techObjects = [
     </div>
   </div>
 </section>
+
+<script>
+  import { initHeroHeadset } from "../../scripts/heroHeadset";
+  initHeroHeadset();
+</script>
