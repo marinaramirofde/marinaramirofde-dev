@@ -22,7 +22,7 @@ export const portfolioConfig: PortfolioConfig = {
     endpoint: ""
   },
   socialLinks: {
-    instagram: "",
+    instagram: "https://www.instagram.com/marinaramirofde_dev/",
     youtube: "https://www.youtube.com/@marinaramirofde",
     linkedin: "https://www.linkedin.com/in/marinaramirofde",
     github: "",
@@ -34,15 +34,17 @@ export const portfolioConfig: PortfolioConfig = {
   sections: [
     { id: "hero", enabled: true, order: 1, variant: "light" },
     { id: "dashboard", enabled: true, order: 2, variant: "dark" },
-    { id: "about", enabled: true, order: 3, variant: "soft" },
-    { id: "projects", enabled: true, order: 4, variant: "light" },
-    { id: "research", enabled: true, order: 5, variant: "dark" },
-    { id: "events", enabled: true, order: 6, variant: "soft" },
-    { id: "talks", enabled: true, order: 7, variant: "light" },
-    { id: "services", enabled: true, order: 8, variant: "dark" },
-    { id: "skills", enabled: true, order: 9, variant: "soft" },
-    { id: "gallery", enabled: true, order: 10, variant: "light" },
-    { id: "community", enabled: true, order: 11, variant: "accent" },
-    { id: "contact", enabled: true, order: 12, variant: "dark" }
+    { id: "technologies", enabled: true, order: 3, variant: "soft" },
+    { id: "home-highlights", enabled: true, order: 4, variant: "light" },
+    { id: "about", enabled: true, order: 5, variant: "soft" },
+    { id: "projects", enabled: true, order: 6, variant: "light" },
+    { id: "research", enabled: true, order: 7, variant: "dark" },
+    { id: "events", enabled: true, order: 8, variant: "soft" },
+    { id: "talks", enabled: true, order: 9, variant: "light" },
+    { id: "services", enabled: true, order: 10, variant: "dark" },
+    { id: "skills", enabled: true, order: 11, variant: "soft" },
+    { id: "gallery", enabled: true, order: 12, variant: "light" },
+    { id: "community", enabled: true, order: 13, variant: "accent" },
+    { id: "contact", enabled: true, order: 14, variant: "dark" }
   ]
 };

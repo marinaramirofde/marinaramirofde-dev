@@ -1,11 +1,9 @@
 ---
 import { portfolioConfig } from "../../config/portfolio.config";
-const { t } = Astro.props;
 const basePath = import.meta.env.BASE_URL.endsWith("/") ? import.meta.env.BASE_URL : `${import.meta.env.BASE_URL}/`;
-const emailHref = portfolioConfig.socialLinks.email ? `mailto:${portfolioConfig.socialLinks.email}` : `${basePath}#contact`;
 const youtubeHref = portfolioConfig.socialLinks.youtube || `${basePath}#youtube`;
 const linkedinHref = portfolioConfig.socialLinks.linkedin || `${basePath}#contact`;
-const cvHref = portfolioConfig.socialLinks.cv || `${basePath}#contact`;
+const instagramHref = portfolioConfig.socialLinks.instagram || `${basePath}#contact`;
 ---
 
 <footer class="footer footer--scenic">
@@ -17,38 +15,18 @@ const cvHref = portfolioConfig.socialLinks.cv || `${basePath}#contact`;
     <span class="footer__mountain footer__mountain--right"></span>
   </div>
 
-  <div class="footer__content">
-    <section class="footer__brand" aria-label="Marina Ramiro Fernández">
-      <span class="footer__mark">MRF</span>
-      <p class="footer__role" data-i18n="hero.role">{t.hero.role}</p>
-      <a class="footer__availability" href={`${basePath}#contact`}><i></i><span data-i18n="footer.availability">{t.footer.availability}</span></a>
-    </section>
-
-    <nav class="footer__group" aria-label="Footer navigation">
-      <strong data-i18n="footer.menu">{t.footer.menu}</strong>
-      <a href={`${basePath}#about`} data-i18n="nav.about">{t.nav.about}</a>
-      <a href={`${basePath}#projects`} data-i18n="nav.projects">{t.nav.projects}</a>
-      <a href={`${basePath}#research`} data-i18n="nav.research">{t.nav.research}</a>
-      <a href={`${basePath}#services`} data-i18n="footer.services">{t.footer.services}</a>
-      <a href={`${basePath}#contact`} data-i18n="nav.contact">{t.nav.contact}</a>
-    </nav>
-
-    <nav class="footer__group" aria-label="Contact links">
-      <strong data-i18n="footer.contact">{t.footer.contact}</strong>
-      <a href={linkedinHref} target="_blank" rel="noreferrer">LinkedIn</a>
-      <a href={youtubeHref} target="_blank" rel="noreferrer">YouTube</a>
-      <a href={emailHref} data-i18n="footer.email">{t.footer.email}</a>
-      <a href={cvHref} data-i18n="footer.cv">{t.footer.cv}</a>
-    </nav>
-
-    <nav class="footer__group" aria-label="Legal links">
-      <strong data-i18n="footer.legal">{t.footer.legal}</strong>
-      <a href={`${basePath}privacidad`} target="_blank" rel="noreferrer" data-i18n="footer.privacy">{t.footer.privacy}</a>
-      <a href={`${basePath}#faq`} data-i18n="nav.faq">{t.nav.faq}</a>
-      <a href={`${basePath}#recomendados`} data-i18n="nav.recommendations">{t.nav.recommendations}</a>
-    </nav>
+  <div class="footer__simple">
+    <div class="footer__socials footer__socials--centered" aria-label="Social media">
+      <a href={linkedinHref} target="_blank" rel="noreferrer" aria-label="LinkedIn" title="LinkedIn">
+        <svg class="footer__linkedin-logo" viewBox="0 0 24 24" aria-hidden="true"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.03-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.35V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28ZM5.34 7.43a2.06 2.06 0 1 1 0-4.12 2.06 2.06 0 0 1 0 4.12Zm1.78 13.02H3.56V9h3.56v11.45Z" /></svg>
+      </a>
+      <a href={instagramHref} target="_blank" rel="noreferrer" aria-label="Instagram" title="Instagram">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3.4" y="3.4" width="17.2" height="17.2" rx="5"/><circle cx="12" cy="12" r="4"/><circle class="footer__social-dot" cx="17.6" cy="6.7" r="1"/></svg>
+      </a>
+      <a href={youtubeHref} target="_blank" rel="noreferrer" aria-label="YouTube" title="YouTube">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="2.8" y="5.7" width="18.4" height="12.6" rx="4"/><path class="footer__social-fill" d="m10 9 5 3-5 3Z"/></svg>
+      </a>
+    </div>
+    <strong class="footer__simple-name">Marina Ramiro</strong>
   </div>
-
-  <div class="footer__base"><p>&copy; {new Date().getFullYear()} Marina Ramiro Fernández. <span data-i18n="footer.copyright">{t.footer.copyright}</span></p></div>
-  <strong class="footer__name" aria-hidden="true">Marina Ramiro</strong>
 </footer>

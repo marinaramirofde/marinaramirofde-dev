@@ -69,29 +69,75 @@ function initNavigation() {
   const toggle = document.querySelector<HTMLButtonElement>("[data-nav-toggle]");
   const menu = document.querySelector<HTMLElement>("[data-nav-menu]");
   const links = document.querySelectorAll<HTMLAnchorElement>("[data-section-link]");
+  const dropdowns = Array.from(document.querySelectorAll<HTMLElement>("[data-nav-dropdown]"));
+
+  const setDropdownOpen = (dropdown: HTMLElement, isOpen: boolean) => {
+    dropdown.classList.toggle("is-open", isOpen);
+    dropdown.querySelector<HTMLButtonElement>("[data-nav-dropdown-toggle]")?.setAttribute("aria-expanded", String(isOpen));
+  };
+
+  const closeDropdowns = (except?: HTMLElement) => {
+    dropdowns.forEach((dropdown) => {
+      if (dropdown !== except) setDropdownOpen(dropdown, false);
+    });
+  };
 
   const setMenuOpen = (isOpen: boolean) => {
     toggle?.setAttribute("aria-expanded", String(isOpen));
     toggle?.setAttribute("aria-label", isOpen ? toggle.dataset.closeLabel ?? "Close menu" : toggle.dataset.openLabel ?? "Open menu");
     menu?.classList.toggle("is-open", isOpen);
     document.body.classList.toggle("menu-open", isOpen && window.innerWidth <= 1180);
+    if (!isOpen) closeDropdowns();
   };
 
   toggle?.addEventListener("click", () => {
     setMenuOpen(toggle.getAttribute("aria-expanded") !== "true");
   });
 
+  dropdowns.forEach((dropdown) => {
+    let closeTimer: number | undefined;
+
+    dropdown.querySelector<HTMLButtonElement>("[data-nav-dropdown-toggle]")?.addEventListener("click", (event) => {
+      event.stopPropagation();
+      const shouldOpen = !dropdown.classList.contains("is-open");
+      closeDropdowns(dropdown);
+      setDropdownOpen(dropdown, shouldOpen);
+    });
+
+    dropdown.addEventListener("pointerenter", (event) => {
+      if (event.pointerType === "touch" || closeTimer === undefined) return;
+      window.clearTimeout(closeTimer);
+      closeTimer = undefined;
+    });
+
+    dropdown.addEventListener("pointerleave", (event) => {
+      if (event.pointerType === "touch") return;
+      closeTimer = window.setTimeout(() => {
+        setDropdownOpen(dropdown, false);
+        closeTimer = undefined;
+      }, 180);
+    });
+  });
+
   links.forEach((link) => link.addEventListener("click", () => setMenuOpen(false)));
 
   document.addEventListener("keydown", (event) => {
     if (event.key === "Escape") {
+      const openDropdown = dropdowns.find((dropdown) => dropdown.classList.contains("is-open"));
+      if (openDropdown) {
+        setDropdownOpen(openDropdown, false);
+        openDropdown.querySelector<HTMLButtonElement>("[data-nav-dropdown-toggle]")?.focus();
+        return;
+      }
       setMenuOpen(false);
       toggle?.focus();
     }
   });
 
   document.addEventListener("click", (event) => {
-    if (!header?.contains(event.target as Node)) setMenuOpen(false);
+    const target = event.target as Node;
+    if (!header?.contains(target)) setMenuOpen(false);
+    else if (!dropdowns.some((dropdown) => dropdown.contains(target))) closeDropdowns();
   });
 
   window.addEventListener("resize", () => {

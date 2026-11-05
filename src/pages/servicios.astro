@@ -1,0 +1,20 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import { getDictionary } from "../i18n";
+import { portfolioConfig } from "../config/portfolio.config";
+const t = getDictionary(portfolioConfig.defaultLocale);
+const services = t.services.items as string[];
+---
+
+<BaseLayout title={`Servicios · ${portfolioConfig.brandName}`}>
+  <article class="content-page content-page--wide landing-page">
+    <header class="content-page__hero" data-reveal>
+      <p class="eyebrow" data-i18n="services.eyebrow">{t.services.eyebrow}</p>
+      <h1 data-i18n="services.title">{t.services.title}</h1>
+      <p data-i18n="services.text">{t.services.text}</p>
+    </header>
+    <div class="service-list">
+      {services.map((service, index) => <div class="service-item" data-reveal><strong data-i18n={`services.items.${index}`}>{service}</strong></div>)}
+    </div>
+  </article>
+</BaseLayout>

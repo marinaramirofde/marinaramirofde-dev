@@ -3,8 +3,9 @@ export const en = {
     title: "Marina Ramiro Fernández · Software Engineer & XR Developer",
     description: "Professional portfolio for Marina Ramiro Fernández, software engineer focused on XR, health, research and medical visualization."
   },
-  nav: { about: "About", projects: "Projects", research: "Research", events: "Events", talks: "Talks", youtube: "YouTube", services: "Services", recommendations: "Recommended", faq: "FAQ", contact: "Contact", menu: "Open menu", close: "Close menu", linkedin: "LinkedIn" },
+  nav: { home: "Home", about: "About", projects: "Projects", research: "Research", events: "Events", talks: "Talks", youtube: "YouTube", services: "Services", gallery: "Gallery", recommendations: "Recommended", faq: "FAQ", content: "Content", contact: "Contact", community: "Community", form: "Form", menu: "Open menu", close: "Close menu", linkedin: "LinkedIn" },
   intro: { skip: "Skip intro", label: "XR entrance to the portfolio" },
+  home: { eyebrow: "Explore / Portfolio", title: "Featured areas", text: "A selection of my profile, projects, services, content and community. Enter each area to discover it in full.", explore: "View section", items: [["About", "Background, expertise and the way I work."], ["Projects", "Selected case studies and XR experiences."], ["Services", "Ways to collaborate, develop and prototype."], ["Content", "Videos, gallery, events and recommendations."], ["Contact", "Professional community and contact form."]] },
   hero: {
     title: "Marina Ramiro",
     role: "Software Engineer · Extended Reality (XR) Developer",
@@ -56,6 +57,7 @@ export const en = {
     items: ["XR prototypes and immersive interfaces", "Medical visualization experiences", "Unity and WebXR product development", "Research demos and technical storytelling", "Data-driven interactive visual systems"]
   },
   skills: { eyebrow: "Stack / Toolkit", title: "Technologies and skills" },
+  technologies: { eyebrow: "Stack / Technical experience", title: "Technologies I use", text: "Tools, standards and devices I use to design and develop web, 3D and extended reality experiences.", groups: { development: "Development", xr: "XR and 3D", devices: "Devices", workflow: "Workflow" } },
   gallery: {
     eyebrow: "Media / Process", title: "Media gallery",
     text: "A block prepared for images, videos, prototype screenshots and visual pieces.",

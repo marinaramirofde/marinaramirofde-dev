@@ -33,25 +33,38 @@ function createRoundedPanel(width: number, height: number, depth: number, radius
 }
 
 function addCameraStack(parent: { add: (...objects: unknown[]) => void }, x: number) {
-  const cameraMaterial = new THREE.MeshStandardMaterial({ color: 0x05070d, metalness: 0.2, roughness: 0.22 });
+  const cameraMaterial = new THREE.MeshStandardMaterial({ color: 0x171b23, metalness: 0.72, roughness: 0.2 });
   const glassMaterial = new THREE.MeshPhysicalMaterial({
-    color: 0x101623,
-    metalness: 0.1,
-    roughness: 0.08,
-    clearcoat: 0.9,
-    clearcoatRoughness: 0.05
+    color: 0x153a59,
+    metalness: 0.16,
+    roughness: 0.04,
+    clearcoat: 1,
+    clearcoatRoughness: 0.02
   });
 
-  const pill = new THREE.Mesh(new THREE.CapsuleGeometry(0.13, 0.46, 10, 18), cameraMaterial);
-  pill.position.set(x, 0.06, 0.56);
-  parent.add(pill);
+  [-0.29, 0.29].forEach((offset) => {
+    const ring = new THREE.Mesh(new THREE.CylinderGeometry(0.135, 0.135, 0.055, 36), cameraMaterial);
+    ring.position.set(x, offset, 0.48);
+    ring.rotation.x = Math.PI / 2;
+    parent.add(ring);
 
-  [-0.16, 0.16].forEach((offset) => {
-    const lens = new THREE.Mesh(new THREE.CylinderGeometry(0.09, 0.09, 0.04, 28), glassMaterial);
-    lens.position.set(x, offset + 0.06, 0.7);
+    const lens = new THREE.Mesh(new THREE.CylinderGeometry(0.098, 0.09, 0.065, 36), glassMaterial);
+    lens.position.set(x, offset, 0.53);
     lens.rotation.x = Math.PI / 2;
     parent.add(lens);
+
+    const glint = new THREE.Mesh(
+      new THREE.SphereGeometry(0.026, 12, 10),
+      new THREE.MeshBasicMaterial({ color: 0xc9f4ff, transparent: true, opacity: 0.72 })
+    );
+    glint.position.set(x - 0.035, offset + 0.035, 0.575);
+    parent.add(glint);
   });
+}
+
+function createStrap(points: unknown[], radius: number, material: unknown, segments = 48) {
+  const curve = new THREE.CatmullRomCurve3(points, false, "catmullrom", 0.45);
+  return new THREE.Mesh(new THREE.TubeGeometry(curve, segments, radius, 10, false), material);
 }
 
 export function initHeroHeadset() {
@@ -60,88 +73,161 @@ export function initHeroHeadset() {
   if (!stage || !canvas) return;
 
   const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-  const renderer = new THREE.WebGLRenderer({ canvas, alpha: true, antialias: true, preserveDrawingBuffer: true });
-  renderer.setPixelRatio(Math.min(window.devicePixelRatio, 1.8));
+  const renderer = new THREE.WebGLRenderer({ canvas, alpha: true, antialias: true, powerPreference: "high-performance" });
+  renderer.setPixelRatio(Math.min(window.devicePixelRatio, 1.65));
   renderer.outputColorSpace = THREE.SRGBColorSpace;
+  renderer.toneMapping = THREE.ACESFilmicToneMapping;
+  renderer.toneMappingExposure = 1.12;
 
   const scene = new THREE.Scene();
-  const camera = new THREE.PerspectiveCamera(35, 1, 0.1, 100);
-  camera.position.set(0, 0.1, 7.4);
+  const camera = new THREE.PerspectiveCamera(34, 1, 0.1, 100);
+  camera.position.set(0, 0.08, 7.5);
 
   const headset = new THREE.Group();
-  headset.rotation.set(-0.1, -0.34, 0.02);
+  headset.rotation.set(-0.08, -0.38, 0.015);
   scene.add(headset);
 
   const shellMaterial = new THREE.MeshPhysicalMaterial({
-    color: 0xdedcf0,
-    metalness: 0.12,
-    roughness: 0.48,
-    clearcoat: 0.55,
-    clearcoatRoughness: 0.26
+    color: 0xe7e8ec,
+    metalness: 0.08,
+    roughness: 0.34,
+    clearcoat: 0.62,
+    clearcoatRoughness: 0.2
   });
-  const trimMaterial = new THREE.MeshStandardMaterial({ color: 0x9b9bb2, metalness: 0.24, roughness: 0.5 });
-  const cushionMaterial = new THREE.MeshStandardMaterial({ color: 0x171820, metalness: 0.05, roughness: 0.72 });
-  const fabricMaterial = new THREE.MeshStandardMaterial({ color: 0xc9c3dd, metalness: 0.04, roughness: 0.82 });
-  const accentMaterial = new THREE.MeshStandardMaterial({ color: 0x246bfd, emissive: 0x0d3ea0, emissiveIntensity: 0.2 });
+  const trimMaterial = new THREE.MeshStandardMaterial({ color: 0x747985, metalness: 0.42, roughness: 0.3 });
+  const cushionMaterial = new THREE.MeshStandardMaterial({ color: 0x111318, metalness: 0.02, roughness: 0.78 });
+  const fabricMaterial = new THREE.MeshStandardMaterial({ color: 0x484b53, metalness: 0.01, roughness: 0.92 });
+  const visorMaterial = new THREE.MeshPhysicalMaterial({
+    color: 0x07101c,
+    metalness: 0.24,
+    roughness: 0.08,
+    clearcoat: 1,
+    clearcoatRoughness: 0.035,
+    transparent: true,
+    opacity: 0.96
+  });
+  const sensorMaterial = new THREE.MeshStandardMaterial({
+    color: 0x15354a,
+    emissive: 0x0a5577,
+    emissiveIntensity: 0.18,
+    metalness: 0.28,
+    roughness: 0.16
+  });
 
-  const body = new THREE.Mesh(createRoundedPanel(3.9, 1.42, 0.62, 0.48), shellMaterial);
-  body.position.z = -0.3;
+  // A layered manufactured shell reads more naturally than a single floating panel.
+  const body = new THREE.Mesh(createRoundedPanel(3.76, 1.46, 0.68, 0.49), shellMaterial);
+  body.position.z = -0.34;
   headset.add(body);
 
-  const trim = new THREE.Mesh(createRoundedPanel(3.98, 1.5, 0.05, 0.5), trimMaterial);
-  trim.position.z = -0.33;
-  trim.scale.set(1.02, 1.02, 1);
+  const trim = new THREE.Mesh(createRoundedPanel(3.84, 1.52, 0.16, 0.51), trimMaterial);
+  trim.position.z = 0.06;
   headset.add(trim);
 
-  const visor = new THREE.Mesh(new THREE.CapsuleGeometry(0.17, 0.58, 14, 18), cushionMaterial);
-  visor.position.set(0, 0, 0.62);
-  visor.scale.set(1.05, 1.32, 1);
+  const visor = new THREE.Mesh(createRoundedPanel(3.67, 1.34, 0.13, 0.43), visorMaterial);
+  visor.position.set(0, 0.01, 0.24);
   headset.add(visor);
 
-  const leftCushion = new THREE.Mesh(new THREE.TorusGeometry(0.72, 0.15, 18, 58), cushionMaterial);
-  const rightCushion = leftCushion.clone();
-  leftCushion.position.set(-0.72, -0.58, 0.1);
-  rightCushion.position.set(0.72, -0.58, 0.1);
-  leftCushion.scale.set(1.05, 0.62, 0.28);
-  rightCushion.scale.copy(leftCushion.scale);
-  headset.add(leftCushion, rightCushion);
+  addCameraStack(headset, -1.28);
+  addCameraStack(headset, 1.28);
 
-  addCameraStack(headset, -1.0);
-  addCameraStack(headset, 1.0);
+  const centerSensorRing = new THREE.Mesh(new THREE.CylinderGeometry(0.135, 0.135, 0.055, 36), trimMaterial);
+  centerSensorRing.position.set(0, -0.35, 0.48);
+  centerSensorRing.rotation.x = Math.PI / 2;
+  headset.add(centerSensorRing);
 
-  const centerSensor = new THREE.Mesh(new THREE.CapsuleGeometry(0.14, 0.52, 12, 16), cushionMaterial);
-  centerSensor.position.set(0, 0.04, 0.72);
+  const centerSensor = new THREE.Mesh(new THREE.CylinderGeometry(0.095, 0.09, 0.065, 36), sensorMaterial);
+  centerSensor.position.set(0, -0.35, 0.53);
+  centerSensor.rotation.x = Math.PI / 2;
   headset.add(centerSensor);
 
-  const strap = new THREE.Mesh(new THREE.TorusGeometry(1.85, 0.08, 18, 96, Math.PI * 1.22), fabricMaterial);
-  strap.position.set(0, -0.66, -0.52);
-  strap.rotation.x = Math.PI * 0.5;
-  strap.rotation.z = Math.PI * 0.89;
-  strap.scale.set(1.16, 0.72, 1);
-  headset.add(strap);
+  const statusLed = new THREE.Mesh(
+    new THREE.SphereGeometry(0.028, 16, 12),
+    new THREE.MeshStandardMaterial({ color: 0x7cf5c8, emissive: 0x42e4aa, emissiveIntensity: 1.7 })
+  );
+  statusLed.position.set(0.48, -0.48, 0.5);
+  headset.add(statusLed);
 
-  [-1.98, 1.98].forEach((x) => {
-    const side = new THREE.Mesh(new THREE.CapsuleGeometry(0.16, 0.78, 10, 18), trimMaterial);
-    side.position.set(x, -0.02, -0.2);
-    side.rotation.y = x < 0 ? -0.58 : 0.58;
-    headset.add(side);
+  // Rear facial interface and optics appear when the visitor rotates the model.
+  const faceGasket = new THREE.Mesh(createRoundedPanel(3.14, 1.22, 0.2, 0.46), cushionMaterial);
+  faceGasket.position.z = -0.83;
+  headset.add(faceGasket);
+
+  [-0.68, 0.68].forEach((x) => {
+    const eyepiece = new THREE.Mesh(new THREE.TorusGeometry(0.36, 0.09, 16, 44), cushionMaterial);
+    eyepiece.position.set(x, -0.03, -0.98);
+    eyepiece.scale.set(1.18, 0.92, 0.55);
+    headset.add(eyepiece);
+
+    const innerLens = new THREE.Mesh(new THREE.CylinderGeometry(0.27, 0.25, 0.06, 40), sensorMaterial);
+    innerLens.position.set(x, -0.03, -1.02);
+    innerLens.rotation.x = Math.PI / 2;
+    headset.add(innerLens);
   });
 
-  [-0.55, 0.55, 0].forEach((x, index) => {
-    const dot = new THREE.Mesh(new THREE.SphereGeometry(index === 2 ? 0.045 : 0.06, 18, 18), accentMaterial);
-    dot.position.set(x, index === 2 ? -0.56 : -0.47, 0.72);
-    headset.add(dot);
+  const noseBridge = new THREE.Mesh(new THREE.CapsuleGeometry(0.09, 0.27, 10, 20), cushionMaterial);
+  noseBridge.position.set(0, -0.65, -0.91);
+  noseBridge.rotation.z = Math.PI / 2;
+  noseBridge.scale.set(0.74, 1, 1);
+  headset.add(noseBridge);
+
+  [-1, 1].forEach((side) => {
+    const hinge = new THREE.Mesh(new THREE.CylinderGeometry(0.2, 0.2, 0.14, 32), trimMaterial);
+    hinge.position.set(side * 1.93, -0.02, -0.28);
+    hinge.rotation.z = Math.PI / 2;
+    headset.add(hinge);
+
+    const hingeCap = new THREE.Mesh(new THREE.CylinderGeometry(0.13, 0.13, 0.15, 32), shellMaterial);
+    hingeCap.position.set(side * 1.99, -0.02, -0.28);
+    hingeCap.rotation.z = Math.PI / 2;
+    headset.add(hingeCap);
+
+    headset.add(createStrap([
+      new THREE.Vector3(side * 1.94, -0.02, -0.3),
+      new THREE.Vector3(side * 2.1, 0.02, -0.88),
+      new THREE.Vector3(side * 1.8, 0.07, -1.58),
+      new THREE.Vector3(side * 1.2, 0.08, -2.02)
+    ], 0.105, fabricMaterial));
   });
 
-  scene.add(new THREE.HemisphereLight(0xffffff, 0xb7c6e8, 2.1));
-  const keyLight = new THREE.DirectionalLight(0xffffff, 3.7);
-  keyLight.position.set(2.6, 3.6, 4.2);
+  headset.add(createStrap([
+    new THREE.Vector3(-1.2, 0.08, -2.02),
+    new THREE.Vector3(-0.64, 0.06, -2.28),
+    new THREE.Vector3(0, 0.02, -2.37),
+    new THREE.Vector3(0.64, 0.06, -2.28),
+    new THREE.Vector3(1.2, 0.08, -2.02)
+  ], 0.14, fabricMaterial, 64));
+
+  headset.add(createStrap([
+    new THREE.Vector3(0, 0.68, -0.5),
+    new THREE.Vector3(0, 1.17, -0.95),
+    new THREE.Vector3(0, 1.24, -1.58),
+    new THREE.Vector3(0, 0.66, -2.14)
+  ], 0.115, fabricMaterial));
+
+  const adjustmentDial = new THREE.Mesh(new THREE.CylinderGeometry(0.23, 0.23, 0.15, 36), trimMaterial);
+  adjustmentDial.position.set(0, 0.03, -2.43);
+  adjustmentDial.rotation.x = Math.PI / 2;
+  headset.add(adjustmentDial);
+
+  for (let index = -3; index <= 3; index += 1) {
+    const vent = new THREE.Mesh(new THREE.BoxGeometry(0.21, 0.026, 0.07), cushionMaterial);
+    vent.position.set(index * 0.29, 0.75, -0.1);
+    vent.rotation.x = -0.22;
+    headset.add(vent);
+  }
+
+  scene.add(new THREE.HemisphereLight(0xf4f8ff, 0x52617d, 1.65));
+  const keyLight = new THREE.DirectionalLight(0xffffff, 4.4);
+  keyLight.position.set(3.4, 4.6, 5.5);
   scene.add(keyLight);
-  const rimLight = new THREE.DirectionalLight(0x92f2ff, 1.4);
-  rimLight.position.set(-3.5, 1.6, -2.2);
+  const fillLight = new THREE.DirectionalLight(0x9eb9ff, 1.55);
+  fillLight.position.set(-4.2, -0.8, 3.2);
+  scene.add(fillLight);
+  const rimLight = new THREE.DirectionalLight(0x70e8ff, 2.15);
+  rimLight.position.set(-3.8, 2.2, -3.5);
   scene.add(rimLight);
 
-  const target = { x: -0.1, y: -0.34 };
+  const target = { x: -0.08, y: -0.38 };
   const current = { x: target.x, y: target.y };
   const drag: DragState = { active: false, lastX: 0, lastY: 0, velocityX: 0, velocityY: 0 };
 
@@ -196,14 +282,14 @@ export function initHeroHeadset() {
       target.x += drag.velocityY;
       drag.velocityX *= 0.92;
       drag.velocityY *= 0.9;
-      if (!reduceMotion) target.y += 0.002;
+      if (!reduceMotion) target.y += 0.00135;
     }
 
     current.x += (target.x - current.x) * 0.09;
     current.y += (target.y - current.y) * 0.09;
-    headset.rotation.x = current.x + Math.sin(time * 0.001) * (reduceMotion ? 0 : 0.018);
+    headset.rotation.x = current.x + Math.sin(time * 0.001) * (reduceMotion ? 0 : 0.014);
     headset.rotation.y = current.y;
-    headset.rotation.z = 0.02 + Math.sin(time * 0.0008) * (reduceMotion ? 0 : 0.012);
+    headset.rotation.z = 0.015 + Math.sin(time * 0.0008) * (reduceMotion ? 0 : 0.009);
 
     renderer.render(scene, camera);
     frame = requestAnimationFrame(animate);

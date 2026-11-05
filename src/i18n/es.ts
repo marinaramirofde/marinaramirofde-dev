@@ -3,8 +3,9 @@ export const es = {
     title: "Marina Ramiro Fernández · Ingeniera Informática y Desarrolladora XR",
     description: "Portfolio profesional de Marina Ramiro Fernández, ingeniera informática especializada en XR, salud, investigación y visualización médica."
   },
-  nav: { about: "Sobre mí", projects: "Proyectos", research: "Investigación", events: "Eventos", talks: "Charlas", youtube: "YouTube", services: "Servicios", recommendations: "Recomendados", faq: "FAQ", contact: "Contacto", menu: "Abrir menú", close: "Cerrar menú", linkedin: "LinkedIn" },
+  nav: { home: "Inicio", about: "Sobre mí", projects: "Proyectos", research: "Investigación", events: "Eventos", talks: "Charlas", youtube: "YouTube", services: "Servicios", gallery: "Galería", recommendations: "Recomendados", faq: "FAQ", content: "Contenido", contact: "Contacto", community: "Comunidad", form: "Formulario", menu: "Abrir menú", close: "Cerrar menú", linkedin: "LinkedIn" },
   intro: { skip: "Saltar introducción", label: "Entrada XR al portfolio" },
+  home: { eyebrow: "Explora / Portfolio", title: "Lo más destacado", text: "Una selección de mi perfil, proyectos, servicios, contenido y comunidad. Entra en cada área para descubrirla completa.", explore: "Ver sección", items: [["Sobre mí", "Trayectoria, especialización y forma de trabajar."], ["Proyectos", "Casos de estudio y experiencias XR seleccionadas."], ["Servicios", "Formas de colaboración, desarrollo y prototipado."], ["Contenido", "Vídeos, galería, eventos y recomendaciones."], ["Contacto", "Comunidad profesional y formulario de contacto."]] },
   hero: {
     title: "Marina Ramiro",
     role: "Ingeniera Informática · Desarrolladora de Realidad Extendida (XR)",
@@ -56,6 +57,7 @@ export const es = {
     items: ["Prototipos XR e interfaces inmersivas", "Experiencias de visualización médica", "Desarrollo de producto con Unity y WebXR", "Demos de investigación y narrativa técnica", "Sistemas visuales interactivos basados en datos"]
   },
   skills: { eyebrow: "Tecnologías / Herramientas", title: "Tecnologías y habilidades" },
+  technologies: { eyebrow: "Stack / Experiencia técnica", title: "Tecnologías que utilizo", text: "Herramientas, estándares y dispositivos con los que diseño y desarrollo experiencias web, 3D y de realidad extendida.", groups: { development: "Desarrollo", xr: "XR y 3D", devices: "Dispositivos", workflow: "Flujo de trabajo" } },
   gallery: {
     eyebrow: "Multimedia / Proceso", title: "Galería multimedia",
     text: "Bloque preparado para imágenes, vídeos, capturas de prototipos y piezas visuales.",

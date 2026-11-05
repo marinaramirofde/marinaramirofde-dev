@@ -2,14 +2,10 @@
 import BaseLayout from "../../layouts/BaseLayout.astro";
 import { portfolioConfig } from "../../config/portfolio.config";
 import { getDictionary } from "../../i18n";
+import { projects } from "../../data/projects";
 
 export function getStaticPaths() {
-  const projectEntries = [
-    { slug: "xr-medical-viewer", code: "XR-01", title: "XR Medical Viewer", summary: "Base para documentar un visor médico inmersivo con Three.js, WebXR y arquitectura estática.", stack: "Three.js / WebXR / Salud" },
-    { slug: "ar-research-prototype", code: "AR-02", title: "AR Research Prototype", summary: "Base para documentar prototipos de realidad aumentada aplicados a investigación y visualización.", stack: "Unity / C# / AR" },
-    { slug: "immersive-education-lab", code: "VR-03", title: "Immersive Education Lab", summary: "Base para documentar experiencias educativas inmersivas, talleres y comunidad.", stack: "XR / UX / Comunidad" }
-  ];
-  return projectEntries.map((project) => ({ params: { slug: project.slug }, props: { project } }));
+  return projects.map((project) => ({ params: { slug: project.slug }, props: { project } }));
 }
 
 const { project } = Astro.props;

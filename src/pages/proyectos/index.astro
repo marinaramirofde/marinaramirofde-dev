@@ -2,16 +2,16 @@
 import BaseLayout from "../../layouts/BaseLayout.astro";
 import { getDictionary } from "../../i18n";
 import { portfolioConfig } from "../../config/portfolio.config";
+import { projects } from "../../data/projects";
+import { isSectionExampleSelected } from "../../config/section-library.config";
+import ProjectPerspectiveCarousel from "../../components/sections/examples/ProjectPerspectiveCarousel.astro";
 const t = getDictionary(portfolioConfig.defaultLocale);
 const basePath = import.meta.env.BASE_URL.endsWith("/") ? import.meta.env.BASE_URL : `${import.meta.env.BASE_URL}/`;
-const projects = [
-  { title: "XR Medical Viewer", slug: "xr-medical-viewer", code: "XR-01", accent: "blue" },
-  { title: "AR Research Prototype", slug: "ar-research-prototype", code: "AR-02", accent: "orange" },
-  { title: "Immersive Education Lab", slug: "immersive-education-lab", code: "VR-03", accent: "rose" }
-];
+const usePerspectiveCarousel = isSectionExampleSelected("projects", "projects-perspective-carousel");
 ---
 
 <BaseLayout title={`Proyectos · ${portfolioConfig.brandName}`}>
+  {usePerspectiveCarousel ? <ProjectPerspectiveCarousel /> : (
   <article class="content-page content-page--wide">
     <header class="content-page__hero" data-reveal>
       <p class="eyebrow" data-i18n="pages.selectedWork">{t.pages.selectedWork}</p>
@@ -28,4 +28,5 @@ const projects = [
       ))}
     </div>
   </article>
+  )}
 </BaseLayout>
