@@ -4,17 +4,22 @@ import { getDictionary } from "../i18n";
 import { portfolioConfig } from "../config/portfolio.config";
 import Hero from "../components/sections/Hero.astro";
 import Dashboard from "../components/sections/Dashboard.astro";
-import ContentBlocks from "../components/sections/ContentBlocks.astro";
-import Community from "../components/sections/Community.astro";
-import ContactForm from "../components/forms/ContactForm.astro";
+import HomeHighlights from "../components/sections/HomeHighlights.astro";
+import Technologies from "../components/sections/Technologies.astro";
 
 const t = getDictionary(portfolioConfig.defaultLocale);
+const homeRegistry = {
+  hero: Hero,
+  dashboard: Dashboard,
+  technologies: Technologies,
+  "home-highlights": HomeHighlights
+};
+const homeSections = portfolioConfig.sections
+  .filter((section) => section.enabled && section.id in homeRegistry)
+  .sort((a, b) => a.order - b.order)
+  .map((section) => homeRegistry[section.id as keyof typeof homeRegistry]);
 ---
 
 <BaseLayout>
-  <Hero t={t} />
-  <Dashboard t={t} />
-  <ContentBlocks t={t} />
-  <Community t={t} />
-  <ContactForm t={t} />
+  {homeSections.map((Section) => <Section t={t} />)}
 </BaseLayout>

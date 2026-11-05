@@ -1,0 +1,109 @@
+---
+import { projects } from "../../../data/projects";
+
+interface Props {
+  preview?: boolean;
+}
+
+const { preview = false } = Astro.props;
+const basePath = import.meta.env.BASE_URL.endsWith("/") ? import.meta.env.BASE_URL : `${import.meta.env.BASE_URL}/`;
+const initialIndex = Math.floor(projects.length / 2);
+---
+
+<section class:list={["project-deck", { "project-deck--preview": preview }]} data-project-deck aria-labelledby={preview ? "example-project-deck-title" : "project-deck-title"}>
+  <header class="project-deck__header">
+    <p class="eyebrow">Proyectos seleccionados</p>
+    <h2 id={preview ? "example-project-deck-title" : "project-deck-title"}>Experiencias XR con impacto real</h2>
+    <p>Investigación, desarrollo e interacción inmersiva convertidos en casos de estudio.</p>
+  </header>
+
+  <div class="project-deck__stage">
+    <button class="project-deck__arrow project-deck__arrow--previous" type="button" aria-label="Proyecto anterior" data-deck-previous>
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m14.5 6-6 6 6 6" /></svg>
+    </button>
+
+    <div class="project-deck__viewport" data-deck-viewport>
+      <div class="project-deck__track" data-deck-track>
+        {projects.map((project, index) => (
+          <a
+            class:list={[`project-deck__card project-deck__card--${project.visual}`, { "is-active": index === initialIndex }]}
+            href={`${basePath}proyectos/${project.slug}`}
+            data-deck-card
+            aria-label={`Ver ${project.title}`}
+            style={`--deck-index: ${index}`}
+          >
+            <span class="project-deck__art" aria-hidden="true">
+              <i></i><i></i><i></i>
+              <b>{project.code}</b>
+            </span>
+            <span class="project-deck__shade" aria-hidden="true"></span>
+            <span class="project-deck__content">
+              <small>{project.stack}</small>
+              <strong>{project.title}</strong>
+              <span>{project.summary}</span>
+              <em>Ver caso de estudio ↗</em>
+            </span>
+          </a>
+        ))}
+      </div>
+    </div>
+
+    <button class="project-deck__arrow project-deck__arrow--next" type="button" aria-label="Proyecto siguiente" data-deck-next>
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m9.5 6 6 6-6 6" /></svg>
+    </button>
+  </div>
+
+  <div class="project-deck__progress" aria-hidden="true">
+    {projects.map((_, index) => <i class:list={{ "is-active": index === initialIndex }} data-deck-dot></i>)}
+  </div>
+</section>
+
+<script>
+  const initProjectDecks = () => {
+    document.querySelectorAll<HTMLElement>("[data-project-deck]").forEach((deck) => {
+      if (deck.dataset.ready === "true") return;
+      deck.dataset.ready = "true";
+
+      const viewport = deck.querySelector<HTMLElement>("[data-deck-viewport]");
+      const cards = [...deck.querySelectorAll<HTMLElement>("[data-deck-card]")];
+      const dots = [...deck.querySelectorAll<HTMLElement>("[data-deck-dot]")];
+      const previous = deck.querySelector<HTMLButtonElement>("[data-deck-previous]");
+      const next = deck.querySelector<HTMLButtonElement>("[data-deck-next]");
+      if (!viewport || cards.length === 0) return;
+      const initialIndex = Math.floor(cards.length / 2);
+
+      const update = () => {
+        const center = viewport.scrollLeft + viewport.clientWidth / 2;
+        let activeIndex = 0;
+        let closest = Number.POSITIVE_INFINITY;
+        cards.forEach((card, index) => {
+          const cardCenter = card.offsetLeft + card.offsetWidth / 2;
+          const distance = Math.abs(center - cardCenter);
+          if (distance < closest) {
+            closest = distance;
+            activeIndex = index;
+          }
+        });
+        cards.forEach((card, index) => card.classList.toggle("is-active", index === activeIndex));
+        dots.forEach((dot, index) => dot.classList.toggle("is-active", index === activeIndex));
+      };
+
+      const move = (direction: number) => {
+        const gap = Number.parseFloat(getComputedStyle(deck).getPropertyValue("--deck-gap")) || 22;
+        viewport.scrollBy({ left: direction * (cards[0].offsetWidth + gap), behavior: "smooth" });
+      };
+
+      previous?.addEventListener("click", () => move(-1));
+      next?.addEventListener("click", () => move(1));
+      viewport.addEventListener("scroll", update, { passive: true });
+      requestAnimationFrame(() => {
+        const initialCard = cards[initialIndex];
+        viewport.scrollLeft = initialCard.offsetLeft - (viewport.clientWidth - initialCard.offsetWidth) / 2;
+        requestAnimationFrame(update);
+      });
+    });
+  };
+
+  document.addEventListener("astro:page-load", initProjectDecks);
+  initProjectDecks();
+</script>

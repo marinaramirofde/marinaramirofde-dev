@@ -1,0 +1,38 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import { getDictionary } from "../i18n";
+import { portfolioConfig } from "../config/portfolio.config";
+import { recommendedProducts } from "../data/recommended";
+const t = getDictionary(portfolioConfig.defaultLocale);
+const basePath = import.meta.env.BASE_URL.endsWith("/") ? import.meta.env.BASE_URL : `${import.meta.env.BASE_URL}/`;
+const galleryItems = t.gallery.items as Array<[string, string]>;
+---
+
+<BaseLayout title={`Contenido · ${portfolioConfig.brandName}`}>
+  <article class="content-page content-page--wide landing-page content-landing">
+    <header class="content-page__hero" data-reveal>
+      <p class="eyebrow" data-i18n="nav.content">{t.nav.content}</p>
+      <h1 data-i18n="youtube.title">{t.youtube.title}</h1>
+      <p data-i18n="youtube.text">{t.youtube.text}</p>
+    </header>
+
+    <section class="landing-panel" id="youtube" data-reveal>
+      <div><p class="eyebrow">YouTube</p><h2 data-i18n="youtube.title">{t.youtube.title}</h2><p data-i18n="youtube.text">{t.youtube.text}</p><a class="button button--primary" href={portfolioConfig.socialLinks.youtube} target="_blank" rel="noreferrer" data-i18n="youtube.cta">{t.youtube.cta}</a></div>
+      <div class="youtube__video"><iframe src="https://www.youtube-nocookie.com/embed/TLWXkF8STxI?rel=0" title={t.youtube.videoTitle} loading="lazy" allowfullscreen></iframe></div>
+    </section>
+
+    <section class="landing-panel landing-panel--stack" id="gallery" data-reveal>
+      <div><p class="eyebrow" data-i18n="gallery.eyebrow">{t.gallery.eyebrow}</p><h2 data-i18n="gallery.title">{t.gallery.title}</h2><p data-i18n="gallery.text">{t.gallery.text}</p></div>
+      <div class="gallery__grid">{galleryItems.map((item, index) => <figure class={`gallery-item gallery-item--${["blue", "orange", "rose"][index]}`}><div class="gallery-item__visual"><i></i></div><figcaption><strong>{item[0]}</strong><span>{item[1]}</span></figcaption></figure>)}</div>
+    </section>
+
+    <section class="landing-panel" id="events" data-reveal>
+      <div><p class="eyebrow" data-i18n="events.eyebrow">{t.events.eyebrow}</p><h2 data-i18n="events.title">{t.events.title}</h2><p data-i18n="events.text">{t.events.text}</p><a class="button button--primary" href={`${basePath}eventos`} data-i18n="home.explore">{t.home.explore}</a></div>
+    </section>
+
+    <section class="landing-panel landing-panel--stack" id="recomendados" data-reveal>
+      <div><h2 data-i18n="recommendations.title">{t.recommendations.title}</h2><p data-i18n="recommendations.text">{t.recommendations.text}</p></div>
+      <div class="recommendations__grid">{recommendedProducts.slice(0, 3).map((product) => <a class={`recommended-card recommended-card--${product.visual}`} href={product.href} target="_blank" rel="noreferrer sponsored"><span class="recommended-card__category">{product.category}</span><span class="recommended-card__visual"><i></i></span><span class="recommended-card__content"><strong>{product.title}</strong><span>{product.description}</span></span></a>)}</div>
+    </section>
+  </article>
+</BaseLayout>

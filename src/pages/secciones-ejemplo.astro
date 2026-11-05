@@ -1,0 +1,41 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import ProjectPerspectiveCarousel from "../components/sections/examples/ProjectPerspectiveCarousel.astro";
+import { isSectionExampleSelected, sectionExamples } from "../config/section-library.config";
+import { portfolioConfig } from "../config/portfolio.config";
+
+const example = sectionExamples.find((item) => item.id === "projects-perspective-carousel")!;
+const selected = isSectionExampleSelected(example.category, example.id);
+---
+
+<BaseLayout title={`Secciones de ejemplo · ${portfolioConfig.brandName}`} description="Biblioteca visual de secciones reutilizables para el portfolio.">
+  <main class="section-library">
+    <header class="section-library__hero">
+      <p class="eyebrow">Biblioteca visual</p>
+      <h1>Secciones de ejemplo</h1>
+      <p>Aquí quedan guardadas las variantes para compararlas antes de utilizarlas en la web pública.</p>
+      <aside class="section-library__help">
+        <strong>Cómo funciona</strong>
+        <p>Una sección marcada como “Guardada” solo aparece en esta biblioteca. Cuando quieras usarla, selecciona su ID en la configuración o dime “activa esta sección en Proyectos”.</p>
+      </aside>
+    </header>
+
+    <article class="section-library__entry" id={example.id}>
+      <div class="section-library__meta">
+        <div>
+          <span class:list={["section-library__status", { "is-selected": selected }]}>{selected ? "Seleccionada" : "Guardada"}</span>
+          <span class="section-library__category">Categoría: Proyectos</span>
+        </div>
+        <h2>{example.name}</h2>
+        <p>{example.description}</p>
+        <dl>
+          <div><dt>ID</dt><dd><code>{example.id}</code></dd></div>
+          <div><dt>Inspiración</dt><dd>{example.inspiration}</dd></div>
+        </dl>
+      </div>
+      <div class="section-library__preview">
+        <ProjectPerspectiveCarousel preview />
+      </div>
+    </article>
+  </main>
+</BaseLayout>

@@ -1,0 +1,14 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import Community from "../components/sections/Community.astro";
+import ContactForm from "../components/forms/ContactForm.astro";
+import { getDictionary } from "../i18n";
+import { portfolioConfig } from "../config/portfolio.config";
+const t = getDictionary(portfolioConfig.defaultLocale);
+---
+
+<BaseLayout title={`Contacto · ${portfolioConfig.brandName}`}>
+  <div class="landing-page-spacer" aria-hidden="true"></div>
+  <Community t={t} />
+  <ContactForm t={t} />
+</BaseLayout>

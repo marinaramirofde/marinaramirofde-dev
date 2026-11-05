@@ -1,17 +1,36 @@
 ---
 const { t } = Astro.props;
-const panelItems = t.hero.panel as string[];
+const basePath = import.meta.env.BASE_URL.endsWith("/") ? import.meta.env.BASE_URL : `${import.meta.env.BASE_URL}/`;
 ---
 
-<section class="hero section" id="hero" aria-labelledby="hero-title">
-  <div class="hero__content" data-reveal>
-    <h1 id="hero-title" data-i18n="hero.title">{t.hero.title}</h1>
+<section class="hero section hero--interactive" id="hero" aria-labelledby="hero-title">
+  <div class="hero__stage hero__stage--headset" data-reveal data-headset-hero aria-label="Interactive XR headset preview">
+    <canvas class="hero-headset" data-headset-canvas></canvas>
+    <div class="hero-headset__fallback" aria-hidden="true">
+      <span class="hero-headset__body"></span>
+      <span class="hero-headset__strap hero-headset__strap--left"></span>
+      <span class="hero-headset__strap hero-headset__strap--right"></span>
+      <span class="hero-headset__lens hero-headset__lens--left"></span>
+      <span class="hero-headset__lens hero-headset__lens--right"></span>
+    </div>
+    <div class="hero-headset__hotspots" aria-hidden="true">
+      <span></span>
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+    <div class="hero__name">
+      <h1 id="hero-title" data-i18n="hero.title">{t.hero.title}</h1>
+    </div>
+  </div>
+
+  <div class="hero__intro" data-reveal>
     <p class="hero__role" data-i18n="hero.role">{t.hero.role}</p>
     <p class="hero__text" data-i18n="hero.text">{t.hero.text}</p>
     <div class="hero__actions">
-      <a class="button button--primary" href="#projects" data-i18n="hero.projects">{t.hero.projects}</a>
-      <a class="button button--ghost" href="#contact" data-cv-link data-i18n="hero.cv">{t.hero.cv}</a>
-      <a class="button button--plain" href="#contact" data-i18n="hero.contact">{t.hero.contact}</a>
+      <a class="button button--primary" href={`${basePath}proyectos`} data-i18n="hero.projects">{t.hero.projects}</a>
+      <a class="button button--ghost" href={`${basePath}contacto#contact`} data-cv-link data-i18n="hero.cv">{t.hero.cv}</a>
+      <a class="button button--plain" href={`${basePath}contacto#contact`} data-i18n="hero.contact">{t.hero.contact}</a>
     </div>
     <div class="hero__meta" aria-label="Areas of expertise">
       <span><i></i>XR / VR / AR</span>
@@ -19,17 +38,9 @@ const panelItems = t.hero.panel as string[];
       <span data-i18n="hero.location">{t.hero.location}</span>
     </div>
   </div>
-  <div class="hero__visual" aria-hidden="true" data-reveal data-hero-visual>
-    <div class="hero__visual-topline">
-      <span data-i18n="hero.system">{t.hero.system}</span>
-      <span class="hero__signal" data-i18n="hero.online">{t.hero.online}</span>
-    </div>
-    <div class="xr-orbit xr-orbit--outer"></div><div class="xr-orbit xr-orbit--inner"></div>
-    <div class="xr-device">
-      <span class="xr-device__bridge"></span><div class="xr-device__lens"></div><div class="xr-device__lens"></div><span class="xr-device__sensor"></span>
-    </div>
-    <div class="hero__panel">
-      {panelItems.map((item, index) => <span><b>0{index + 1}</b><i data-i18n={`hero.panel.${index}`}>{item}</i></span>)}
-    </div>
-  </div>
 </section>
+
+<script>
+  import { initHeroHeadset } from "../../scripts/heroHeadset";
+  initHeroHeadset();
+</script>
