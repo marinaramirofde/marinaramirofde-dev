@@ -28,7 +28,7 @@ export const portfolioConfig: PortfolioConfig = {
     github: "",
     whatsapp: "",
     whatsappCommunity: "",
-    email: "",
+    email: "marinaramirofde@gmail.com",
     cv: ""
   },
   sections: [

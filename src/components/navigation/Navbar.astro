@@ -20,6 +20,7 @@ const contactItems = [
 ];
 const linkedinHref = portfolioConfig.socialLinks.linkedin || `${basePath}#contact`;
 const instagramHref = portfolioConfig.socialLinks.instagram || `${basePath}#contact`;
+const emailHref = portfolioConfig.socialLinks.email ? `mailto:${portfolioConfig.socialLinks.email}` : `${basePath}#contact`;
 ---
 
 <header class="site-header" data-site-header>
@@ -81,6 +82,9 @@ const instagramHref = portfolioConfig.socialLinks.instagram || `${basePath}#cont
             <circle cx="12" cy="12" r="4.15" />
             <circle class="contact-icon__dot" cx="17.55" cy="6.55" r="1.05" />
           </svg>
+        </a>
+        <a class="contact-icon contact-icon--gmail" href={emailHref} aria-label={t.nav.gmail} data-i18n-aria="nav.gmail" title="Gmail">
+          <img src={`${basePath}gmail-icon.svg`} alt="" aria-hidden="true" />
         </a>
       </div>
     </div>

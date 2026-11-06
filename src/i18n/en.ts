@@ -3,7 +3,7 @@ export const en = {
     title: "Marina Ramiro Fernández · Software Engineer & XR Developer",
     description: "Professional portfolio for Marina Ramiro Fernández, software engineer focused on XR, health, research and medical visualization."
   },
-  nav: { home: "Home", about: "About", projects: "Projects", research: "Research", events: "Events", talks: "Talks", youtube: "YouTube", services: "Services", gallery: "Gallery", recommendations: "Recommended", faq: "FAQ", content: "Content", contact: "Contact", community: "Community", form: "Form", menu: "Open menu", close: "Close menu", linkedin: "LinkedIn", instagram: "Instagram" },
+  nav: { home: "Home", about: "About", projects: "Projects", research: "Research", events: "Events", talks: "Talks", youtube: "YouTube", services: "Services", gallery: "Gallery", recommendations: "Recommended", faq: "FAQ", content: "Content", contact: "Contact", community: "Community", form: "Form", menu: "Open menu", close: "Close menu", linkedin: "LinkedIn", instagram: "Instagram", gmail: "Write by Gmail" },
   intro: { skip: "Skip intro", label: "XR entrance to the portfolio" },
   home: { eyebrow: "Explore / Portfolio", title: "Featured areas", text: "A selection of my profile, projects, services, content and community. Enter each area to discover it in full.", explore: "View section", items: [["About", "Background, expertise and the way I work."], ["Projects", "Selected case studies and XR experiences."], ["Services", "Ways to collaborate, develop and prototype."], ["Content", "Videos, gallery, events and recommendations."], ["Contact", "Professional community and contact form."]] },
   hero: {

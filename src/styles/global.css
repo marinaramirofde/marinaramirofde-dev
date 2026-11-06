@@ -1922,7 +1922,8 @@ h2 { font-size:4.8rem; font-weight:700; line-height:.95; }
 }
 
 .nav-menu .contact-icon--linkedin,
-.nav-menu .contact-icon--instagram {
+.nav-menu .contact-icon--instagram,
+.nav-menu .contact-icon--gmail {
   align-items: center;
   border-radius: 9px !important;
   color: #fff;
@@ -1947,6 +1948,18 @@ h2 { font-size:4.8rem; font-weight:700; line-height:.95; }
   box-shadow: 0 7px 18px rgb(214 41 118 / .25);
 }
 
+.nav-menu .contact-icon--gmail {
+  background: #fff;
+  border: 1px solid rgb(9 9 9 / .1);
+  box-shadow: 0 7px 18px rgb(66 133 244 / .18);
+}
+
+.nav-menu .contact-icon--gmail img {
+  display: block;
+  height: 19px;
+  width: 25px;
+}
+
 .nav-menu .contact-icon--instagram svg {
   fill: none;
   height: 20px;
@@ -1969,6 +1982,12 @@ h2 { font-size:4.8rem; font-weight:700; line-height:.95; }
 .nav-menu .contact-icon--instagram:hover {
   background: radial-gradient(circle at 31% 107%, #feda75 0 17%, #fa7e1e 29%, #d62976 50%, #962fbf 72%, #4051c8 100%);
   color: #fff;
+  transform: translateY(-1px);
+}
+
+.nav-menu .contact-icon--gmail:hover {
+  background: #f8f9fa;
+  border-color: rgb(66 133 244 / .35);
   transform: translateY(-1px);
 }
 
@@ -2051,7 +2070,8 @@ h2 { font-size:4.8rem; font-weight:700; line-height:.95; }
   .nav-dropdown__menu,
   .nav-dropdown__chevron,
   .nav-menu .contact-icon--linkedin,
-  .nav-menu .contact-icon--instagram {
+  .nav-menu .contact-icon--instagram,
+  .nav-menu .contact-icon--gmail {
     transition: none;
   }
 }
