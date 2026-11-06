@@ -4806,6 +4806,7 @@ body {
 
 .projects-portfolio__header > p:last-child {
   font-size: clamp(1.05rem, 1.7vw, 1.3rem);
+  margin-top: clamp(1rem, 2.2vw, 2rem);
   max-width: 650px;
 }
 
