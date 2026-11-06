@@ -15,7 +15,7 @@ const basePath = import.meta.env.BASE_URL.endsWith("/") ? import.meta.env.BASE_U
       <article
         class={`technology-card technology-card--logo${item.format ? ` technology-card--${item.format}` : ""}`}
         aria-label={item.name}
-        role="img"
+        tabindex="0"
         title={item.name}
       >
         <img
@@ -24,6 +24,7 @@ const basePath = import.meta.env.BASE_URL.endsWith("/") ? import.meta.env.BASE_U
           loading="lazy"
           decoding="async"
         />
+        <span class="technology-card__name">{item.name}</span>
       </article>
     ))}
   </div>
