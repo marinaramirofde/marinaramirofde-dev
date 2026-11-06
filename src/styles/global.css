@@ -5123,20 +5123,50 @@ body {
 
 .case-study__gallery > header {
   display: grid;
-  gap: 1rem;
+  gap: 1.15rem;
   margin-bottom: clamp(2.5rem, 5vw, 4.5rem);
+  max-width: 980px;
 }
 
-.case-study__gallery .eyebrow { color: rgb(255 255 255 / .68); }
+.case-study__gallery-label {
+  color: rgb(255 255 255 / .58);
+  font-size: .7rem;
+  letter-spacing: .15em;
+  text-transform: uppercase;
+}
+
+.case-study__gallery-intro {
+  color: rgb(255 255 255 / .68);
+  font-size: clamp(1rem, 1.6vw, 1.2rem);
+  line-height: 1.55;
+  max-width: 760px;
+}
 
 .case-study__gallery > div {
   display: grid;
   gap: 1.1rem;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
+  grid-auto-flow: dense;
+  grid-template-columns: repeat(12, minmax(0, 1fr));
 }
 
 .case-study__gallery figure { margin: 0; }
-.case-study__gallery img { display: block; width: 100%; }
+.case-study__gallery figure:nth-child(6n + 1) { grid-column: span 7; }
+.case-study__gallery figure:nth-child(6n + 2) { grid-column: span 5; margin-top: clamp(3rem, 8vw, 8rem); }
+.case-study__gallery figure:nth-child(6n + 3) { grid-column: span 5; }
+.case-study__gallery figure:nth-child(6n + 4) { grid-column: span 7; }
+.case-study__gallery figure:nth-child(6n + 5) { grid-column: span 8; }
+.case-study__gallery figure:nth-child(6n + 6) { grid-column: span 4; }
+
+.case-study__gallery img {
+  aspect-ratio: 4 / 3;
+  display: block;
+  height: auto;
+  object-fit: cover;
+  width: 100%;
+}
+
+.case-study__gallery figure:nth-child(6n + 2) img,
+.case-study__gallery figure:nth-child(6n + 6) img { aspect-ratio: 4 / 5; }
 
 .case-study__gallery figcaption {
   border-top: 1px solid rgb(255 255 255 / .22);
@@ -5203,6 +5233,8 @@ body {
   .project-tile__hover { padding: 2rem; }
   .case-study__gallery { margin-inline: -1rem; padding-inline: 1rem; }
   .case-study__gallery > div { grid-template-columns: 1fr; }
+  .case-study__gallery figure:nth-child(n) { grid-column: 1 / -1; margin-top: 0; }
+  .case-study__gallery figure:nth-child(n) img { aspect-ratio: 4 / 3; }
   .case-study__navigation { grid-template-columns: 1fr; }
   .case-study__navigation a:last-child { border-left: 0; text-align: left; }
 }
