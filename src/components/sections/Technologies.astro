@@ -1,6 +1,7 @@
 ---
 import { technologies } from "../../data/technologies";
 const { t } = Astro.props;
+const basePath = import.meta.env.BASE_URL.endsWith("/") ? import.meta.env.BASE_URL : `${import.meta.env.BASE_URL}/`;
 ---
 
 <section class="section section--soft technologies" id="technologies" aria-labelledby="technologies-title">
@@ -11,15 +12,18 @@ const { t } = Astro.props;
   </header>
   <div class="technology-grid technology-grid--logos">
     {technologies.map((item) => (
-      <article class={`technology-card technology-card--logo${item.format ? ` technology-card--${item.format}` : ""}`} aria-label={item.name} title={item.name}>
-        {item.logo ? (
-          <>
-            <img src={item.logo} alt={item.name} loading="lazy" decoding="async" onerror="this.parentElement.classList.add('is-missing')" />
-            <strong class="technology-card__fallback">{item.name}</strong>
-          </>
-        ) : (
-          <strong class="technology-card__fallback">{item.name}</strong>
-        )}
+      <article
+        class={`technology-card technology-card--logo${item.format ? ` technology-card--${item.format}` : ""}`}
+        aria-label={item.name}
+        role="img"
+        title={item.name}
+      >
+        <img
+          src={`${basePath}${item.logo.replace(/^\/+/, "")}`}
+          alt=""
+          loading="lazy"
+          decoding="async"
+        />
       </article>
     ))}
   </div>
