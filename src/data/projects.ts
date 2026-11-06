@@ -49,14 +49,24 @@ export const projects: ProjectEntry[] = [
     coverImage: "/projects/vr-ehabilitar/cover.png",
     gallery: [
       {
+        src: "/projects/vr-ehabilitar/concept-clinic.png",
+        alt: "Escena conceptual de una sesión de rehabilitación de miembro superior con realidad virtual",
+        caption: "Escena de uso conceptual · Imagen temporal generada con IA"
+      },
+      {
         src: "/projects/vr-ehabilitar/cover.png",
         alt: "Composición de pantallas, ejercicios y modalidades de interacción de VR Ehabilitar",
         caption: "Recorrido, actividades y modalidades de interacción"
       },
       {
-        src: "/projects/xr-projects-overview.png",
-        alt: "Presentación conjunta de los proyectos VR Ehabilitar y ARTEMISA",
-        caption: "VR·EHABILITAR dentro de la selección de proyectos XR"
+        src: "/projects/vr-ehabilitar/concept-exercise.png",
+        alt: "Captura conceptual de un ejercicio de interacción manual dentro de un entorno de rehabilitación VR",
+        caption: "Ejercicio inmersivo conceptual · Imagen temporal generada con IA"
+      },
+      {
+        src: "/projects/vr-ehabilitar/concept-session.png",
+        alt: "Escena conceptual de una sesión guiada de rehabilitación con visor de realidad virtual",
+        caption: "Sesión clínica conceptual · Imagen temporal generada con IA"
       }
     ]
   },
@@ -82,14 +92,24 @@ export const projects: ProjectEntry[] = [
     externalUrl: "https://artemisapro.com/",
     gallery: [
       {
+        src: "/projects/artemisa/concept-clinical-use.png",
+        alt: "Escena conceptual de un profesional clínico explorando un modelo cerebral en realidad aumentada",
+        caption: "Contexto de uso conceptual · Imagen temporal generada con IA"
+      },
+      {
         src: "/projects/artemisa/cover.png",
         alt: "Composición del sistema ARTEMISA con interfaz clínica, visualización cerebral y uso en quirófano",
         caption: "Interfaz clínica, visualización cerebral y contexto de uso"
       },
       {
-        src: "/projects/xr-projects-overview.png",
-        alt: "Presentación conjunta de los proyectos VR Ehabilitar y ARTEMISA",
-        caption: "ARTEMISA dentro de la selección de proyectos XR"
+        src: "/projects/artemisa/concept-interface.png",
+        alt: "Interfaz conceptual de planificación neuroquirúrgica con modelo cerebral y cortes de imagen médica",
+        caption: "Interfaz espacial conceptual · Imagen temporal generada con IA"
+      },
+      {
+        src: "/projects/artemisa/concept-collaboration.png",
+        alt: "Escena conceptual de dos profesionales revisando un modelo cerebral holográfico",
+        caption: "Planificación colaborativa conceptual · Imagen temporal generada con IA"
       }
     ]
   }
