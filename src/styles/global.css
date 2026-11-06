@@ -4812,7 +4812,7 @@ body {
 .project-portfolio-grid {
   display: grid;
   gap: 1rem;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 380px), 1fr));
 }
 
 .project-tile {
@@ -4995,11 +4995,28 @@ body {
   max-width: 1200px;
 }
 
-.case-study__heading > p:last-child {
+.case-study__description {
   font-size: clamp(1.2rem, 2vw, 1.75rem);
   line-height: 1.42;
   max-width: 900px;
 }
+
+.case-study__external {
+  align-items: center;
+  background: var(--color-ink);
+  border-radius: 999px;
+  color: #fff;
+  display: inline-flex;
+  font-size: .8rem;
+  gap: .7rem;
+  margin-top: .45rem;
+  padding: .9rem 1.15rem;
+  text-decoration: none;
+  width: fit-content;
+}
+
+.case-study__external span { transition: transform .2s ease; }
+.case-study__external:hover span { transform: translate(3px, -3px); }
 
 .case-study__cover {
   background: #0b0c10;

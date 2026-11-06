@@ -1,8 +1,0 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 900">
-  <defs><linearGradient id="a" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#071326"/><stop offset="1" stop-color="#356dff"/></linearGradient><radialGradient id="b"><stop stop-color="#88e7ff" stop-opacity=".9"/><stop offset="1" stop-color="#88e7ff" stop-opacity="0"/></radialGradient><pattern id="g" width="64" height="64" patternUnits="userSpaceOnUse"><path d="M64 0H0V64" fill="none" stroke="#fff" stroke-opacity=".08"/></pattern></defs>
-  <rect width="1600" height="900" fill="url(#a)"/><rect width="1600" height="900" fill="url(#g)"/><circle cx="800" cy="450" r="360" fill="url(#b)" opacity=".45"/>
-  <path d="M390 395Q800 170 1210 395l-110 245Q800 770 500 640Z" fill="#07101c" fill-opacity=".7" stroke="#c9f5ff" stroke-width="6"/>
-  <path d="M500 405Q800 250 1100 405l-62 150Q800 655 562 555Z" fill="#7adfff" fill-opacity=".12" stroke="#9ae9ff" stroke-width="4"/>
-  <circle cx="680" cy="474" r="92" fill="#4ac7ff" fill-opacity=".1" stroke="#d8f9ff" stroke-width="3"/><circle cx="920" cy="474" r="92" fill="#4ac7ff" fill-opacity=".1" stroke="#d8f9ff" stroke-width="3"/>
-  <g fill="#fff"><circle cx="800" cy="450" r="7"/><circle cx="530" cy="210" r="5"/><circle cx="1230" cy="655" r="5"/></g>
-</svg>
