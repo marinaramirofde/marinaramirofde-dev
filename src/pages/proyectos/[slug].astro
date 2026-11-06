@@ -1,28 +1,77 @@
 ---
 import BaseLayout from "../../layouts/BaseLayout.astro";
 import { portfolioConfig } from "../../config/portfolio.config";
-import { getDictionary } from "../../i18n";
 import { projects } from "../../data/projects";
 
 export function getStaticPaths() {
-  return projects.map((project) => ({ params: { slug: project.slug }, props: { project } }));
+  return projects.map((project, index) => ({
+    params: { slug: project.slug },
+    props: {
+      project,
+      previousProject: projects[(index - 1 + projects.length) % projects.length],
+      nextProject: projects[(index + 1) % projects.length]
+    }
+  }));
 }
 
-const { project } = Astro.props;
-const t = getDictionary(portfolioConfig.defaultLocale);
+const { project, previousProject, nextProject } = Astro.props;
+const basePath = import.meta.env.BASE_URL.endsWith("/") ? import.meta.env.BASE_URL : `${import.meta.env.BASE_URL}/`;
 ---
 
-<BaseLayout title={project.title + " · " + portfolioConfig.brandName} description={project.summary}>
-  <article class="content-page content-page--wide">
-    <header class="content-page__hero" data-reveal>
-      <p class="eyebrow"><span data-i18n="pages.caseStudy">{t.pages.caseStudy}</span> / {project.code}</p>
-      <h1>{project.title}</h1><p>{project.summary}</p>
+<BaseLayout title={`${project.title} · ${portfolioConfig.brandName}`} description={project.summary}>
+  <article class={`case-study case-study--${project.accent}`}>
+    <header class="case-study__hero" data-reveal>
+      <a class="case-study__back" href={`${basePath}proyectos`}><span aria-hidden="true">←</span> Todos los proyectos</a>
+      <div class="case-study__heading">
+        <p class="eyebrow">{project.category} / {project.code}</p>
+        <h1>{project.title}</h1>
+        <p>{project.description}</p>
+      </div>
     </header>
-    <div class="case-visual" aria-hidden="true" data-reveal><span>{project.code}</span><i></i></div>
-    <div class="case-meta" data-reveal>
-      <div><span data-i18n="pages.discipline">{t.pages.discipline}</span><strong data-i18n="pages.immersive">{t.pages.immersive}</strong></div>
-      <div><span data-i18n="pages.stack">{t.pages.stack}</span><strong>{project.stack}</strong></div>
-      <div><span data-i18n="pages.status">{t.pages.status}</span><strong data-i18n="pages.documentation">{t.pages.documentation}</strong></div>
-    </div>
+
+    <figure class="case-study__cover" data-reveal>
+      <img src={`${basePath}${project.coverImage.slice(1)}`} alt={`Ilustración de presentación de ${project.title}`} width="1600" height="900" />
+      <figcaption><span>{project.code}</span><span>{project.status}</span></figcaption>
+    </figure>
+
+    <section class="case-study__overview" aria-labelledby="project-overview-title">
+      <div class="case-study__intro" data-reveal>
+        <p class="eyebrow">Portfolio / Caso de estudio</p>
+        <h2 id="project-overview-title">El proyecto</h2>
+        <p>{project.summary}</p>
+      </div>
+      <dl class="case-study__meta" data-reveal>
+        <div><dt>Tecnologías</dt><dd>{project.technologies.join(" · ")}</dd></div>
+        <div><dt>Cliente</dt><dd>{project.client}</dd></div>
+        <div><dt>Socios</dt><dd>{project.partners}</dd></div>
+        <div><dt>Estado</dt><dd>{project.status}</dd></div>
+      </dl>
+    </section>
+
+    <section class="case-study__facts" aria-label="Desarrollo del caso de estudio">
+      <article data-reveal><span>01</span><h2>Caso de uso</h2><p>{project.useCase}</p></article>
+      <article data-reveal><span>02</span><h2>Objetivo</h2><p>{project.objective}</p></article>
+      <article data-reveal><span>03</span><h2>Resultado</h2><p>{project.outcome}</p></article>
+    </section>
+
+    <section class="case-study__gallery" aria-labelledby="project-gallery-title">
+      <header data-reveal>
+        <p class="eyebrow">Proceso / Imágenes</p>
+        <h2 id="project-gallery-title">Dentro del proyecto</h2>
+      </header>
+      <div>
+        {project.gallery.map((image, index) => (
+          <figure data-reveal style={`--reveal-delay: ${index * 80}ms`}>
+            <img src={`${basePath}${image.src.slice(1)}`} alt={image.alt} loading="lazy" decoding="async" width="1600" height="1000" />
+            <figcaption><span>0{index + 1}</span>{image.caption}</figcaption>
+          </figure>
+        ))}
+      </div>
+    </section>
+
+    <nav class="case-study__navigation" aria-label="Navegación entre proyectos" data-reveal>
+      <a href={`${basePath}proyectos/${previousProject.slug}`}><small>Anterior</small><strong>← {previousProject.title}</strong></a>
+      <a href={`${basePath}proyectos/${nextProject.slug}`}><small>Siguiente</small><strong>{nextProject.title} →</strong></a>
+    </nav>
   </article>
 </BaseLayout>

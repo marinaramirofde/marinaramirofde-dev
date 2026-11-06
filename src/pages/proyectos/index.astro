@@ -3,30 +3,40 @@ import BaseLayout from "../../layouts/BaseLayout.astro";
 import { getDictionary } from "../../i18n";
 import { portfolioConfig } from "../../config/portfolio.config";
 import { projects } from "../../data/projects";
-import { isSectionExampleSelected } from "../../config/section-library.config";
-import ProjectPerspectiveCarousel from "../../components/sections/examples/ProjectPerspectiveCarousel.astro";
 const t = getDictionary(portfolioConfig.defaultLocale);
 const basePath = import.meta.env.BASE_URL.endsWith("/") ? import.meta.env.BASE_URL : `${import.meta.env.BASE_URL}/`;
-const usePerspectiveCarousel = isSectionExampleSelected("projects", "projects-perspective-carousel");
 ---
 
 <BaseLayout title={`Proyectos · ${portfolioConfig.brandName}`}>
-  {usePerspectiveCarousel ? <ProjectPerspectiveCarousel /> : (
-  <article class="content-page content-page--wide">
-    <header class="content-page__hero" data-reveal>
+  <article class="projects-portfolio">
+    <header class="projects-portfolio__header" data-reveal>
       <p class="eyebrow" data-i18n="pages.selectedWork">{t.pages.selectedWork}</p>
-      <h1 data-i18n="projects.title">{t.projects.title}</h1><p data-i18n="projects.text">{t.projects.text}</p>
+      <h1 data-i18n="projects.title">{t.projects.title}</h1>
+      <p data-i18n="projects.text">{t.projects.text}</p>
     </header>
-    <div class="card-grid">
+
+    <div class="project-portfolio-grid" aria-label="Casos de estudio">
       {projects.map((project, index) => (
-        <article class={`project-card project-card--${project.accent}`} data-reveal style={`--reveal-delay: ${index * 80}ms`}>
-          <a class="project-card__media" href={`${basePath}proyectos/${project.slug}`} aria-label={project.title}>
-            <span class="project-card__code">{project.code}</span><span class="project-card__shape" aria-hidden="true"></span><span class="project-card__arrow" aria-hidden="true">↗</span>
-          </a>
-          <div class="project-card__body"><h2>{project.title}</h2><p data-i18n="pages.caseStudy">{t.pages.caseStudy}</p></div>
-        </article>
+        <a
+          class={`project-tile project-tile--${project.accent}`}
+          href={`${basePath}proyectos/${project.slug}`}
+          aria-label={`Ver caso de estudio: ${project.title}`}
+          data-reveal
+          style={`--reveal-delay: ${index * 65}ms; --project-image: url('${basePath}${project.coverImage.slice(1)}')`}
+        >
+          <span class="project-tile__image" aria-hidden="true"></span>
+          <span class="project-tile__index" aria-hidden="true">{project.code}</span>
+          <span class="project-tile__center">
+            <small>{project.category}</small>
+            <strong>{project.title}</strong>
+          </span>
+          <span class="project-tile__hover">
+            <span>{project.summary}</span>
+            <small>{project.stack}</small>
+            <b>Ver proyecto <i aria-hidden="true">↗</i></b>
+          </span>
+        </a>
       ))}
     </div>
   </article>
-  )}
 </BaseLayout>

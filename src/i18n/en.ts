@@ -27,7 +27,7 @@ export const en = {
   },
   projects: {
     eyebrow: "Selected work / 2024–2026", title: "Projects",
-    text: "An initial selection ready to grow with individual pages, filters and technical documentation.",
+    text: "Case studies across extended reality, health, research and training. Hover to discover each project and open it to explore the complete process.",
     cta: "View all projects", caseStudy: "Case study",
     meta: ["WebXR · Three.js · Health", "Unity · C# · Visualization", "XR · UX · Community"]
   },
