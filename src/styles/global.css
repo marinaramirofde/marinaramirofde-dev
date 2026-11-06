@@ -1917,14 +1917,14 @@ h2 { font-size:4.8rem; font-weight:700; line-height:.95; }
 }
 
 .nav-menu > .contact-icons {
+  gap: .42rem;
   margin-left: .18rem;
 }
 
-.nav-menu .contact-icon--linkedin {
+.nav-menu .contact-icon--linkedin,
+.nav-menu .contact-icon--instagram {
   align-items: center;
-  background: #0a66c2;
   border-radius: 9px !important;
-  box-shadow: 0 7px 18px rgb(10 102 194 / .25);
   color: #fff;
   display: inline-flex;
   font-family: Arial, sans-serif;
@@ -1937,8 +1937,37 @@ h2 { font-size:4.8rem; font-weight:700; line-height:.95; }
   width: 31px;
 }
 
+.nav-menu .contact-icon--linkedin {
+  background: #0a66c2;
+  box-shadow: 0 7px 18px rgb(10 102 194 / .25);
+}
+
+.nav-menu .contact-icon--instagram {
+  background: radial-gradient(circle at 31% 107%, #feda75 0 19%, #fa7e1e 31%, #d62976 52%, #962fbf 73%, #4f5bd5 100%);
+  box-shadow: 0 7px 18px rgb(214 41 118 / .25);
+}
+
+.nav-menu .contact-icon--instagram svg {
+  fill: none;
+  height: 20px;
+  stroke: #fff;
+  stroke-width: 1.8;
+  width: 20px;
+}
+
+.nav-menu .contact-icon--instagram .contact-icon__dot {
+  fill: #fff;
+  stroke: none;
+}
+
 .nav-menu .contact-icon--linkedin:hover {
   background: #084f96;
+  color: #fff;
+  transform: translateY(-1px);
+}
+
+.nav-menu .contact-icon--instagram:hover {
+  background: radial-gradient(circle at 31% 107%, #feda75 0 17%, #fa7e1e 29%, #d62976 50%, #962fbf 72%, #4051c8 100%);
   color: #fff;
   transform: translateY(-1px);
 }
@@ -2021,7 +2050,8 @@ h2 { font-size:4.8rem; font-weight:700; line-height:.95; }
 @media (prefers-reduced-motion: reduce) {
   .nav-dropdown__menu,
   .nav-dropdown__chevron,
-  .nav-menu .contact-icon--linkedin {
+  .nav-menu .contact-icon--linkedin,
+  .nav-menu .contact-icon--instagram {
     transition: none;
   }
 }

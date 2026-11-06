@@ -3,7 +3,7 @@ export const es = {
     title: "Marina Ramiro Fernández · Ingeniera Informática y Desarrolladora XR",
     description: "Portfolio profesional de Marina Ramiro Fernández, ingeniera informática especializada en XR, salud, investigación y visualización médica."
   },
-  nav: { home: "Inicio", about: "Sobre mí", projects: "Proyectos", research: "Investigación", events: "Eventos", talks: "Charlas", youtube: "YouTube", services: "Servicios", gallery: "Galería", recommendations: "Recomendados", faq: "FAQ", content: "Contenido", contact: "Contacto", community: "Comunidad", form: "Formulario", menu: "Abrir menú", close: "Cerrar menú", linkedin: "LinkedIn" },
+  nav: { home: "Inicio", about: "Sobre mí", projects: "Proyectos", research: "Investigación", events: "Eventos", talks: "Charlas", youtube: "YouTube", services: "Servicios", gallery: "Galería", recommendations: "Recomendados", faq: "FAQ", content: "Contenido", contact: "Contacto", community: "Comunidad", form: "Formulario", menu: "Abrir menú", close: "Cerrar menú", linkedin: "LinkedIn", instagram: "Instagram" },
   intro: { skip: "Saltar introducción", label: "Entrada XR al portfolio" },
   home: { eyebrow: "Explora / Portfolio", title: "Lo más destacado", text: "Una selección de mi perfil, proyectos, servicios, contenido y comunidad. Entra en cada área para descubrirla completa.", explore: "Ver sección", items: [["Sobre mí", "Trayectoria, especialización y forma de trabajar."], ["Proyectos", "Casos de estudio y experiencias XR seleccionadas."], ["Servicios", "Formas de colaboración, desarrollo y prototipado."], ["Contenido", "Vídeos, galería, eventos y recomendaciones."], ["Contacto", "Comunidad profesional y formulario de contacto."]] },
   hero: {
