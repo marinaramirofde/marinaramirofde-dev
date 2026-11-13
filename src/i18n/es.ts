@@ -52,8 +52,9 @@ export const es = {
     certificationsIntro: "Formación complementaria en metodologías de trabajo, colaboración remota y comunicación en el ámbito sanitario.",
     certificationFeatured: ["Scrum Foundation Professional Certificate (SFPC)", "Remote Work and Virtual Collaboration Certificate (RWVCPC)"],
     healthTraining: "Formación sanitaria",
+    healthTrainingHeadline: "Tecnología que entiende el contexto clínico.",
     healthTrainingIntro: "Formación continua para conectar tecnología, comunicación y práctica clínica.",
-    healthTrainingCta: "Explorar Formación EVES",
+    healthTrainingCta: "Formación EVES",
     courses: ["Comunicació en Ciències de la Salut", "Formació i sensibilització sobre l’ús segur i saludable de les TIC", "Estratègies i mesures per a treballar amb persones amb discapacitat intel·lectual", "Prevenció cardiovascular en la dona"],
     closing: "Esta base técnica y sanitaria se refleja en proyectos orientados a la práctica.",
     projectsCta: "Ver proyectos"

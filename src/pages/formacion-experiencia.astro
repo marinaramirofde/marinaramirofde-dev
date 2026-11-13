@@ -147,26 +147,28 @@ const courseCodes = ["12504402", "125095103", "125097103", "125096103"];
               </div>
             ))}
           </div>
+        </div>
 
-          <div class="health-training">
-            <div class="health-training__lead">
+        <div class="health-training" data-reveal>
+          <div class="health-training__lead">
+            <div>
               <p data-i18n="experience.healthTraining">{experience.healthTraining}</p>
-              <strong>EVES</strong>
-              <span data-i18n="experience.healthTrainingIntro">{experience.healthTrainingIntro}</span>
-              <a href="https://eves.san.gva.es/es/formacio/pla-de-formacio-eves" target="_blank" rel="noreferrer">
-                <span data-i18n="experience.healthTrainingCta">{experience.healthTrainingCta}</span>
-                <i aria-hidden="true">↗</i>
-              </a>
+              <h3 data-i18n="experience.healthTrainingHeadline">{experience.healthTrainingHeadline}</h3>
             </div>
-            <ol>
-              {experience.courses.map((course: string, index: number) => (
-                <li>
-                  <span>{courseCodes[index]}</span>
-                  <strong data-i18n={`experience.courses.${index}`}>{course}</strong>
-                </li>
-              ))}
-            </ol>
+            <span data-i18n="experience.healthTrainingIntro">{experience.healthTrainingIntro}</span>
+            <a href="https://eves.san.gva.es/es/formacio/pla-de-formacio-eves" target="_blank" rel="noreferrer">
+              <span data-i18n="experience.healthTrainingCta">{experience.healthTrainingCta}</span>
+              <i aria-hidden="true">↗</i>
+            </a>
           </div>
+          <ol>
+            {experience.courses.map((course: string, index: number) => (
+              <li>
+                <span>{courseCodes[index]}</span>
+                <strong data-i18n={`experience.courses.${index}`}>{course}</strong>
+              </li>
+            ))}
+          </ol>
         </div>
       </div>
     </section>
@@ -591,23 +593,37 @@ const courseCodes = ["12504402", "125095103", "125097103", "125096103"];
   }
 
   .health-training {
-    background: #eaf3f4;
-    border-radius: clamp(1.5rem, 3vw, 2.4rem);
-    display: grid;
-    gap: clamp(2rem, 5vw, 5rem);
-    grid-template-columns: minmax(190px, .6fr) minmax(0, 1.4fr);
-    margin-top: clamp(2.6rem, 4vw, 4rem);
+    background: #e6f1f2;
+    border-radius: clamp(1.5rem, 3vw, 2.6rem);
+    grid-column: 1 / -1;
+    isolation: isolate;
+    margin-top: clamp(3.2rem, 6vw, 6rem);
     overflow: hidden;
-    padding: clamp(1.6rem, 3.5vw, 3.2rem);
+    padding: clamp(2rem, 4.5vw, 4.5rem);
+    position: relative;
+  }
+
+  .health-training::before {
+    border: clamp(2.5rem, 6vw, 5rem) solid rgba(8, 120, 140, .07);
+    border-radius: 50%;
+    content: "";
+    height: clamp(11rem, 25vw, 24rem);
+    pointer-events: none;
+    position: absolute;
+    right: clamp(-8rem, -7vw, -3rem);
+    top: clamp(-10rem, -8vw, -4rem);
+    width: clamp(11rem, 25vw, 24rem);
+    z-index: -1;
   }
 
   .health-training__lead {
-    align-content: start;
+    align-items: end;
     display: grid;
-    gap: .8rem;
+    gap: clamp(1.5rem, 4vw, 4rem);
+    grid-template-columns: minmax(280px, 1.25fr) minmax(230px, .75fr) auto;
   }
 
-  .health-training__lead > p {
+  .health-training__lead > div > p {
     color: var(--trajectory-accent);
     font-size: .72rem;
     font-weight: 700;
@@ -616,19 +632,21 @@ const courseCodes = ["12504402", "125095103", "125097103", "125096103"];
     text-transform: uppercase;
   }
 
-  .health-training__lead > strong {
+  .health-training__lead h3 {
     color: #07181c;
     font-family: var(--font-heading);
-    font-size: clamp(3.4rem, 7vw, 6.2rem);
-    letter-spacing: -.07em;
-    line-height: .82;
+    font-size: clamp(2.1rem, 4.3vw, 4.7rem);
+    letter-spacing: -.055em;
+    line-height: .95;
+    margin: .7rem 0 0;
+    max-width: 13ch;
   }
 
   .health-training__lead > span {
-    color: #46575b;
-    font-size: .94rem;
-    line-height: 1.5;
-    max-width: 25rem;
+    color: #43565a;
+    font-size: clamp(.92rem, 1.3vw, 1.08rem);
+    line-height: 1.55;
+    max-width: 29rem;
   }
 
   .health-training__lead a {
@@ -639,10 +657,10 @@ const courseCodes = ["12504402", "125095103", "125097103", "125096103"];
     font-weight: 700;
     gap: .65rem;
     justify-self: start;
-    margin-top: .65rem;
     padding-block: .45rem;
     position: relative;
     text-decoration: none;
+    white-space: nowrap;
   }
 
   .health-training__lead a::after {
@@ -670,21 +688,50 @@ const courseCodes = ["12504402", "125095103", "125097103", "125096103"];
 
   .health-training ol {
     display: grid;
-    gap: clamp(1.4rem, 3vw, 2.5rem) clamp(1.6rem, 3vw, 3rem);
-    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: clamp(1.4rem, 3vw, 3rem);
+    grid-template-columns: repeat(4, minmax(0, 1fr));
     list-style: none;
-    margin: 0;
+    margin: clamp(3rem, 6vw, 5.5rem) 0 0;
     padding: 0;
+    position: relative;
+  }
+
+  .health-training ol::before {
+    background: rgba(7, 24, 28, .24);
+    content: "";
+    height: 1px;
+    left: 0;
+    position: absolute;
+    right: 0;
+    top: .4rem;
   }
 
   .health-training li {
     align-content: start;
-    border-top: 1px solid rgba(7, 24, 28, .22);
     display: grid;
-    gap: .7rem;
-    min-height: 116px;
+    gap: .85rem;
+    min-height: 112px;
     overflow-wrap: anywhere;
-    padding: 1rem 0 0;
+    padding: 2rem 0 0;
+    position: relative;
+  }
+
+  .health-training li::before {
+    background: var(--trajectory-accent);
+    border: 3px solid #e6f1f2;
+    border-radius: 50%;
+    box-shadow: 0 0 0 1px var(--trajectory-accent);
+    content: "";
+    height: .82rem;
+    left: 0;
+    position: absolute;
+    top: 0;
+    width: .82rem;
+  }
+
+  .health-training li:nth-child(even)::before {
+    background: var(--trajectory-warm);
+    box-shadow: 0 0 0 1px var(--trajectory-warm);
   }
 
   .health-training li > span {
@@ -696,10 +743,10 @@ const courseCodes = ["12504402", "125095103", "125097103", "125096103"];
 
   .health-training li > strong {
     color: #07181c;
-    font-size: clamp(.92rem, 1.3vw, 1.08rem);
+    font-size: clamp(.92rem, 1.25vw, 1.05rem);
     font-weight: 650;
     line-height: 1.38;
-    max-width: 26ch;
+    max-width: 24ch;
   }
 
   .trajectory-closing {
@@ -769,6 +816,15 @@ const courseCodes = ["12504402", "125095103", "125097103", "125096103"];
     .work-band__copy {
       max-width: 44rem;
     }
+
+    .health-training__lead {
+      align-items: start;
+      grid-template-columns: minmax(0, 1.15fr) minmax(230px, .85fr);
+    }
+
+    .health-training__lead a {
+      grid-column: 2;
+    }
   }
 
   @media (max-width: 720px) {
@@ -830,8 +886,30 @@ const courseCodes = ["12504402", "125095103", "125097103", "125096103"];
       grid-column: 1;
     }
 
-    .health-training {
+    .health-training__lead {
       grid-template-columns: 1fr;
+    }
+
+    .health-training__lead a {
+      grid-column: auto;
+    }
+
+    .health-training ol {
+      gap: 2rem;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .health-training ol::before {
+      display: none;
+    }
+
+    .health-training li {
+      border-top: 1px solid rgba(7, 24, 28, .22);
+      padding-top: 1.5rem;
+    }
+
+    .health-training li::before {
+      top: -.44rem;
     }
   }
 
@@ -871,12 +949,31 @@ const courseCodes = ["12504402", "125095103", "125097103", "125096103"];
     }
 
     .health-training ol {
+      gap: 0;
       grid-template-columns: 1fr;
+      margin-top: 2.5rem;
+      padding-left: .35rem;
     }
 
     .health-training li {
+      border-top: 0;
       min-height: auto;
-      padding-bottom: .4rem;
+      padding: 0 0 1.8rem 1.8rem;
+    }
+
+    .health-training li:not(:last-child)::after {
+      background: rgba(7, 24, 28, .2);
+      content: "";
+      height: calc(100% - .35rem);
+      left: .38rem;
+      position: absolute;
+      top: .75rem;
+      width: 1px;
+    }
+
+    .health-training li::before {
+      left: 0;
+      top: .15rem;
     }
 
     .trajectory-closing__inner {
