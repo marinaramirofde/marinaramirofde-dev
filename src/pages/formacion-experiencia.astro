@@ -6,6 +6,7 @@ import { portfolioConfig } from "../config/portfolio.config";
 const t = getDictionary(portfolioConfig.defaultLocale);
 const experience = t.experience;
 const basePath = import.meta.env.BASE_URL.endsWith("/") ? import.meta.env.BASE_URL : `${import.meta.env.BASE_URL}/`;
+const courseCodes = ["12504402", "125095103", "125097103", "125096103"];
 ---
 
 <BaseLayout
@@ -148,10 +149,21 @@ const basePath = import.meta.env.BASE_URL.endsWith("/") ? import.meta.env.BASE_U
           </div>
 
           <div class="health-training">
-            <p data-i18n="experience.healthTraining">{experience.healthTraining}</p>
+            <div class="health-training__lead">
+              <p data-i18n="experience.healthTraining">{experience.healthTraining}</p>
+              <strong>EVES</strong>
+              <span data-i18n="experience.healthTrainingIntro">{experience.healthTrainingIntro}</span>
+              <a href="https://eves.san.gva.es/es/formacio/pla-de-formacio-eves" target="_blank" rel="noreferrer">
+                <span data-i18n="experience.healthTrainingCta">{experience.healthTrainingCta}</span>
+                <i aria-hidden="true">↗</i>
+              </a>
+            </div>
             <ol>
               {experience.courses.map((course: string, index: number) => (
-                <li data-i18n={`experience.courses.${index}`}>{course}</li>
+                <li>
+                  <span>{courseCodes[index]}</span>
+                  <strong data-i18n={`experience.courses.${index}`}>{course}</strong>
+                </li>
               ))}
             </ol>
           </div>
@@ -579,24 +591,86 @@ const basePath = import.meta.env.BASE_URL.endsWith("/") ? import.meta.env.BASE_U
   }
 
   .health-training {
+    background: #eaf3f4;
+    border-radius: clamp(1.5rem, 3vw, 2.4rem);
     display: grid;
-    gap: clamp(1.5rem, 3vw, 3rem);
-    grid-template-columns: minmax(150px, .32fr) minmax(0, 1fr);
-    margin-top: clamp(2.2rem, 3.5vw, 3rem);
+    gap: clamp(2rem, 5vw, 5rem);
+    grid-template-columns: minmax(190px, .6fr) minmax(0, 1.4fr);
+    margin-top: clamp(2.6rem, 4vw, 4rem);
+    overflow: hidden;
+    padding: clamp(1.6rem, 3.5vw, 3.2rem);
   }
 
-  .health-training > p {
+  .health-training__lead {
+    align-content: start;
+    display: grid;
+    gap: .8rem;
+  }
+
+  .health-training__lead > p {
     color: var(--trajectory-accent);
-    font-size: .78rem;
+    font-size: .72rem;
     font-weight: 700;
-    letter-spacing: .1em;
+    letter-spacing: .08em;
     margin: 0;
     text-transform: uppercase;
   }
 
+  .health-training__lead > strong {
+    color: #07181c;
+    font-family: var(--font-heading);
+    font-size: clamp(3.4rem, 7vw, 6.2rem);
+    letter-spacing: -.07em;
+    line-height: .82;
+  }
+
+  .health-training__lead > span {
+    color: #46575b;
+    font-size: .94rem;
+    line-height: 1.5;
+    max-width: 25rem;
+  }
+
+  .health-training__lead a {
+    align-items: center;
+    color: #07181c;
+    display: inline-flex;
+    font-size: .9rem;
+    font-weight: 700;
+    gap: .65rem;
+    justify-self: start;
+    margin-top: .65rem;
+    padding-block: .45rem;
+    position: relative;
+    text-decoration: none;
+  }
+
+  .health-training__lead a::after {
+    background: currentColor;
+    bottom: 0;
+    content: "";
+    height: 1px;
+    left: 0;
+    position: absolute;
+    right: 0;
+    transform: scaleX(.28);
+    transform-origin: left;
+    transition: transform 180ms ease;
+  }
+
+  .health-training__lead a:hover::after,
+  .health-training__lead a:focus-visible::after {
+    transform: scaleX(1);
+  }
+
+  .health-training__lead a:focus-visible {
+    outline: 2px solid var(--trajectory-accent);
+    outline-offset: 4px;
+  }
+
   .health-training ol {
     display: grid;
-    gap: 1px;
+    gap: clamp(1.4rem, 3vw, 2.5rem) clamp(1.6rem, 3vw, 3rem);
     grid-template-columns: repeat(2, minmax(0, 1fr));
     list-style: none;
     margin: 0;
@@ -604,13 +678,28 @@ const basePath = import.meta.env.BASE_URL.endsWith("/") ? import.meta.env.BASE_U
   }
 
   .health-training li {
-    background: #f1f3f4;
-    font-size: .86rem;
-    font-weight: 600;
-    line-height: 1.5;
-    min-height: 104px;
+    align-content: start;
+    border-top: 1px solid rgba(7, 24, 28, .22);
+    display: grid;
+    gap: .7rem;
+    min-height: 116px;
     overflow-wrap: anywhere;
-    padding: 1rem;
+    padding: 1rem 0 0;
+  }
+
+  .health-training li > span {
+    color: var(--trajectory-accent);
+    font-size: .68rem;
+    font-weight: 700;
+    letter-spacing: .08em;
+  }
+
+  .health-training li > strong {
+    color: #07181c;
+    font-size: clamp(.92rem, 1.3vw, 1.08rem);
+    font-weight: 650;
+    line-height: 1.38;
+    max-width: 26ch;
   }
 
   .trajectory-closing {
@@ -786,7 +875,8 @@ const basePath = import.meta.env.BASE_URL.endsWith("/") ? import.meta.env.BASE_U
     }
 
     .health-training li {
-      min-height: 108px;
+      min-height: auto;
+      padding-bottom: .4rem;
     }
 
     .trajectory-closing__inner {

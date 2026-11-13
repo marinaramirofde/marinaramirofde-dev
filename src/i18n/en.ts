@@ -51,8 +51,10 @@ export const en = {
     certificationsTitle: "Certifications",
     certificationsIntro: "Additional training in work methodologies, remote collaboration and communication in healthcare.",
     certificationFeatured: ["Scrum Foundation Professional Certificate (SFPC)", "Remote Work and Virtual Collaboration Certificate (RWVCPC)"],
-    healthTraining: "Healthcare training · EVES",
-    courses: ["12504402 · Communication in Health Sciences", "125095103 · Training and awareness on the safe and healthy use of ICT", "125097103 · Strategies and measures for working with people with intellectual disabilities", "125096103 · Cardiovascular prevention in women"],
+    healthTraining: "Healthcare training",
+    healthTrainingIntro: "Continuous learning connecting technology, communication and clinical practice.",
+    healthTrainingCta: "Explore EVES training",
+    courses: ["Communication in Health Sciences", "Training and awareness on the safe and healthy use of ICT", "Strategies and measures for working with people with intellectual disabilities", "Cardiovascular prevention in women"],
     closing: "This technical and healthcare foundation comes together in projects designed for real-world practice.",
     projectsCta: "View projects"
   },
