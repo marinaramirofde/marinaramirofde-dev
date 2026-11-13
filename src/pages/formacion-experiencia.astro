@@ -1,0 +1,828 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import { getDictionary } from "../i18n";
+import { portfolioConfig } from "../config/portfolio.config";
+
+const t = getDictionary(portfolioConfig.defaultLocale);
+const experience = t.experience;
+const basePath = import.meta.env.BASE_URL.endsWith("/") ? import.meta.env.BASE_URL : `${import.meta.env.BASE_URL}/`;
+---
+
+<BaseLayout
+  title={`Formación y experiencia · ${portfolioConfig.brandName}`}
+  description="Formación, experiencia profesional y certificaciones de Marina Ramiro Fernández en ingeniería de software, XR y salud."
+>
+  <article class="trajectory-page" id="trajectory">
+    <section class="trajectory-hero" aria-labelledby="trajectory-title">
+      <div class="trajectory-shell">
+        <p class="trajectory-kicker" data-i18n="experience.eyebrow">{experience.eyebrow}</p>
+        <div class="trajectory-hero__heading">
+          <h1 id="trajectory-title">
+            <span data-i18n="experience.titleStart">{experience.titleStart}</span>
+            <em>&amp;</em>
+            <span data-i18n="experience.titleEnd">{experience.titleEnd}</span>
+          </h1>
+          <p data-i18n="experience.intro">{experience.intro}</p>
+        </div>
+        <div class="trajectory-hero__meta" aria-label="Áreas de especialización">
+          <span data-i18n="experience.focus">{experience.focus}</span>
+          <span data-i18n="experience.location">{experience.location}</span>
+        </div>
+
+        <div class="trajectory-collage" data-reveal>
+          <figure class="trajectory-collage__main">
+            <img
+              src={`${basePath}experience/hololens-gesture.webp`}
+              width="1600"
+              height="1200"
+              alt="Marina utilizando HoloLens 2 y realizando un gesto de interacción espacial"
+              fetchpriority="high"
+            />
+          </figure>
+          <figure class="trajectory-collage__side">
+            <img
+              src={`${basePath}experience/clinical-session.webp`}
+              width="301"
+              height="381"
+              alt="Marina preparando un visor de realidad virtual durante una sesión clínica"
+              loading="eager"
+            />
+          </figure>
+          <p class="trajectory-collage__caption">
+            <span data-i18n="experience.galleryLabel">{experience.galleryLabel}</span>
+            <small data-i18n="experience.galleryText">{experience.galleryText}</small>
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section class="trajectory-section trajectory-education" aria-labelledby="education-title">
+      <div class="trajectory-shell trajectory-section__grid">
+        <header class="trajectory-section__index" data-reveal>
+          <span>01</span>
+          <p data-i18n="experience.educationLabel">{experience.educationLabel}</p>
+        </header>
+        <div class="trajectory-section__content" data-reveal>
+          <div class="education-heading">
+            <div>
+              <p class="trajectory-overline" data-i18n="experience.educationInstitution">{experience.educationInstitution}</p>
+              <h2 id="education-title" data-i18n="experience.educationTitle">{experience.educationTitle}</h2>
+            </div>
+            <strong data-i18n="experience.educationYear">{experience.educationYear}</strong>
+          </div>
+          <ul class="trajectory-points">
+            {experience.educationItems.map((item: string, index: number) => (
+              <li data-i18n={`experience.educationItems.${index}`}>{item}</li>
+            ))}
+          </ul>
+          <a class="thesis-link" href={`${basePath}proyectos/vr-ehabilitar`}>
+            <span>
+              <small data-i18n="experience.thesisLabel">{experience.thesisLabel}</small>
+              <strong data-i18n="experience.thesis">{experience.thesis}</strong>
+            </span>
+            <i aria-hidden="true">↗</i>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <section class="work-band" aria-labelledby="work-title">
+      <div class="trajectory-shell">
+        <header class="work-band__header" data-reveal>
+          <div class="trajectory-section__index trajectory-section__index--dark">
+            <span>02</span>
+            <p data-i18n="experience.workLabel">{experience.workLabel}</p>
+          </div>
+          <div>
+            <p class="trajectory-overline trajectory-overline--dark" data-i18n="experience.workCompany">{experience.workCompany}</p>
+            <h2 id="work-title" data-i18n="experience.workTitle">{experience.workTitle}</h2>
+          </div>
+          <strong data-i18n="experience.workPeriod">{experience.workPeriod}</strong>
+        </header>
+
+        <div class="work-band__body">
+          <div class="work-band__visual" data-reveal>
+            <img
+              class="work-band__visual-main"
+              src={`${basePath}experience/workstation.webp`}
+              width="1800"
+              height="1350"
+              alt="Marina desarrollando una aplicación de visualización médica en su puesto de trabajo"
+              loading="lazy"
+            />
+            <img
+              class="work-band__visual-inset"
+              src={`${basePath}experience/hololens-interaction.webp`}
+              width="1800"
+              height="1350"
+              alt="Marina probando una interacción de realidad mixta con HoloLens 2"
+              loading="lazy"
+            />
+          </div>
+          <div class="work-band__copy" data-reveal>
+            <p data-i18n="experience.workIntro">{experience.workIntro}</p>
+            <ol>
+              {experience.workItems.map((item: string, index: number) => (
+                <li>
+                  <span>{String(index + 1).padStart(2, "0")}</span>
+                  <strong data-i18n={`experience.workItems.${index}`}>{item}</strong>
+                </li>
+              ))}
+            </ol>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="trajectory-section certifications" aria-labelledby="certifications-title">
+      <div class="trajectory-shell trajectory-section__grid">
+        <header class="trajectory-section__index" data-reveal>
+          <span>03</span>
+          <p data-i18n="experience.certificationsLabel">{experience.certificationsLabel}</p>
+        </header>
+        <div class="trajectory-section__content" data-reveal>
+          <div class="certifications__intro">
+            <h2 id="certifications-title" data-i18n="experience.certificationsTitle">{experience.certificationsTitle}</h2>
+            <p data-i18n="experience.certificationsIntro">{experience.certificationsIntro}</p>
+          </div>
+
+          <div class="certifications__featured">
+            {experience.certificationFeatured.map((item: string, index: number) => (
+              <div>
+                <span>{String(index + 1).padStart(2, "0")}</span>
+                <strong data-i18n={`experience.certificationFeatured.${index}`}>{item}</strong>
+              </div>
+            ))}
+          </div>
+
+          <div class="health-training">
+            <p data-i18n="experience.healthTraining">{experience.healthTraining}</p>
+            <ol>
+              {experience.courses.map((course: string, index: number) => (
+                <li data-i18n={`experience.courses.${index}`}>{course}</li>
+              ))}
+            </ol>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="trajectory-closing" aria-label="Explorar proyectos">
+      <div class="trajectory-shell trajectory-closing__inner" data-reveal>
+        <p data-i18n="experience.closing">{experience.closing}</p>
+        <a href={`${basePath}proyectos`}>
+          <span data-i18n="experience.projectsCta">{experience.projectsCta}</span>
+          <i aria-hidden="true">↗</i>
+        </a>
+      </div>
+    </section>
+  </article>
+</BaseLayout>
+
+<style>
+  .trajectory-page {
+    --trajectory-accent: #08788c;
+    --trajectory-warm: #f2a800;
+    --trajectory-dark: #080b0f;
+    overflow: clip;
+  }
+
+  .trajectory-shell {
+    margin-inline: auto;
+    max-width: 1280px;
+    padding-inline: clamp(1rem, 3.2vw, 2.5rem);
+  }
+
+  .trajectory-hero {
+    padding: clamp(9rem, 14vw, 12rem) 0 clamp(5rem, 9vw, 8rem);
+  }
+
+  .trajectory-kicker,
+  .trajectory-overline,
+  .trajectory-section__index p,
+  .trajectory-hero__meta {
+    font-size: .75rem;
+    font-weight: 700;
+    letter-spacing: .14em;
+    text-transform: uppercase;
+  }
+
+  .trajectory-kicker {
+    color: var(--trajectory-accent);
+    margin: 0 0 clamp(1.6rem, 3vw, 2.8rem);
+  }
+
+  .trajectory-hero__heading {
+    align-items: end;
+    display: grid;
+    gap: clamp(2rem, 5vw, 5rem);
+    grid-template-columns: minmax(0, 1.45fr) minmax(280px, .55fr);
+  }
+
+  .trajectory-hero h1 {
+    font-family: var(--font-heading);
+    font-size: clamp(4.15rem, 10.2vw, 9.5rem);
+    font-weight: 800;
+    letter-spacing: -.075em;
+    line-height: .8;
+    margin: 0;
+    max-width: 10ch;
+  }
+
+  .trajectory-hero h1 span,
+  .trajectory-hero h1 em {
+    display: block;
+  }
+
+  .trajectory-hero h1 em {
+    color: var(--trajectory-accent);
+    font-family: var(--font-editorial);
+    font-size: .72em;
+    font-weight: 400;
+    letter-spacing: 0;
+    margin-block: .08em -.02em;
+  }
+
+  .trajectory-hero__heading > p {
+    color: #3e4549;
+    font-size: clamp(1.05rem, 1.55vw, 1.3rem);
+    line-height: 1.55;
+    margin: 0 0 .45rem;
+    max-width: 33rem;
+  }
+
+  .trajectory-hero__meta {
+    border-top: 1px solid #cfd4d6;
+    display: flex;
+    justify-content: space-between;
+    margin-top: clamp(2.6rem, 5vw, 4.8rem);
+    padding-top: .8rem;
+  }
+
+  .trajectory-collage {
+    display: grid;
+    gap: clamp(.65rem, 1.5vw, 1.25rem);
+    grid-template-columns: minmax(0, 1.65fr) minmax(230px, .55fr);
+    margin-top: clamp(1.7rem, 3vw, 2.7rem);
+    position: relative;
+  }
+
+  .trajectory-collage figure {
+    background: #e9edef;
+    margin: 0;
+    overflow: hidden;
+  }
+
+  .trajectory-collage__main {
+    aspect-ratio: 1.75;
+    border-radius: 2rem 2rem .5rem 2rem;
+  }
+
+  .trajectory-collage__side {
+    aspect-ratio: .78;
+    border-radius: .5rem 2rem 2rem .5rem;
+  }
+
+  .trajectory-collage img {
+    height: 100%;
+    object-fit: cover;
+    width: 100%;
+  }
+
+  .trajectory-collage__main img {
+    object-position: 50% 43%;
+  }
+
+  .trajectory-collage__caption {
+    background: rgb(255 255 255 / .92);
+    border: 1px solid rgb(8 11 15 / .12);
+    border-radius: 1.1rem;
+    bottom: clamp(1rem, 2vw, 1.6rem);
+    display: grid;
+    gap: .25rem;
+    left: clamp(1rem, 2vw, 1.6rem);
+    margin: 0;
+    max-width: 22rem;
+    padding: .95rem 1.1rem;
+    position: absolute;
+  }
+
+  .trajectory-collage__caption span {
+    font-size: .85rem;
+    font-weight: 700;
+  }
+
+  .trajectory-collage__caption small {
+    color: #596064;
+    font-size: .74rem;
+    line-height: 1.45;
+  }
+
+  .trajectory-section {
+    padding: clamp(5rem, 9vw, 9rem) 0;
+  }
+
+  .trajectory-section__grid {
+    display: grid;
+    gap: clamp(2rem, 6vw, 6.5rem);
+    grid-template-columns: minmax(150px, .32fr) minmax(0, 1fr);
+  }
+
+  .trajectory-section__index {
+    align-self: start;
+    border-top: 1px solid #afb5b8;
+    display: grid;
+    grid-template-columns: 3rem 1fr;
+    padding-top: .8rem;
+  }
+
+  .trajectory-section__index span {
+    color: var(--trajectory-accent);
+    font-size: .72rem;
+    font-weight: 700;
+  }
+
+  .trajectory-section__index p {
+    margin: 0;
+  }
+
+  .education-heading {
+    align-items: start;
+    display: grid;
+    gap: 2rem;
+    grid-template-columns: minmax(0, 1fr) auto;
+  }
+
+  .trajectory-overline {
+    color: var(--trajectory-accent);
+    margin: 0 0 .9rem;
+  }
+
+  .trajectory-section h2,
+  .work-band h2 {
+    font-family: var(--font-heading);
+    font-size: clamp(2.7rem, 5.6vw, 5.8rem);
+    font-weight: 800;
+    letter-spacing: -.055em;
+    line-height: .95;
+    margin: 0;
+  }
+
+  .education-heading > strong {
+    color: #9ba1a4;
+    font-family: var(--font-editorial);
+    font-size: clamp(2.1rem, 4vw, 4rem);
+    font-style: italic;
+    font-weight: 400;
+    line-height: 1;
+  }
+
+  .trajectory-points {
+    border-top: 1px solid #d4d8da;
+    list-style: none;
+    margin: clamp(2.5rem, 5vw, 4.5rem) 0 0;
+    padding: 0;
+  }
+
+  .trajectory-points li {
+    border-bottom: 1px solid #d4d8da;
+    font-size: clamp(1rem, 1.6vw, 1.28rem);
+    font-weight: 500;
+    padding: 1.15rem 0;
+  }
+
+  .trajectory-points li::before {
+    color: var(--trajectory-warm);
+    content: "→";
+    display: inline-block;
+    margin-right: .8rem;
+  }
+
+  .thesis-link {
+    align-items: center;
+    background: #eef4f5;
+    border-radius: 1.25rem;
+    display: flex;
+    justify-content: space-between;
+    margin-top: 1.6rem;
+    min-height: 88px;
+    padding: 1rem 1.25rem;
+    text-decoration: none;
+    transition: background-color 180ms ease, transform 180ms ease;
+  }
+
+  .thesis-link:hover {
+    background: #dcebee;
+    transform: translateY(-2px);
+  }
+
+  .thesis-link span {
+    display: grid;
+    gap: .25rem;
+  }
+
+  .thesis-link small {
+    color: #5d686c;
+    font-size: .72rem;
+    letter-spacing: .08em;
+    text-transform: uppercase;
+  }
+
+  .thesis-link strong {
+    color: #065c6c;
+    font-size: clamp(.95rem, 1.55vw, 1.18rem);
+    line-height: 1.35;
+  }
+
+  .thesis-link i,
+  .trajectory-closing a i {
+    font-size: 1.4rem;
+    font-style: normal;
+  }
+
+  .work-band {
+    background: var(--trajectory-dark);
+    color: #fff;
+    padding: clamp(5rem, 10vw, 9rem) 0;
+  }
+
+  .work-band__header {
+    align-items: end;
+    display: grid;
+    gap: clamp(2rem, 5vw, 5.5rem);
+    grid-template-columns: minmax(150px, .32fr) minmax(0, 1fr) auto;
+  }
+
+  .trajectory-section__index--dark {
+    border-top-color: rgb(255 255 255 / .3);
+  }
+
+  .trajectory-section__index--dark p {
+    color: #fff;
+  }
+
+  .trajectory-overline--dark {
+    color: #59c3d5;
+  }
+
+  .work-band__header > strong {
+    color: #aab3b8;
+    font-family: var(--font-editorial);
+    font-size: clamp(1.8rem, 3vw, 3rem);
+    font-style: italic;
+    font-weight: 400;
+  }
+
+  .work-band__body {
+    align-items: start;
+    display: grid;
+    gap: clamp(3rem, 6vw, 6rem);
+    grid-template-columns: minmax(0, 1.15fr) minmax(300px, .7fr);
+    margin-top: clamp(3.5rem, 7vw, 6.5rem);
+  }
+
+  .work-band__visual {
+    padding: 0 clamp(2rem, 5vw, 5rem) clamp(2.6rem, 5vw, 5rem) 0;
+    position: relative;
+  }
+
+  .work-band__visual-main {
+    aspect-ratio: 1.33;
+    border-radius: 1.8rem .45rem 1.8rem 1.8rem;
+    display: block;
+    height: auto;
+    object-fit: cover;
+    width: 100%;
+  }
+
+  .work-band__visual-inset {
+    aspect-ratio: 1.15;
+    border: .45rem solid var(--trajectory-dark);
+    border-radius: 1.25rem;
+    bottom: 0;
+    height: auto;
+    object-fit: cover;
+    position: absolute;
+    right: 0;
+    width: clamp(180px, 31%, 290px);
+  }
+
+  .work-band__copy > p {
+    color: #c7d0d4;
+    font-size: clamp(1.05rem, 1.5vw, 1.25rem);
+    line-height: 1.62;
+    margin: 0;
+  }
+
+  .work-band__copy ol {
+    border-top: 1px solid rgb(255 255 255 / .24);
+    list-style: none;
+    margin: clamp(2rem, 4vw, 3.6rem) 0 0;
+    padding: 0;
+  }
+
+  .work-band__copy li {
+    align-items: baseline;
+    border-bottom: 1px solid rgb(255 255 255 / .18);
+    display: grid;
+    gap: 1rem;
+    grid-template-columns: 2rem 1fr;
+    padding: 1rem 0;
+  }
+
+  .work-band__copy li span {
+    color: #59c3d5;
+    font-size: .7rem;
+  }
+
+  .work-band__copy li strong {
+    font-size: .95rem;
+    font-weight: 500;
+    line-height: 1.45;
+  }
+
+  .certifications__intro {
+    align-items: end;
+    display: grid;
+    gap: 2rem;
+    grid-template-columns: minmax(0, 1fr) minmax(260px, .55fr);
+  }
+
+  .certifications__intro > p {
+    color: #51595d;
+    font-size: 1rem;
+    line-height: 1.6;
+    margin: 0;
+  }
+
+  .certifications__featured {
+    border-top: 1px solid #aeb4b7;
+    margin-top: clamp(2.8rem, 5vw, 4.8rem);
+  }
+
+  .certifications__featured > div {
+    align-items: center;
+    border-bottom: 1px solid #d0d5d7;
+    display: grid;
+    gap: 1.2rem;
+    grid-template-columns: 3rem 1fr;
+    min-height: 96px;
+    padding: 1.1rem 0;
+  }
+
+  .certifications__featured span {
+    color: var(--trajectory-accent);
+    font-size: .72rem;
+    font-weight: 700;
+  }
+
+  .certifications__featured strong {
+    font-size: clamp(1rem, 1.8vw, 1.35rem);
+    line-height: 1.35;
+  }
+
+  .health-training {
+    display: grid;
+    gap: clamp(2rem, 5vw, 5rem);
+    grid-template-columns: minmax(150px, .32fr) minmax(0, 1fr);
+    margin-top: clamp(3rem, 6vw, 5rem);
+  }
+
+  .health-training > p {
+    color: var(--trajectory-accent);
+    font-size: .78rem;
+    font-weight: 700;
+    letter-spacing: .1em;
+    margin: 0;
+    text-transform: uppercase;
+  }
+
+  .health-training ol {
+    display: grid;
+    gap: 1px;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  .health-training li {
+    background: #f1f3f4;
+    font-size: .86rem;
+    font-weight: 600;
+    line-height: 1.5;
+    min-height: 138px;
+    padding: 1.25rem;
+  }
+
+  .trajectory-closing {
+    padding: 0 0 clamp(5rem, 10vw, 9rem);
+  }
+
+  .trajectory-closing__inner {
+    align-items: center;
+    border-top: 1px solid #b5bbbd;
+    display: flex;
+    gap: 2rem;
+    justify-content: space-between;
+    padding-top: clamp(2rem, 4vw, 3.5rem);
+  }
+
+  .trajectory-closing p {
+    font-family: var(--font-heading);
+    font-size: clamp(1.8rem, 4vw, 4rem);
+    font-weight: 700;
+    letter-spacing: -.045em;
+    line-height: 1.05;
+    margin: 0;
+    max-width: 17ch;
+  }
+
+  .trajectory-closing a {
+    align-items: center;
+    background: var(--trajectory-dark);
+    border-radius: 999px;
+    color: #fff;
+    display: inline-flex;
+    font-size: .9rem;
+    font-weight: 700;
+    gap: 1.3rem;
+    justify-content: center;
+    min-height: 52px;
+    min-width: 180px;
+    padding: .75rem 1.2rem;
+    text-decoration: none;
+    transition: background-color 180ms ease, transform 180ms ease;
+  }
+
+  .trajectory-closing a:hover {
+    background: var(--trajectory-accent);
+    transform: translateY(-2px);
+  }
+
+  @media (max-width: 980px) {
+    .trajectory-hero__heading,
+    .work-band__body,
+    .certifications__intro {
+      grid-template-columns: 1fr;
+    }
+
+    .trajectory-hero h1 {
+      max-width: 9ch;
+    }
+
+    .trajectory-hero__heading > p {
+      max-width: 42rem;
+    }
+
+    .work-band__header {
+      align-items: start;
+      grid-template-columns: minmax(140px, .4fr) minmax(0, 1fr);
+    }
+
+    .work-band__header > strong {
+      grid-column: 2;
+    }
+
+    .work-band__copy {
+      max-width: 44rem;
+    }
+  }
+
+  @media (max-width: 720px) {
+    .trajectory-hero {
+      padding-top: 8rem;
+    }
+
+    .trajectory-hero h1 {
+      font-size: clamp(3.55rem, 17vw, 6rem);
+      letter-spacing: -.065em;
+    }
+
+    .trajectory-hero__meta {
+      align-items: flex-start;
+      flex-direction: column;
+      gap: .35rem;
+    }
+
+    .trajectory-collage {
+      grid-template-columns: minmax(0, 1fr) minmax(105px, .36fr);
+    }
+
+    .trajectory-collage__main {
+      aspect-ratio: 1.15;
+      border-radius: 1.4rem .35rem .35rem 1.4rem;
+    }
+
+    .trajectory-collage__side {
+      border-radius: .35rem 1.4rem 1.4rem .35rem;
+    }
+
+    .trajectory-collage__caption {
+      display: none;
+    }
+
+    .trajectory-section__grid,
+    .work-band__header {
+      grid-template-columns: 1fr;
+    }
+
+    .trajectory-section__index {
+      grid-template-columns: 3rem 1fr;
+    }
+
+    .education-heading {
+      grid-template-columns: 1fr;
+    }
+
+    .education-heading > strong {
+      grid-row: 1;
+    }
+
+    .work-band__header > strong {
+      grid-column: 1;
+    }
+
+    .health-training {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  @media (max-width: 520px) {
+    .trajectory-shell {
+      padding-inline: .8rem;
+    }
+
+    .trajectory-hero h1 {
+      font-size: clamp(3.15rem, 18vw, 5rem);
+    }
+
+    .trajectory-collage {
+      gap: .4rem;
+      grid-template-columns: 1fr;
+    }
+
+    .trajectory-collage__main {
+      aspect-ratio: .94;
+      border-radius: 1.25rem 1.25rem .3rem .3rem;
+    }
+
+    .trajectory-collage__main img {
+      object-position: 52% center;
+    }
+
+    .trajectory-collage__side {
+      aspect-ratio: 2.2;
+      border-radius: .3rem .3rem 1.25rem 1.25rem;
+    }
+
+    .trajectory-collage__side img {
+      object-position: 50% 35%;
+    }
+
+    .work-band__visual {
+      padding: 0 0 clamp(4rem, 18vw, 5.6rem);
+    }
+
+    .work-band__visual-main {
+      aspect-ratio: .95;
+      border-radius: 1.3rem;
+    }
+
+    .work-band__visual-inset {
+      border-width: .3rem;
+      bottom: 0;
+      right: .5rem;
+      width: 47%;
+    }
+
+    .health-training ol {
+      grid-template-columns: 1fr;
+    }
+
+    .health-training li {
+      min-height: 108px;
+    }
+
+    .trajectory-closing__inner {
+      align-items: flex-start;
+      flex-direction: column;
+    }
+
+    .trajectory-closing a {
+      width: 100%;
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .thesis-link,
+    .trajectory-closing a {
+      transition: none;
+    }
+
+    .thesis-link:hover,
+    .trajectory-closing a:hover {
+      transform: none;
+    }
+  }
+</style>
