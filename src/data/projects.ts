@@ -92,9 +92,9 @@ export const projects: ProjectEntry[] = [
     externalUrl: "https://artemisapro.com/",
     gallery: [
       {
-        src: "/projects/artemisa/concept-clinical-use.png",
-        alt: "Escena conceptual de un profesional clínico explorando un modelo cerebral en realidad aumentada",
-        caption: "Contexto de uso conceptual · Imagen temporal generada con IA"
+        src: "/projects/artemisa/hololens-2-marina.png",
+        alt: "Marina Ramiro utilizando HoloLens 2 para interactuar con un modelo cerebral holográfico",
+        caption: "Interacción con modelo cerebral mediante HoloLens 2"
       },
       {
         src: "/projects/artemisa/cover.png",
@@ -107,9 +107,9 @@ export const projects: ProjectEntry[] = [
         caption: "Interfaz espacial conceptual · Imagen temporal generada con IA"
       },
       {
-        src: "/projects/artemisa/concept-collaboration.png",
-        alt: "Escena conceptual de dos profesionales revisando un modelo cerebral holográfico",
-        caption: "Planificación colaborativa conceptual · Imagen temporal generada con IA"
+        src: "/projects/artemisa/concept-headset.png",
+        alt: "Visor de realidad mixta junto a un modelo cerebral holográfico en un entorno de imagen médica",
+        caption: "Visualización espacial conceptual · Imagen temporal generada con IA"
       }
     ]
   }
