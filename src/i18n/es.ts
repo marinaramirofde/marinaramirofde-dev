@@ -87,6 +87,20 @@ export const es = {
     ],
     closing: "Cada evento es una oportunidad para compartir lo aprendido y convertir la tecnología en conversación.",
     contact: "Proponer una colaboración",
+    article: {
+      back: "Volver a todos los eventos",
+      story: "Crónica del evento",
+      about: "Sobre este encuentro",
+      body: "Esta página recoge mi participación y el contexto general del evento. La crónica se ampliará con aprendizajes, fotografías y enlaces seleccionados cuando esté disponible la documentación completa.",
+      noteTitle: "Contenido en preparación",
+      note: "La estructura de la entrada ya está lista para incorporar el relato y los materiales reales del evento sin alterar el diseño.",
+      details: "Datos del evento",
+      period: "Periodo",
+      format: "Formato",
+      formatValue: "Encuentro profesional",
+      previous: "Evento anterior",
+      next: "Siguiente evento"
+    },
     year: "2026", first: "Eventos de XR, salud e innovación", upcoming: "Próximamente",
     archive: "Archivo", second: "Encuentros profesionales y comunidad", explore: "Explorar"
   },

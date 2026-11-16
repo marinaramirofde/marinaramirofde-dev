@@ -87,6 +87,20 @@ export const en = {
     ],
     closing: "Every event is a chance to share what we learn and turn technology into conversation.",
     contact: "Propose a collaboration",
+    article: {
+      back: "Back to all events",
+      story: "Event story",
+      about: "About this encounter",
+      body: "This page brings together my participation and the general context of the event. The story will grow with selected insights, photographs and links once the complete documentation is available.",
+      noteTitle: "Content in progress",
+      note: "The article structure is ready for the real story and event materials without changing the design.",
+      details: "Event details",
+      period: "Period",
+      format: "Format",
+      formatValue: "Professional gathering",
+      previous: "Previous event",
+      next: "Next event"
+    },
     year: "2026", first: "XR, health and innovation events", upcoming: "Upcoming",
     archive: "Archive", second: "Professional meetings and community", explore: "Explore"
   },

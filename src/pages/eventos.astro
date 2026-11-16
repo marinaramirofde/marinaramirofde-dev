@@ -2,22 +2,15 @@
 import BaseLayout from "../layouts/BaseLayout.astro";
 import { getDictionary } from "../i18n";
 import { portfolioConfig } from "../config/portfolio.config";
+import { eventProfiles } from "../data/events";
 
 const t = getDictionary(portfolioConfig.defaultLocale);
 const basePath = import.meta.env.BASE_URL.endsWith("/") ? import.meta.env.BASE_URL : `${import.meta.env.BASE_URL}/`;
-const images = [
-  `${basePath}experience/hololens-menu-original-v8.webp`,
-  `${basePath}experience/hololens-brain-v2.webp`,
-  `${basePath}community-tech-network.png`,
-  `${basePath}experience/workstation.webp`,
-  `${basePath}experience/hololens-interaction.webp`,
-  `${basePath}experience/hololens-spine-v2.webp`,
-  `${basePath}events/xr-demo.jpg`
-];
+const images = eventProfiles.map((event) => `${basePath}${event.image}`);
 ---
 
 <BaseLayout title={`Eventos · ${portfolioConfig.brandName}`} description={t.events.text}>
-  <main class="events-news">
+  <div class="events-news">
     <header class="events-news__masthead" data-reveal>
       <div>
         <p class="events-news__kicker" data-i18n="events.newsroom">{t.events.newsroom}</p>
@@ -27,8 +20,8 @@ const images = [
     </header>
 
     <section class="events-news__lead" aria-label={t.events.featured}>
-      <article class="event-story event-story--hero" data-reveal>
-        <img src={images[0]} alt="Marina Ramiro interactuando con una interfaz de realidad extendida" loading="eager" />
+      <a class="event-story event-story--hero" href={`${basePath}eventos/${eventProfiles[0].slug}`} data-reveal>
+        <img src={images[0]} alt={eventProfiles[0].alt} loading="eager" />
         <div class="event-story__shade"></div>
         <div class="event-story__copy">
           <span data-i18n="events.items.0.0">{t.events.items[0][0]}</span>
@@ -36,21 +29,21 @@ const images = [
           <p data-i18n="events.items.0.2">{t.events.items[0][2]}</p>
         </div>
         <b class="event-story__index">01</b>
-      </article>
+      </a>
 
       <div class="events-news__side">
         {t.events.items.slice(1, 3).map((item: string[], sideIndex: number) => {
           const index = sideIndex + 1;
           return (
-            <article class="event-story event-story--side" data-reveal style={`--reveal-delay:${sideIndex * 70}ms`}>
-              <div class="event-story__image"><img src={images[index]} alt="" loading="lazy" /></div>
+            <a class="event-story event-story--side" href={`${basePath}eventos/${eventProfiles[index].slug}`} data-reveal style={`--reveal-delay:${sideIndex * 70}ms`}>
+              <div class="event-story__image"><img src={images[index]} alt={eventProfiles[index].alt} loading="lazy" /></div>
               <div class="event-story__body">
                 <span data-i18n={`events.items.${index}.0`}>{item[0]}</span>
                 <h2 data-i18n={`events.items.${index}.1`}>{item[1]}</h2>
                 <p data-i18n={`events.items.${index}.2`}>{item[2]}</p>
               </div>
               <b class="event-story__arrow" aria-hidden="true">↗</b>
-            </article>
+            </a>
           );
         })}
       </div>
@@ -66,15 +59,15 @@ const images = [
       {t.events.items.slice(3).map((item: string[], feedIndex: number) => {
         const index = feedIndex + 3;
         return (
-          <article class={`event-story event-story--feed event-story--feed-${feedIndex + 1}`} data-reveal style={`--reveal-delay:${feedIndex * 60}ms`}>
-            <div class="event-story__image"><img src={images[index]} alt="" loading="lazy" /></div>
+          <a class={`event-story event-story--feed event-story--feed-${feedIndex + 1}`} href={`${basePath}eventos/${eventProfiles[index].slug}`} data-reveal style={`--reveal-delay:${feedIndex * 60}ms`}>
+            <div class="event-story__image"><img src={images[index]} alt={eventProfiles[index].alt} loading="lazy" /></div>
             <div class="event-story__body">
               <span data-i18n={`events.items.${index}.0`}>{item[0]}</span>
               <h2 data-i18n={`events.items.${index}.1`}>{item[1]}</h2>
               <p data-i18n={`events.items.${index}.2`}>{item[2]}</p>
             </div>
             <b class="event-story__index">{String(index + 1).padStart(2, "0")}</b>
-          </article>
+          </a>
         );
       })}
     </section>
@@ -85,7 +78,7 @@ const images = [
         <span data-i18n="events.contact">{t.events.contact}</span><i aria-hidden="true">↗</i>
       </a>
     </footer>
-  </main>
+  </div>
 </BaseLayout>
 
 <style>
@@ -95,7 +88,7 @@ const images = [
   .events-news__masthead h1{color:var(--event-ink);font-size:clamp(4.6rem,12vw,10rem);font-weight:760;letter-spacing:-.085em;line-height:.75;margin:1.2rem 0 0}
   .events-news__masthead>p{color:#465052;font-size:clamp(1rem,1.35vw,1.18rem);line-height:1.55;margin:0 0 .3rem;max-width:37rem}
   .events-news__lead{display:grid;gap:clamp(1rem,2.5vw,2rem);grid-template-columns:minmax(0,1.58fr) minmax(300px,.82fr);margin-top:clamp(1.2rem,2.5vw,2rem)}
-  .event-story{min-width:0;position:relative}.event-story h2{color:var(--event-ink);letter-spacing:-.035em;line-height:1.02;margin:0}.event-story p{color:#525d5f;line-height:1.48;margin:0}.event-story img{display:block;height:100%;object-fit:cover;width:100%}
+  .event-story{color:inherit;min-width:0;position:relative;text-decoration:none}.event-story:focus-visible{outline:3px solid var(--event-teal);outline-offset:4px}.event-story h2{color:var(--event-ink);letter-spacing:-.035em;line-height:1.02;margin:0}.event-story p{color:#525d5f;line-height:1.48;margin:0}.event-story img{display:block;height:100%;object-fit:cover;width:100%}
   .event-story--hero{border-radius:2px 2px 2rem 2px;min-height:clamp(500px,62vw,720px);overflow:hidden}.event-story--hero img{object-position:48% center}.event-story__shade{background:linear-gradient(180deg,transparent 35%,rgba(5,13,16,.88) 100%);inset:0;position:absolute}.event-story__copy{bottom:0;left:0;max-width:48rem;padding:clamp(1.5rem,4vw,4rem);position:absolute;right:0}.event-story__copy span{color:#76e7f7}.event-story__copy h2{color:#fff;font-size:clamp(2.1rem,4.5vw,4.65rem);margin-top:.8rem}.event-story__copy p{color:rgba(255,255,255,.82);font-size:1rem;margin-top:1rem;max-width:38rem}.event-story--hero .event-story__index{color:rgba(255,255,255,.7);position:absolute;right:1.4rem;top:1.2rem}
   .events-news__side{border-top:1px solid #cbd3d4;display:grid;grid-template-rows:1fr 1fr}.event-story--side{border-bottom:1px solid #cbd3d4;display:grid;gap:1.2rem;grid-template-columns:42% 1fr;padding:clamp(1rem,2vw,1.5rem) 0}.event-story--side .event-story__image{min-height:150px;overflow:hidden}.event-story--side .event-story__body{align-content:start;display:grid;gap:.75rem;padding-right:1.6rem}.event-story--side h2{font-size:clamp(1.35rem,2.2vw,2rem)}.event-story--side p{font-size:.88rem}.event-story__arrow{bottom:1.2rem;color:var(--event-teal);font-size:1.1rem;position:absolute;right:.15rem}
   .events-news__section-title{align-items:center;display:grid;gap:1rem;grid-template-columns:auto 1fr auto;margin:clamp(3.5rem,8vw,7rem) 0 1.4rem}.events-news__section-title span{color:var(--event-ink);font-size:clamp(1.8rem,3.5vw,3.2rem);font-weight:740;letter-spacing:-.055em}.events-news__section-title i{background:#bfc9cb;height:1px}.events-news__section-title small{color:#778184;font-size:.72rem;font-weight:800;letter-spacing:.12em}
