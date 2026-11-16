@@ -72,7 +72,21 @@ export const en = {
   },
   events: {
     eyebrow: "Agenda / Community", title: "Events",
-    text: "A modular record of events, professional attendance, communities and technology ecosystem gatherings.",
+    text: "Stories from the places where technology leaves the screen: gatherings, demos, conversations and XR experiences shared with the community.",
+    newsroom: "Newsroom · XR, health and technology",
+    featured: "Featured event",
+    latest: "Latest encounters",
+    items: [
+      ["Outreach · 2025/26", "European Researchers’ Night", "An evening bringing extended reality and health research closer to new audiences."],
+      ["Tech ecosystem · 2025/26", "VDS", "Innovation, talent and connections shaping the digital future."],
+      ["Community · 2026", "Go Digital", "Ideas, role models and conversations about digital transformation."],
+      ["Talent · Valencia", "Valencia Tech Talent Connect", "A meeting point for technology professionals, companies and new opportunities."],
+      ["Innovation · Málaga", "Talent Land", "Applied technology, creativity and learning in community."],
+      ["Panel · VR Day 2025", "Roundtable: building XR with purpose", "Joining the panel to discuss immersive experiences, health and real-world impact."],
+      ["Training · XR", "XR Workshop", "A practical session exploring spatial interaction and the potential of extended reality."]
+    ],
+    closing: "Every event is a chance to share what we learn and turn technology into conversation.",
+    contact: "Propose a collaboration",
     year: "2026", first: "XR, health and innovation events", upcoming: "Upcoming",
     archive: "Archive", second: "Professional meetings and community", explore: "Explore"
   },

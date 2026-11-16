@@ -72,7 +72,21 @@ export const es = {
   },
   events: {
     eyebrow: "Agenda / Comunidad", title: "Eventos",
-    text: "Registro modular de eventos, asistencia profesional, comunidades y encuentros del ecosistema tecnológico.",
+    text: "Crónicas de los lugares donde la tecnología sale de la pantalla: encuentros, demostraciones, conversaciones y experiencias XR compartidas en comunidad.",
+    newsroom: "Actualidad · XR, salud y tecnología",
+    featured: "Evento destacado",
+    latest: "Últimos encuentros",
+    items: [
+      ["Divulgación · 2025/26", "European Researchers’ Night", "Una noche para acercar la realidad extendida y la investigación sanitaria a nuevas miradas."],
+      ["Ecosistema tecnológico · 2025/26", "VDS", "Innovación, talento y conexiones que impulsan el futuro digital."],
+      ["Comunidad · 2026", "Go Digital", "Ideas, referentes y conversaciones sobre transformación digital."],
+      ["Talento · Valencia", "Valencia Tech Talent Connect", "Un punto de encuentro entre perfiles tecnológicos, empresas y nuevas oportunidades."],
+      ["Innovación · Málaga", "Talent Land", "Tecnología aplicada, creatividad y aprendizaje en comunidad."],
+      ["Ponencia · VR Day 2025", "Mesa redonda: construir XR con propósito", "Participación como panelista para hablar de experiencias inmersivas, salud e impacto real."],
+      ["Formación · XR", "XR Workshop", "Una sesión práctica para descubrir la interacción espacial y el potencial de la realidad extendida."]
+    ],
+    closing: "Cada evento es una oportunidad para compartir lo aprendido y convertir la tecnología en conversación.",
+    contact: "Proponer una colaboración",
     year: "2026", first: "Eventos de XR, salud e innovación", upcoming: "Próximamente",
     archive: "Archivo", second: "Encuentros profesionales y comunidad", explore: "Explorar"
   },

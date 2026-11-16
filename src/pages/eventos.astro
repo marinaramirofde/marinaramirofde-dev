@@ -2,11 +2,106 @@
 import BaseLayout from "../layouts/BaseLayout.astro";
 import { getDictionary } from "../i18n";
 import { portfolioConfig } from "../config/portfolio.config";
+
 const t = getDictionary(portfolioConfig.defaultLocale);
+const basePath = import.meta.env.BASE_URL.endsWith("/") ? import.meta.env.BASE_URL : `${import.meta.env.BASE_URL}/`;
+const images = [
+  `${basePath}experience/hololens-menu-original-v8.webp`,
+  `${basePath}experience/hololens-brain-v2.webp`,
+  `${basePath}community-tech-network.png`,
+  `${basePath}experience/workstation.webp`,
+  `${basePath}experience/hololens-interaction.webp`,
+  `${basePath}events/roundtable.jpg`,
+  `${basePath}events/xr-demo.jpg`
+];
 ---
-<BaseLayout title={`Eventos · ${portfolioConfig.brandName}`}>
-  <article class="content-page">
-    <header class="content-page__hero" data-reveal><p class="eyebrow" data-i18n="pages.eventsEyebrow">{t.pages.eventsEyebrow}</p><h1 data-i18n="events.title">{t.events.title}</h1><p data-i18n="events.text">{t.events.text}</p></header>
-    <div class="content-page__visual content-page__visual--line" aria-hidden="true" data-reveal>{t.pages.eventWords.map((word: string, index: number) => <span data-i18n={`pages.eventWords.${index}`}>{word}</span>)}<i></i></div>
-  </article>
+
+<BaseLayout title={`Eventos · ${portfolioConfig.brandName}`} description={t.events.text}>
+  <main class="events-news">
+    <header class="events-news__masthead" data-reveal>
+      <div>
+        <p class="events-news__kicker" data-i18n="events.newsroom">{t.events.newsroom}</p>
+        <h1 data-i18n="events.title">{t.events.title}</h1>
+      </div>
+      <p data-i18n="events.text">{t.events.text}</p>
+    </header>
+
+    <section class="events-news__lead" aria-label={t.events.featured}>
+      <article class="event-story event-story--hero" data-reveal>
+        <img src={images[0]} alt="Marina Ramiro interactuando con una interfaz de realidad extendida" loading="eager" />
+        <div class="event-story__shade"></div>
+        <div class="event-story__copy">
+          <span data-i18n="events.items.0.0">{t.events.items[0][0]}</span>
+          <h2 data-i18n="events.items.0.1">{t.events.items[0][1]}</h2>
+          <p data-i18n="events.items.0.2">{t.events.items[0][2]}</p>
+        </div>
+        <b class="event-story__index">01</b>
+      </article>
+
+      <div class="events-news__side">
+        {t.events.items.slice(1, 3).map((item: string[], sideIndex: number) => {
+          const index = sideIndex + 1;
+          return (
+            <article class="event-story event-story--side" data-reveal style={`--reveal-delay:${sideIndex * 70}ms`}>
+              <div class="event-story__image"><img src={images[index]} alt="" loading="lazy" /></div>
+              <div class="event-story__body">
+                <span data-i18n={`events.items.${index}.0`}>{item[0]}</span>
+                <h2 data-i18n={`events.items.${index}.1`}>{item[1]}</h2>
+                <p data-i18n={`events.items.${index}.2`}>{item[2]}</p>
+              </div>
+              <b class="event-story__arrow" aria-hidden="true">↗</b>
+            </article>
+          );
+        })}
+      </div>
+    </section>
+
+    <div class="events-news__section-title" data-reveal>
+      <span data-i18n="events.latest">{t.events.latest}</span>
+      <i></i>
+      <small>2025 — 2026</small>
+    </div>
+
+    <section class="events-news__feed" aria-label={t.events.latest}>
+      {t.events.items.slice(3).map((item: string[], feedIndex: number) => {
+        const index = feedIndex + 3;
+        return (
+          <article class={`event-story event-story--feed event-story--feed-${feedIndex + 1}`} data-reveal style={`--reveal-delay:${feedIndex * 60}ms`}>
+            <div class="event-story__image"><img src={images[index]} alt="" loading="lazy" /></div>
+            <div class="event-story__body">
+              <span data-i18n={`events.items.${index}.0`}>{item[0]}</span>
+              <h2 data-i18n={`events.items.${index}.1`}>{item[1]}</h2>
+              <p data-i18n={`events.items.${index}.2`}>{item[2]}</p>
+            </div>
+            <b class="event-story__index">{String(index + 1).padStart(2, "0")}</b>
+          </article>
+        );
+      })}
+    </section>
+
+    <footer class="events-news__footer" data-reveal>
+      <p data-i18n="events.closing">{t.events.closing}</p>
+      <a href={`${basePath}contacto`}>
+        <span data-i18n="events.contact">{t.events.contact}</span><i aria-hidden="true">↗</i>
+      </a>
+    </footer>
+  </main>
 </BaseLayout>
+
+<style>
+  .events-news{--event-teal:#007f98;--event-ink:#101415;--event-mist:#edf2f3;margin:0 auto;max-width:1440px;padding:clamp(7.5rem,12vw,10.5rem) clamp(1rem,4vw,4.5rem) clamp(4rem,8vw,8rem)}
+  .events-news__masthead{align-items:end;border-bottom:1px solid #bfc9cb;display:grid;gap:2rem;grid-template-columns:minmax(0,1.25fr) minmax(280px,.75fr);padding-bottom:clamp(1.6rem,3vw,2.8rem)}
+  .events-news__kicker,.event-story span{color:var(--event-teal);font-size:.72rem;font-weight:800;letter-spacing:.17em;text-transform:uppercase}
+  .events-news__masthead h1{color:var(--event-ink);font-size:clamp(4.6rem,12vw,10rem);font-weight:760;letter-spacing:-.085em;line-height:.75;margin:1.2rem 0 0}
+  .events-news__masthead>p{color:#465052;font-size:clamp(1rem,1.35vw,1.18rem);line-height:1.55;margin:0 0 .3rem;max-width:37rem}
+  .events-news__lead{display:grid;gap:clamp(1rem,2.5vw,2rem);grid-template-columns:minmax(0,1.58fr) minmax(300px,.82fr);margin-top:clamp(1.2rem,2.5vw,2rem)}
+  .event-story{min-width:0;position:relative}.event-story h2{color:var(--event-ink);letter-spacing:-.035em;line-height:1.02;margin:0}.event-story p{color:#525d5f;line-height:1.48;margin:0}.event-story img{display:block;height:100%;object-fit:cover;width:100%}
+  .event-story--hero{border-radius:2px 2px 2rem 2px;min-height:clamp(500px,62vw,720px);overflow:hidden}.event-story--hero img{object-position:48% center}.event-story__shade{background:linear-gradient(180deg,transparent 35%,rgba(5,13,16,.88) 100%);inset:0;position:absolute}.event-story__copy{bottom:0;left:0;max-width:48rem;padding:clamp(1.5rem,4vw,4rem);position:absolute;right:0}.event-story__copy span{color:#76e7f7}.event-story__copy h2{color:#fff;font-size:clamp(2.1rem,4.5vw,4.65rem);margin-top:.8rem}.event-story__copy p{color:rgba(255,255,255,.82);font-size:1rem;margin-top:1rem;max-width:38rem}.event-story--hero .event-story__index{color:rgba(255,255,255,.7);position:absolute;right:1.4rem;top:1.2rem}
+  .events-news__side{border-top:1px solid #cbd3d4;display:grid;grid-template-rows:1fr 1fr}.event-story--side{border-bottom:1px solid #cbd3d4;display:grid;gap:1.2rem;grid-template-columns:42% 1fr;padding:clamp(1rem,2vw,1.5rem) 0}.event-story--side .event-story__image{min-height:150px;overflow:hidden}.event-story--side .event-story__body{align-content:start;display:grid;gap:.75rem;padding-right:1.6rem}.event-story--side h2{font-size:clamp(1.35rem,2.2vw,2rem)}.event-story--side p{font-size:.88rem}.event-story__arrow{bottom:1.2rem;color:var(--event-teal);font-size:1.1rem;position:absolute;right:.15rem}
+  .events-news__section-title{align-items:center;display:grid;gap:1rem;grid-template-columns:auto 1fr auto;margin:clamp(3.5rem,8vw,7rem) 0 1.4rem}.events-news__section-title span{color:var(--event-ink);font-size:clamp(1.8rem,3.5vw,3.2rem);font-weight:740;letter-spacing:-.055em}.events-news__section-title i{background:#bfc9cb;height:1px}.events-news__section-title small{color:#778184;font-size:.72rem;font-weight:800;letter-spacing:.12em}
+  .events-news__feed{display:grid;gap:clamp(1rem,2.2vw,2rem);grid-template-columns:1.15fr .85fr .85fr;grid-template-rows:repeat(2,minmax(240px,auto))}.event-story--feed{background:var(--event-mist);overflow:hidden}.event-story--feed .event-story__body{display:grid;gap:.6rem;padding:clamp(1.1rem,2vw,1.7rem)}.event-story--feed h2{font-size:clamp(1.45rem,2.35vw,2.35rem)}.event-story--feed p{font-size:.92rem}.event-story--feed .event-story__index{color:rgba(0,127,152,.22);font-size:3.2rem;letter-spacing:-.08em;position:absolute;right:1rem;top:.55rem}.event-story--feed-1{grid-row:span 2}.event-story--feed-1 .event-story__image{height:61%;min-height:410px}.event-story--feed-2,.event-story--feed-3,.event-story--feed-4{display:grid;grid-template-columns:minmax(130px,45%) 1fr}.event-story--feed-2{grid-column:span 2}.event-story--feed-3 .event-story__body,.event-story--feed-4 .event-story__body{align-content:end}.event-story--feed-3 p,.event-story--feed-4 p{display:none}
+  .events-news__footer{align-items:center;border-top:1px solid #bfc9cb;display:flex;gap:2rem;justify-content:space-between;margin-top:clamp(3rem,7vw,6rem);padding-top:1.5rem}.events-news__footer p{color:#4f595b;margin:0;max-width:38rem}.events-news__footer a{align-items:center;color:var(--event-ink);display:inline-flex;font-weight:750;gap:.8rem;text-decoration:none}.events-news__footer a i{align-items:center;background:var(--event-teal);border-radius:50%;color:#fff;display:inline-flex;font-style:normal;height:2.3rem;justify-content:center;width:2.3rem}
+  @media (hover:hover){.event-story img{transition:transform .65s cubic-bezier(.2,.7,.2,1)}.event-story:hover img{transform:scale(1.035)}.events-news__footer a:hover{color:var(--event-teal)}}
+  @media (max-width:980px){.events-news__lead{grid-template-columns:1fr}.events-news__side{grid-template-columns:1fr 1fr;grid-template-rows:auto}.event-story--side{grid-template-columns:1fr}.events-news__feed{grid-template-columns:1fr 1fr;grid-template-rows:auto}.event-story--feed-1{grid-row:auto}.event-story--feed-1 .event-story__image{min-height:300px}.event-story--feed-2{grid-column:auto}.event-story--feed-2,.event-story--feed-3,.event-story--feed-4{display:block}.event-story--feed-2 .event-story__image,.event-story--feed-3 .event-story__image,.event-story--feed-4 .event-story__image{height:250px}}
+  @media (max-width:680px){.events-news{padding-left:1rem;padding-right:1rem}.events-news__masthead{grid-template-columns:1fr}.events-news__masthead h1{font-size:clamp(4rem,24vw,6rem)}.event-story--hero{min-height:570px}.event-story--hero img{object-position:53% center}.events-news__side,.events-news__feed{grid-template-columns:1fr}.event-story--side{grid-template-columns:42% 1fr}.event-story--side p{display:none}.event-story--feed-1 .event-story__image,.event-story--feed-2 .event-story__image,.event-story--feed-3 .event-story__image,.event-story--feed-4 .event-story__image{height:260px;min-height:0}.event-story--feed-3 p,.event-story--feed-4 p{display:block}.events-news__section-title{grid-template-columns:1fr auto}.events-news__section-title i{display:none}.events-news__footer{align-items:flex-start;flex-direction:column}}
+</style>
