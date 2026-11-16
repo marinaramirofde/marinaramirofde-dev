@@ -5,6 +5,7 @@
     "type":  "module",
     "scripts":  {
                     "dev":  "astro dev",
+                    "admin":  "node scripts/admin-server.mjs",
                     "build":  "astro check \u0026\u0026 astro build",
                     "preview":  "astro preview",
                     "astro":  "astro"

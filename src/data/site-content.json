@@ -1,0 +1,962 @@
+{
+  "es": {
+    "meta": {
+      "title": "Marina Ramiro Fernández · Ingeniera Informática y Desarrolladora XR",
+      "description": "Portfolio profesional de Marina Ramiro Fernández, ingeniera informática especializada en XR, salud, investigación y visualización médica."
+    },
+    "nav": {
+      "home": "Inicio",
+      "about": "Sobre mí",
+      "trajectory": "Trayectoria",
+      "projects": "Proyectos",
+      "research": "Investigación",
+      "events": "Eventos",
+      "talks": "Charlas",
+      "youtube": "YouTube",
+      "services": "Servicios",
+      "gallery": "Galería",
+      "recommendations": "Recomendados",
+      "faq": "FAQ",
+      "content": "Contenido",
+      "contact": "Contacto",
+      "community": "Comunidad",
+      "form": "Formulario",
+      "menu": "Abrir menú",
+      "close": "Cerrar menú",
+      "linkedin": "LinkedIn",
+      "instagram": "Instagram",
+      "gmail": "Escribir por Gmail"
+    },
+    "intro": {
+      "skip": "Saltar introducción",
+      "label": "Entrada XR al portfolio"
+    },
+    "home": {
+      "eyebrow": "Explora / Portfolio",
+      "title": "Lo más destacado",
+      "text": "Una selección de mi perfil, trayectoria, proyectos, servicios, contenido y comunidad. Entra en cada área para descubrirla completa.",
+      "explore": "Ver sección",
+      "items": [
+        [
+          "Sobre mí",
+          "Especialización, enfoque y forma de trabajar."
+        ],
+        [
+          "Formación y experiencia",
+          "Estudios, trabajo en XR y certificaciones profesionales."
+        ],
+        [
+          "Proyectos",
+          "Casos de estudio y experiencias XR seleccionadas."
+        ],
+        [
+          "Servicios",
+          "Formas de colaboración, desarrollo y prototipado."
+        ],
+        [
+          "Contenido",
+          "Vídeos, galería, eventos y recomendaciones."
+        ],
+        [
+          "Contacto",
+          "Comunidad profesional y formulario de contacto."
+        ]
+      ]
+    },
+    "hero": {
+      "title": "Marina Ramiro",
+      "role": "Ingeniera Informática · Desarrolladora de Realidad Extendida (XR)",
+      "text": "Desarrollo experiencias inmersivas aplicadas a salud, investigación y visualización médica.",
+      "projects": "Ver proyectos",
+      "cv": "Descargar CV",
+      "contact": "Contactar",
+      "health": "Tecnología aplicada a salud",
+      "location": "Valencia, España",
+      "system": "SISTEMA INMERSIVO / 01",
+      "online": "EN LÍNEA",
+      "panel": [
+        "XR",
+        "Salud",
+        "Investigación",
+        "Visualización médica"
+      ]
+    },
+    "dashboard": {
+      "eyebrow": "CV / Resumen",
+      "title": "Perfil en un vistazo",
+      "summary": "Ingeniería, creatividad y visión de producto para convertir retos complejos en experiencias inmersivas útiles.",
+      "items": [
+        [
+          "Foco",
+          "XR, salud e investigación"
+        ],
+        [
+          "Base",
+          "Ingeniería informática"
+        ],
+        [
+          "Resultado",
+          "Prototipos, demos y producto"
+        ],
+        [
+          "Estilo",
+          "Precisión visual y código mantenible"
+        ]
+      ]
+    },
+    "about": {
+      "eyebrow": "Sobre mí / Perfil",
+      "title": "Sobre mí",
+      "text": "Ingeniera informática y desarrolladora XR orientada a crear experiencias inmersivas útiles, claras y técnicamente sólidas para salud, educación, investigación y visualización médica.",
+      "cta": "Leer más",
+      "facts": [
+        "Ingeniería de software",
+        "Realidad extendida",
+        "Visualización médica"
+      ]
+    },
+    "experience": {
+      "eyebrow": "Trayectoria / Formación y experiencia",
+      "titleStart": "Formación",
+      "titleEnd": "experiencia",
+      "intro": "Una trayectoria que conecta ingeniería de software, investigación sanitaria y desarrollo XR para convertir retos clínicos complejos en experiencias comprensibles y útiles.",
+      "focus": "XR · Salud · Investigación",
+      "location": "Valencia, España",
+      "educationLabel": "Formación",
+      "educationTitle": "Grado en Ingeniería del Software",
+      "educationInstitution": "Universidad de Sevilla",
+      "educationYear": "2024",
+      "educationItems": [
+        "Trabajo Fin de Grado — Matrícula de Honor",
+        "Mención honorífica en los Premios al Mejor TFG 2024"
+      ],
+      "thesisLabel": "Proyecto destacado",
+      "thesis": "VR·EHABILITAR · Aplicación de realidad virtual para rehabilitación postictus",
+      "workLabel": "Experiencia profesional",
+      "workTitle": "Ingeniera de investigación y desarrolladora XR",
+      "workCompany": "FISABIO",
+      "workPeriod": "Actualidad",
+      "workIntro": "Diseño y desarrollo soluciones inmersivas aplicadas a salud, combinando arquitectura XR, visualización médica y validación con equipos multidisciplinares.",
+      "workItems": [
+        "Arquitectura XR y desarrollo de software",
+        "Imagen médica y visualización 3D",
+        "Interacción espacial y experiencia de usuario",
+        "Pruebas y validación con profesionales",
+        "Coordinación técnica y comunicación multidisciplinar"
+      ],
+      "galleryLabel": "Del prototipo al entorno clínico",
+      "galleryText": "Investigación, desarrollo y validación de experiencias XR en contexto real.",
+      "certificationsLabel": "Aprendizaje continuo",
+      "certificationsTitle": "Certificaciones",
+      "certificationsIntro": "Formación complementaria en metodologías de trabajo, colaboración remota y comunicación en el ámbito sanitario.",
+      "certificationFeatured": [
+        "Scrum Foundation Professional Certificate (SFPC)",
+        "Remote Work and Virtual Collaboration Certificate (RWVCPC)"
+      ],
+      "healthTraining": "Formación sanitaria",
+      "healthTrainingHeadline": "Tecnología que entiende el contexto clínico.",
+      "healthTrainingIntro": "Formación continua para conectar tecnología, comunicación y práctica clínica.",
+      "healthTrainingCta": "Formación EVES",
+      "courses": [
+        "Comunicació en Ciències de la Salut",
+        "Formació i sensibilització sobre l’ús segur i saludable de les TIC",
+        "Estratègies i mesures per a treballar amb persones amb discapacitat intel·lectual",
+        "Prevenció cardiovascular en la dona"
+      ],
+      "closing": "Esta base técnica y sanitaria se refleja en proyectos orientados a la práctica.",
+      "projectsCta": "Ver proyectos"
+    },
+    "projects": {
+      "eyebrow": "Selección de proyectos / 2024–2026",
+      "title": "Proyectos",
+      "text": "Casos de estudio de realidad extendida, salud, investigación y formación. Pasa el cursor para descubrir cada proyecto y entra para conocer su proceso completo.",
+      "cta": "Ver todos los proyectos",
+      "caseStudy": "Caso de estudio",
+      "meta": [
+        "WebXR · Three.js · Salud",
+        "Unity · C# · Visualización",
+        "XR · UX · Comunidad"
+      ]
+    },
+    "research": {
+      "eyebrow": "Investigación / Tecnología sanitaria",
+      "title": "Investigación",
+      "text": "Espacio para publicaciones, colaboraciones, líneas de trabajo y prototipos vinculados a tecnología inmersiva y salud.",
+      "diagram": [
+        "DATOS",
+        "3D",
+        "XR"
+      ]
+    },
+    "events": {
+      "eyebrow": "Agenda / Comunidad",
+      "title": "Eventos",
+      "text": "Crónicas de los lugares donde la tecnología sale de la pantalla: encuentros, demostraciones, conversaciones y experiencias XR compartidas en comunidad.",
+      "newsroom": "Actualidad · XR, salud y tecnología",
+      "featured": "Evento destacado",
+      "latest": "Últimos encuentros",
+      "items": [
+        [
+          "Divulgación · 2025/26",
+          "European Researchers’ Night",
+          "Una noche para acercar la realidad extendida y la investigación sanitaria a nuevas miradas."
+        ],
+        [
+          "Ecosistema tecnológico · 2025/26",
+          "VDS",
+          "Innovación, talento y conexiones que impulsan el futuro digital."
+        ],
+        [
+          "Comunidad · 2026",
+          "Go Digital",
+          "Ideas, referentes y conversaciones sobre transformación digital."
+        ],
+        [
+          "Talento · Valencia",
+          "Valencia Tech Talent Connect",
+          "Un punto de encuentro entre perfiles tecnológicos, empresas y nuevas oportunidades."
+        ],
+        [
+          "Innovación · Málaga",
+          "Talent Land",
+          "Tecnología aplicada, creatividad y aprendizaje en comunidad."
+        ],
+        [
+          "Ponencia · VR Day 2025",
+          "Mesa redonda: construir XR con propósito",
+          "Participación como panelista para hablar de experiencias inmersivas, salud e impacto real."
+        ],
+        [
+          "Formación · XR",
+          "XR Workshop",
+          "Una sesión práctica para descubrir la interacción espacial y el potencial de la realidad extendida."
+        ]
+      ],
+      "closing": "Cada evento es una oportunidad para compartir lo aprendido y convertir la tecnología en conversación.",
+      "contact": "Proponer una colaboración",
+      "article": {
+        "back": "Volver a todos los eventos",
+        "story": "Crónica del evento",
+        "about": "Sobre este encuentro",
+        "body": "Esta página recoge mi participación y el contexto general del evento. La crónica se ampliará con aprendizajes, fotografías y enlaces seleccionados cuando esté disponible la documentación completa.",
+        "noteTitle": "Contenido en preparación",
+        "note": "La estructura de la entrada ya está lista para incorporar el relato y los materiales reales del evento sin alterar el diseño.",
+        "details": "Datos del evento",
+        "period": "Periodo",
+        "format": "Formato",
+        "formatValue": "Encuentro profesional",
+        "previous": "Evento anterior",
+        "next": "Siguiente evento"
+      },
+      "year": "2026",
+      "first": "Eventos de XR, salud e innovación",
+      "upcoming": "Próximamente",
+      "archive": "Archivo",
+      "second": "Encuentros profesionales y comunidad",
+      "explore": "Explorar"
+    },
+    "talks": {
+      "eyebrow": "Charlas / Conocimiento",
+      "title": "Charlas",
+      "text": "Charlas, talleres y sesiones divulgativas sobre XR, programación, innovación y visualización."
+    },
+    "youtube": {
+      "eyebrow": "YouTube / Canal",
+      "title": "Marina Ramiro en YouTube",
+      "text": "Contenido sobre tecnología, desarrollo, XR y proyectos compartidos desde mi canal.",
+      "cta": "Ir al canal",
+      "videoTitle": "Video destacado de Marina Ramiro"
+    },
+    "services": {
+      "eyebrow": "Servicios / Colaboración",
+      "title": "Servicios",
+      "text": "Servicios configurables para colaboraciones profesionales, demos técnicas y experiencias inmersivas.",
+      "items": [
+        "Prototipos XR e interfaces inmersivas",
+        "Experiencias de visualización médica",
+        "Desarrollo de producto con Unity y WebXR",
+        "Demos de investigación y narrativa técnica",
+        "Sistemas visuales interactivos basados en datos"
+      ]
+    },
+    "skills": {
+      "eyebrow": "Tecnologías / Herramientas",
+      "title": "Tecnologías y habilidades"
+    },
+    "technologies": {
+      "eyebrow": "Stack / Experiencia técnica",
+      "title": "Tecnologías que utilizo",
+      "text": "Herramientas, estándares y dispositivos con los que diseño y desarrollo experiencias web, 3D y de realidad extendida.",
+      "groups": {
+        "development": "Desarrollo",
+        "xr": "XR y 3D",
+        "devices": "Dispositivos",
+        "workflow": "Flujo de trabajo"
+      }
+    },
+    "gallery": {
+      "eyebrow": "Multimedia / Proceso",
+      "title": "Galería multimedia",
+      "text": "Bloque preparado para imágenes, vídeos, capturas de prototipos y piezas visuales.",
+      "items": [
+        [
+          "Interfaz XR para salud",
+          "Prototipo"
+        ],
+        [
+          "Escena de visualización médica",
+          "Investigación"
+        ],
+        [
+          "Espacio de aprendizaje inmersivo",
+          "Comunidad"
+        ]
+      ]
+    },
+    "recommendations": {
+      "title": "Recomendados",
+      "text": "Productos y accesorios que utilizo en mi día a día para trabajar, crear y probar ideas.",
+      "note": "*enlaces de afiliado"
+    },
+    "faq": {
+      "eyebrow": "FAQ / Dudas frecuentes",
+      "title": "Preguntas frecuentes",
+      "text": "Respuestas rápidas sobre proyectos, colaboración, charlas y desarrollo XR.",
+      "items": [
+        [
+          "¿Qué tipo de proyectos desarrollas?",
+          "Trabajo en experiencias XR, visualización médica, prototipos interactivos, demos técnicas y productos digitales con foco en salud, investigación y educación."
+        ],
+        [
+          "¿Puedo proponerte una colaboración?",
+          "Sí. Puedes escribirme para colaboraciones profesionales, investigación, comunidad, charlas o proyectos donde la tecnología inmersiva tenga un propósito claro."
+        ],
+        [
+          "¿Trabajas con Unity y WebXR?",
+          "Sí. Uso Unity, C#, Three.js y WebXR según el objetivo del proyecto, el dispositivo final y el nivel de interacción que necesite la experiencia."
+        ],
+        [
+          "¿Puedes preparar una demo técnica?",
+          "Sí. Puedo crear demos para validar una idea, presentar un concepto, explicar un flujo complejo o convertir datos y contenido técnico en una experiencia visual."
+        ],
+        [
+          "¿Das charlas o talleres?",
+          "Sí. Puedo participar en charlas, talleres y sesiones divulgativas sobre XR, programación, innovación, salud digital y visualización médica."
+        ],
+        [
+          "¿Cómo empieza un proyecto?",
+          "Normalmente empezamos con una conversación breve para entender objetivos, público, alcance y materiales disponibles. Después definimos una propuesta clara y los siguientes pasos."
+        ]
+      ]
+    },
+    "community": {
+      "eyebrow": "Comunidad / Juntas",
+      "visualAi": "IA",
+      "visualHealth": "SALUD",
+      "title": "Chicas Tech Conectadas",
+      "text": "Una red para informáticas y chicas interesadas en tecnología, XR, programación e innovación: compartimos conocimiento, apoyo, recursos y oportunidades para crecer juntas.",
+      "members": "Una comunidad abierta para crecer juntas",
+      "cta": "Unirme por WhatsApp",
+      "qrTitle": "QR pendiente",
+      "qrText": "Aquí irá el QR de acceso cuando me lo pases.",
+      "widgetCommunity": "Comunidad WhatsApp",
+      "widgetIdeasTitle": "Comunidad inclusiva",
+      "widgetIdeasText": "Conocimiento compartido",
+      "widgetProjectTitle": "Eventos y meetups",
+      "widgetProjectText": "Conexiones para crecer",
+      "highlights": [
+        [
+          "Apoyo",
+          "Dudas, ánimo y acompañamiento"
+        ],
+        [
+          "Aprendizaje",
+          "Recursos, cursos y materiales"
+        ],
+        [
+          "Networking",
+          "Conexión con chicas tech"
+        ],
+        [
+          "Oportunidades",
+          "Eventos, retos y colaboraciones"
+        ],
+        [
+          "Recursos",
+          "Herramientas y guías compartidas"
+        ],
+        [
+          "Crecimiento",
+          "Aprender y avanzar juntas"
+        ]
+      ]
+    },
+    "contact": {
+      "eyebrow": "Contacto / Hablemos",
+      "title": "Contacto",
+      "text": "Para colaboraciones, proyectos XR, investigación, charlas o propuestas profesionales.",
+      "name": "Nombre",
+      "email": "Email",
+      "subject": "Asunto",
+      "message": "Mensaje",
+      "consent": "Acepto que mis datos se utilicen para responder a este mensaje.",
+      "consentPrefix": "He leído y acepto la",
+      "privacyLink": "política de privacidad",
+      "submit": "Enviar mensaje",
+      "note": "El endpoint del formulario se configurará cuando se proporcione el servicio elegido."
+    },
+    "footer": {
+      "services": "Servicios",
+      "social": "Redes",
+      "cv": "CV",
+      "community": "Comunidad",
+      "menu": "Menú",
+      "contact": "Contacto",
+      "legal": "Legal",
+      "email": "Email",
+      "availability": "Disponible para proyectos con propósito",
+      "privacy": "Privacidad",
+      "copyright": "Todos los derechos reservados."
+    },
+    "pages": {
+      "profile": "Perfil",
+      "software": "SOFTWARE",
+      "health": "SALUD",
+      "research": "INVESTIGACIÓN",
+      "roles": [
+        "Desarrolladora XR",
+        "Ingeniera Informática",
+        "Visualización médica"
+      ],
+      "selectedWork": "Selección de proyectos / Portfolio",
+      "caseStudy": "Caso de estudio",
+      "discipline": "Disciplina",
+      "immersive": "Tecnología inmersiva",
+      "stack": "Tecnologías",
+      "status": "Estado",
+      "documentation": "Documentación en progreso",
+      "researchEyebrow": "Investigación / Tecnología sanitaria",
+      "eventsEyebrow": "Eventos / Comunidad",
+      "talksEyebrow": "Charlas / Conocimiento",
+      "eventWords": [
+        "ENCUENTRO",
+        "APRENDER",
+        "COMPARTIR",
+        "CREAR"
+      ],
+      "talkWords": [
+        "XR",
+        "CÓDIGO",
+        "DISEÑO",
+        "IMPACTO"
+      ]
+    },
+    "common": {
+      "comingSoon": "Próximamente",
+      "scrollTop": "Volver arriba",
+      "skipContent": "Saltar al contenido"
+    }
+  },
+  "en": {
+    "meta": {
+      "title": "Marina Ramiro Fernández · Software Engineer & XR Developer",
+      "description": "Professional portfolio for Marina Ramiro Fernández, software engineer focused on XR, health, research and medical visualization."
+    },
+    "nav": {
+      "home": "Home",
+      "about": "About",
+      "trajectory": "Background",
+      "projects": "Projects",
+      "research": "Research",
+      "events": "Events",
+      "talks": "Talks",
+      "youtube": "YouTube",
+      "services": "Services",
+      "gallery": "Gallery",
+      "recommendations": "Recommended",
+      "faq": "FAQ",
+      "content": "Content",
+      "contact": "Contact",
+      "community": "Community",
+      "form": "Form",
+      "menu": "Open menu",
+      "close": "Close menu",
+      "linkedin": "LinkedIn",
+      "instagram": "Instagram",
+      "gmail": "Write by Gmail"
+    },
+    "intro": {
+      "skip": "Skip intro",
+      "label": "XR entrance to the portfolio"
+    },
+    "home": {
+      "eyebrow": "Explore / Portfolio",
+      "title": "Featured areas",
+      "text": "A selection of my profile, background, projects, services, content and community. Enter each area to discover it in full.",
+      "explore": "View section",
+      "items": [
+        [
+          "About",
+          "Expertise, focus and the way I work."
+        ],
+        [
+          "Education & experience",
+          "Studies, XR work and professional certifications."
+        ],
+        [
+          "Projects",
+          "Selected case studies and XR experiences."
+        ],
+        [
+          "Services",
+          "Ways to collaborate, develop and prototype."
+        ],
+        [
+          "Content",
+          "Videos, gallery, events and recommendations."
+        ],
+        [
+          "Contact",
+          "Professional community and contact form."
+        ]
+      ]
+    },
+    "hero": {
+      "title": "Marina Ramiro",
+      "role": "Software Engineer · Extended Reality (XR) Developer",
+      "text": "I build immersive experiences for health, research and medical visualization.",
+      "projects": "View projects",
+      "cv": "Download CV",
+      "contact": "Contact",
+      "health": "Health technology",
+      "location": "Valencia, Spain",
+      "system": "IMMERSIVE SYSTEM / 01",
+      "online": "ONLINE",
+      "panel": [
+        "XR",
+        "Health",
+        "Research",
+        "Medical visualization"
+      ]
+    },
+    "dashboard": {
+      "eyebrow": "CV / Snapshot",
+      "title": "Profile snapshot",
+      "summary": "Engineering, creativity and product thinking to turn complex challenges into useful immersive experiences.",
+      "items": [
+        [
+          "Focus",
+          "XR, health and research"
+        ],
+        [
+          "Base",
+          "Software engineering"
+        ],
+        [
+          "Output",
+          "Prototypes, demos and product"
+        ],
+        [
+          "Style",
+          "Visual precision and maintainable code"
+        ]
+      ]
+    },
+    "about": {
+      "eyebrow": "About / Profile",
+      "title": "About",
+      "text": "Software engineer and XR developer focused on useful, clear and technically robust immersive experiences for health, education, research and medical visualization.",
+      "cta": "Read more",
+      "facts": [
+        "Software engineering",
+        "Extended reality",
+        "Medical visualization"
+      ]
+    },
+    "experience": {
+      "eyebrow": "Background / Education and experience",
+      "titleStart": "Education",
+      "titleEnd": "experience",
+      "intro": "A career connecting software engineering, health research and XR development to turn complex clinical challenges into clear, useful experiences.",
+      "focus": "XR · Health · Research",
+      "location": "Valencia, Spain",
+      "educationLabel": "Education",
+      "educationTitle": "Bachelor’s Degree in Software Engineering",
+      "educationInstitution": "University of Seville",
+      "educationYear": "2024",
+      "educationItems": [
+        "Bachelor’s Thesis — Honours with Distinction",
+        "Honorary Mention — Best Bachelor’s Thesis Awards 2024"
+      ],
+      "thesisLabel": "Selected project",
+      "thesis": "VR·EHABILITAR · Virtual reality application for post-stroke rehabilitation",
+      "workLabel": "Professional experience",
+      "workTitle": "Research engineer and XR developer",
+      "workCompany": "FISABIO",
+      "workPeriod": "Present",
+      "workIntro": "I design and build immersive health solutions, combining XR architecture, medical visualization and validation with multidisciplinary teams.",
+      "workItems": [
+        "XR architecture and software development",
+        "Medical imaging and 3D visualization",
+        "Spatial interaction and user experience",
+        "Testing and validation with professionals",
+        "Technical coordination and multidisciplinary communication"
+      ],
+      "galleryLabel": "From prototype to clinical setting",
+      "galleryText": "Research, development and validation of XR experiences in real contexts.",
+      "certificationsLabel": "Continuous learning",
+      "certificationsTitle": "Certifications",
+      "certificationsIntro": "Additional training in work methodologies, remote collaboration and communication in healthcare.",
+      "certificationFeatured": [
+        "Scrum Foundation Professional Certificate (SFPC)",
+        "Remote Work and Virtual Collaboration Certificate (RWVCPC)"
+      ],
+      "healthTraining": "Healthcare training",
+      "healthTrainingHeadline": "Technology shaped by clinical context.",
+      "healthTrainingIntro": "Continuous learning connecting technology, communication and clinical practice.",
+      "healthTrainingCta": "EVES training",
+      "courses": [
+        "Communication in Health Sciences",
+        "Training and awareness on the safe and healthy use of ICT",
+        "Strategies and measures for working with people with intellectual disabilities",
+        "Cardiovascular prevention in women"
+      ],
+      "closing": "This technical and healthcare foundation comes together in projects designed for real-world practice.",
+      "projectsCta": "View projects"
+    },
+    "projects": {
+      "eyebrow": "Selected work / 2024–2026",
+      "title": "Projects",
+      "text": "Case studies across extended reality, health, research and training. Hover to discover each project and open it to explore the complete process.",
+      "cta": "View all projects",
+      "caseStudy": "Case study",
+      "meta": [
+        "WebXR · Three.js · Health",
+        "Unity · C# · Visualization",
+        "XR · UX · Community"
+      ]
+    },
+    "research": {
+      "eyebrow": "Research / Health tech",
+      "title": "Research",
+      "text": "A space for publications, collaborations, work lines and prototypes linked to immersive technology and health.",
+      "diagram": [
+        "DATA",
+        "3D",
+        "XR"
+      ]
+    },
+    "events": {
+      "eyebrow": "Agenda / Community",
+      "title": "Events",
+      "text": "Stories from the places where technology leaves the screen: gatherings, demos, conversations and XR experiences shared with the community.",
+      "newsroom": "Newsroom · XR, health and technology",
+      "featured": "Featured event",
+      "latest": "Latest encounters",
+      "items": [
+        [
+          "Outreach · 2025/26",
+          "European Researchers’ Night",
+          "An evening bringing extended reality and health research closer to new audiences."
+        ],
+        [
+          "Tech ecosystem · 2025/26",
+          "VDS",
+          "Innovation, talent and connections shaping the digital future."
+        ],
+        [
+          "Community · 2026",
+          "Go Digital",
+          "Ideas, role models and conversations about digital transformation."
+        ],
+        [
+          "Talent · Valencia",
+          "Valencia Tech Talent Connect",
+          "A meeting point for technology professionals, companies and new opportunities."
+        ],
+        [
+          "Innovation · Málaga",
+          "Talent Land",
+          "Applied technology, creativity and learning in community."
+        ],
+        [
+          "Panel · VR Day 2025",
+          "Roundtable: building XR with purpose",
+          "Joining the panel to discuss immersive experiences, health and real-world impact."
+        ],
+        [
+          "Training · XR",
+          "XR Workshop",
+          "A practical session exploring spatial interaction and the potential of extended reality."
+        ]
+      ],
+      "closing": "Every event is a chance to share what we learn and turn technology into conversation.",
+      "contact": "Propose a collaboration",
+      "article": {
+        "back": "Back to all events",
+        "story": "Event story",
+        "about": "About this encounter",
+        "body": "This page brings together my participation and the general context of the event. The story will grow with selected insights, photographs and links once the complete documentation is available.",
+        "noteTitle": "Content in progress",
+        "note": "The article structure is ready for the real story and event materials without changing the design.",
+        "details": "Event details",
+        "period": "Period",
+        "format": "Format",
+        "formatValue": "Professional gathering",
+        "previous": "Previous event",
+        "next": "Next event"
+      },
+      "year": "2026",
+      "first": "XR, health and innovation events",
+      "upcoming": "Upcoming",
+      "archive": "Archive",
+      "second": "Professional meetings and community",
+      "explore": "Explore"
+    },
+    "talks": {
+      "eyebrow": "Talks / Knowledge",
+      "title": "Talks",
+      "text": "Talks, workshops and outreach sessions about XR, programming, innovation and visualization."
+    },
+    "youtube": {
+      "eyebrow": "YouTube / Channel",
+      "title": "Marina Ramiro on YouTube",
+      "text": "Content about technology, development, XR and projects shared from my channel.",
+      "cta": "Go to channel",
+      "videoTitle": "Featured video by Marina Ramiro"
+    },
+    "services": {
+      "eyebrow": "Services / Collaboration",
+      "title": "Services",
+      "text": "Configurable services for professional collaborations, technical demos and immersive experiences.",
+      "items": [
+        "XR prototypes and immersive interfaces",
+        "Medical visualization experiences",
+        "Unity and WebXR product development",
+        "Research demos and technical storytelling",
+        "Data-driven interactive visual systems"
+      ]
+    },
+    "skills": {
+      "eyebrow": "Stack / Toolkit",
+      "title": "Technologies and skills"
+    },
+    "technologies": {
+      "eyebrow": "Stack / Technical experience",
+      "title": "Technologies I use",
+      "text": "Tools, standards and devices I use to design and develop web, 3D and extended reality experiences.",
+      "groups": {
+        "development": "Development",
+        "xr": "XR and 3D",
+        "devices": "Devices",
+        "workflow": "Workflow"
+      }
+    },
+    "gallery": {
+      "eyebrow": "Media / Process",
+      "title": "Media gallery",
+      "text": "A block prepared for images, videos, prototype screenshots and visual pieces.",
+      "items": [
+        [
+          "XR health interface",
+          "Prototype"
+        ],
+        [
+          "Medical visualization scene",
+          "Research"
+        ],
+        [
+          "Immersive learning space",
+          "Community"
+        ]
+      ]
+    },
+    "recommendations": {
+      "title": "Recommended",
+      "text": "Products and accessories I use day to day to work, create and test ideas.",
+      "note": "*affiliate links"
+    },
+    "faq": {
+      "eyebrow": "FAQ / Common questions",
+      "title": "Frequently Asked Questions",
+      "text": "Quick answers about projects, collaboration, talks and XR development.",
+      "items": [
+        [
+          "What kind of projects do you build?",
+          "I work on XR experiences, medical visualization, interactive prototypes, technical demos and digital products for health, research and education."
+        ],
+        [
+          "Can I propose a collaboration?",
+          "Yes. You can contact me for professional collaborations, research, community initiatives, talks or projects where immersive technology has a clear purpose."
+        ],
+        [
+          "Do you work with Unity and WebXR?",
+          "Yes. I use Unity, C#, Three.js and WebXR depending on the project goal, target device and interaction needs."
+        ],
+        [
+          "Can you prepare a technical demo?",
+          "Yes. I can build demos to validate an idea, present a concept, explain a complex flow or turn technical content and data into a visual experience."
+        ],
+        [
+          "Do you give talks or workshops?",
+          "Yes. I can join talks, workshops and outreach sessions about XR, programming, innovation, digital health and medical visualization."
+        ],
+        [
+          "How does a project start?",
+          "Usually we start with a short conversation to understand goals, audience, scope and available material. Then we define a clear proposal and next steps."
+        ]
+      ]
+    },
+    "community": {
+      "eyebrow": "Community / Together",
+      "visualAi": "AI",
+      "visualHealth": "HEALTH",
+      "title": "Connected Tech Girls",
+      "text": "A network for women in computer science and girls interested in technology, XR, programming and innovation: sharing knowledge, support, resources and opportunities to grow together.",
+      "members": "An open community to grow together",
+      "cta": "Join on WhatsApp",
+      "qrTitle": "QR pending",
+      "qrText": "The access QR will go here when you send it.",
+      "widgetCommunity": "WhatsApp Community",
+      "widgetIdeasTitle": "Inclusive community",
+      "widgetIdeasText": "Shared knowledge",
+      "widgetProjectTitle": "Events and meetups",
+      "widgetProjectText": "Connections to grow",
+      "highlights": [
+        [
+          "Support",
+          "Questions, encouragement and guidance"
+        ],
+        [
+          "Learning",
+          "Resources, courses and materials"
+        ],
+        [
+          "Networking",
+          "Connection with girls in tech"
+        ],
+        [
+          "Opportunities",
+          "Events, challenges and collaborations"
+        ],
+        [
+          "Resources",
+          "Shared tools and guides"
+        ],
+        [
+          "Growth",
+          "Learning and moving forward together"
+        ]
+      ]
+    },
+    "contact": {
+      "eyebrow": "Contact / Let's talk",
+      "title": "Contact",
+      "text": "For collaborations, XR projects, research, talks or professional proposals.",
+      "name": "Name",
+      "email": "Email",
+      "subject": "Subject",
+      "message": "Message",
+      "consent": "I agree that my data may be used to reply to this message.",
+      "consentPrefix": "I have read and accept the",
+      "privacyLink": "privacy policy",
+      "submit": "Send message",
+      "note": "The form endpoint will be configured when the chosen service is provided."
+    },
+    "footer": {
+      "services": "Services",
+      "social": "Social",
+      "cv": "CV",
+      "community": "Community",
+      "menu": "Menu",
+      "contact": "Contact",
+      "legal": "Legal",
+      "email": "Email",
+      "availability": "Open to meaningful projects",
+      "privacy": "Privacy",
+      "copyright": "All rights reserved."
+    },
+    "pages": {
+      "profile": "Profile",
+      "software": "SOFTWARE",
+      "health": "HEALTH",
+      "research": "RESEARCH",
+      "roles": [
+        "XR Developer",
+        "Software Engineer",
+        "Medical visualization"
+      ],
+      "selectedWork": "Selected work / Portfolio",
+      "caseStudy": "Case study",
+      "discipline": "Discipline",
+      "immersive": "Immersive technology",
+      "stack": "Stack",
+      "status": "Status",
+      "documentation": "Documentation in progress",
+      "researchEyebrow": "Research / Health tech",
+      "eventsEyebrow": "Events / Community",
+      "talksEyebrow": "Talks / Knowledge",
+      "eventWords": [
+        "MEET",
+        "LEARN",
+        "SHARE",
+        "BUILD"
+      ],
+      "talkWords": [
+        "XR",
+        "CODE",
+        "DESIGN",
+        "IMPACT"
+      ]
+    },
+    "common": {
+      "comingSoon": "Coming soon",
+      "scrollTop": "Back to top",
+      "skipContent": "Skip to content"
+    }
+  },
+  "eventProfiles": [
+    {
+      "slug": "european-researchers-night-2025-26",
+      "image": "experience/hololens-menu-original-v8.webp",
+      "alt": "Marina Ramiro interactuando con una interfaz de realidad extendida",
+      "period": "2025/26"
+    },
+    {
+      "slug": "vds-2025-26",
+      "image": "experience/hololens-brain-v2.webp",
+      "alt": "Demostración de visualización médica con HoloLens",
+      "period": "2025/26"
+    },
+    {
+      "slug": "go-digital-2026",
+      "image": "community-tech-network.png",
+      "alt": "Comunidad tecnológica compartiendo conocimiento",
+      "period": "2026"
+    },
+    {
+      "slug": "valencia-tech-talent-connect",
+      "image": "experience/workstation.webp",
+      "alt": "Entorno de desarrollo de experiencias XR",
+      "period": "Valencia"
+    },
+    {
+      "slug": "talent-land-malaga",
+      "image": "experience/hololens-interaction.webp",
+      "alt": "Marina Ramiro probando una interacción espacial",
+      "period": "Málaga"
+    },
+    {
+      "slug": "vr-day-2025-roundtable",
+      "image": "experience/hololens-spine-v2.webp",
+      "alt": "Marina Ramiro manipulando una visualización médica en realidad extendida",
+      "period": "2025"
+    },
+    {
+      "slug": "xr-workshop",
+      "image": "events/xr-demo.jpg",
+      "alt": "Demostración práctica de una experiencia XR",
+      "period": "XR"
+    }
+  ]
+}

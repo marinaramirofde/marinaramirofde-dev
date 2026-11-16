@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="color-scheme" content="light" />
+    <title>Administración · Marina Ramiro</title>
+    <link rel="stylesheet" href="/admin.css" />
+  </head>
+  <body>
+    <div class="admin-shell">
+      <aside class="sidebar">
+        <div class="brand"><span>MR</span><div><strong>Portfolio</strong><small>Panel local</small></div></div>
+        <label class="search"><span aria-hidden="true">⌕</span><input id="section-search" type="search" placeholder="Buscar sección" /></label>
+        <nav id="section-list" aria-label="Secciones del portfolio"></nav>
+        <div class="sidebar-note"><i></i><p>Solo es accesible desde este ordenador.</p></div>
+      </aside>
+
+      <main class="workspace">
+        <header class="topbar">
+          <div><p id="breadcrumbs">Contenido / Eventos</p><h1 id="section-title">Eventos</h1></div>
+          <div class="topbar-actions">
+            <div class="language-switch" role="group" aria-label="Idioma"><button data-language="es" class="is-active">ES</button><button data-language="en">EN</button></div>
+            <button id="preview-button" class="button button--quiet">Vista previa</button>
+            <button id="save-button" class="button button--secondary">Guardar</button>
+            <button id="publish-button" class="button button--primary">Publicar</button>
+          </div>
+        </header>
+
+        <section class="editor-intro">
+          <div><span id="save-state" class="status-dot">Guardado</span><p>Edita los campos de la sección seleccionada. Los cambios no llegan a la web hasta que pulses «Publicar».</p></div>
+        </section>
+
+        <section id="editor" class="editor" aria-live="polite"></section>
+      </main>
+    </div>
+
+    <div id="toast" class="toast" role="status" aria-live="polite"></div>
+    <dialog id="publish-dialog">
+      <div class="dialog-icon">↗</div>
+      <h2>Publicar cambios</h2>
+      <p>Se comprobará el proyecto, se guardará una versión en GitHub y comenzará la actualización de la web.</p>
+      <pre id="publish-log" hidden></pre>
+      <div class="dialog-actions"><button id="cancel-publish" class="button button--quiet">Cancelar</button><button id="confirm-publish" class="button button--primary">Publicar ahora</button></div>
+    </dialog>
+    <script type="module" src="/admin.js"></script>
+  </body>
+</html>
