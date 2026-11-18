@@ -10,10 +10,10 @@
   <body>
     <div class="admin-shell">
       <aside class="sidebar">
-        <div class="brand"><span>MR</span><div><strong>Portfolio</strong><small>Panel local</small></div></div>
+        <div class="brand"><span>MR</span><div><strong>Portfolio Studio</strong><small>Editor local</small></div></div>
         <label class="search"><span aria-hidden="true">⌕</span><input id="section-search" type="search" placeholder="Buscar sección" /></label>
         <nav id="section-list" aria-label="Secciones del portfolio"></nav>
-        <div class="sidebar-note"><i></i><p>Solo es accesible desde este ordenador.</p></div>
+        <div class="sidebar-note"><i></i><p>Edición privada en este ordenador</p></div>
       </aside>
 
       <main class="workspace">
@@ -28,7 +28,8 @@
         </header>
 
         <section class="editor-intro">
-          <div><span id="save-state" class="status-dot">Guardado</span><p>Edita los campos de la sección seleccionada. Los cambios no llegan a la web hasta que pulses «Publicar».</p></div>
+          <div class="editor-intro__copy"><span id="save-state" class="status-dot">Guardado</span><p>El contenido aparece organizado en bloques. Abre solo el que quieras modificar.</p></div>
+          <label id="visibility-control" class="visibility-control"><input id="visibility-toggle" type="checkbox" /><span class="visibility-switch" aria-hidden="true"></span><span><strong>Visible en la web</strong><small>Aparece en menús y portadas</small></span></label>
         </section>
 
         <section id="editor" class="editor" aria-live="polite"></section>
@@ -36,6 +37,10 @@
     </div>
 
     <div id="toast" class="toast" role="status" aria-live="polite"></div>
+    <dialog id="preview-dialog" class="preview-dialog">
+      <header><div><small>Vista previa local</small><strong id="preview-title">Portfolio</strong></div><button id="close-preview" class="dialog-close" aria-label="Cerrar vista previa">×</button></header>
+      <iframe id="preview-frame" title="Vista previa del portfolio"></iframe>
+    </dialog>
     <dialog id="publish-dialog">
       <div class="dialog-icon">↗</div>
       <h2>Publicar cambios</h2>

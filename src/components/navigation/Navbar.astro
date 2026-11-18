@@ -1,24 +1,27 @@
 ---
 import { portfolioConfig } from "../../config/portfolio.config";
+import content from "../../data/site-content.json";
 const { t } = Astro.props;
 const basePath = import.meta.env.BASE_URL.endsWith("/") ? import.meta.env.BASE_URL : `${import.meta.env.BASE_URL}/`;
-const primaryItems = [
+const visibility = content.sectionVisibility;
+const isVisible = (key: keyof typeof visibility) => visibility[key] !== false;
+const primaryItems = ([
   ["home", basePath, t.nav.home],
   ["about", `${basePath}sobre-mi`, t.nav.about],
-  ["trajectory", `${basePath}formacion-experiencia`, t.nav.trajectory],
+  ["experience", `${basePath}formacion-experiencia`, t.nav.trajectory],
   ["projects", `${basePath}proyectos`, t.nav.projects],
   ["services", `${basePath}servicios`, t.nav.services]
-];
-const contentItems = [
+] as const).filter(([id]) => id === "home" || isVisible(id));
+const contentItems = ([
   ["youtube", `${basePath}contenido#youtube`, t.nav.youtube],
   ["gallery", `${basePath}contenido#gallery`, t.nav.gallery],
   ["events", `${basePath}eventos`, t.nav.events],
-  ["recomendados", `${basePath}contenido#recomendados`, t.nav.recommendations]
-];
-const contactItems = [
+  ["recommendations", `${basePath}contenido#recomendados`, t.nav.recommendations]
+] as const).filter(([id]) => isVisible(id));
+const contactItems = ([
   ["community", `${basePath}contacto#community`, t.nav.community],
   ["contact", `${basePath}contacto#contact`, t.nav.form]
-];
+] as const).filter(([id]) => isVisible(id));
 const linkedinHref = portfolioConfig.socialLinks.linkedin || `${basePath}#contact`;
 const instagramHref = portfolioConfig.socialLinks.instagram || `${basePath}#contact`;
 const emailHref = portfolioConfig.socialLinks.email ? `mailto:${portfolioConfig.socialLinks.email}` : `${basePath}#contact`;
@@ -37,7 +40,7 @@ const emailHref = portfolioConfig.socialLinks.email ? `mailto:${portfolioConfig.
       {primaryItems.map(([id, href, label], index) => (
         <>
           {index > 0 && <span class="nav-separator" aria-hidden="true">·</span>}
-          <a class="nav-link" href={href} data-section-link={id} data-i18n={`nav.${id}`}>{label}</a>
+          <a class="nav-link" href={href} data-section-link={id} data-i18n={`nav.${id === "experience" ? "trajectory" : id}`}>{label}</a>
         </>
       ))}
       <span class="nav-separator" aria-hidden="true">·</span>
@@ -50,7 +53,7 @@ const emailHref = portfolioConfig.socialLinks.email ? `mailto:${portfolioConfig.
         </button>
         <div class="nav-dropdown__menu">
           {contentItems.map(([id, href, label]) => (
-            <a href={href} data-section-link={id} data-i18n={`nav.${id === "recomendados" ? "recommendations" : id}`}>{label}</a>
+            <a href={href} data-section-link={id} data-i18n={`nav.${id}`}>{label}</a>
           ))}
         </div>
       </div>

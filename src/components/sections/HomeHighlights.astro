@@ -1,8 +1,12 @@
 ---
+import content from "../../data/site-content.json";
 const { t } = Astro.props;
 const basePath = import.meta.env.BASE_URL.endsWith("/") ? import.meta.env.BASE_URL : `${import.meta.env.BASE_URL}/`;
 const items = t.home.items as Array<[string, string]>;
 const routes = ["sobre-mi", "formacion-experiencia", "proyectos", "servicios", "contenido", "contacto"];
+const sectionKeys = ["about", "experience", "projects", "services", "youtube", "contact"] as const;
+const visibleItems = items.map((item, index) => ({ item, route: routes[index], sourceIndex: index, key: sectionKeys[index] }))
+  .filter(({ key }) => content.sectionVisibility[key] !== false);
 ---
 
 <section class="section home-highlights" id="destacados" aria-labelledby="home-highlights-title">
@@ -12,12 +16,12 @@ const routes = ["sobre-mi", "formacion-experiencia", "proyectos", "servicios", "
     <p data-i18n="home.text">{t.home.text}</p>
   </header>
   <div class="home-highlights__grid">
-    {items.map((item, index) => (
+    {visibleItems.map(({ item, route, sourceIndex }, index) => (
       <article class="home-highlight" data-reveal style={`--reveal-delay:${index * 60}ms`}>
         <span aria-hidden="true">0{index + 1}</span>
-        <h3 data-i18n={`home.items.${index}.0`}>{item[0]}</h3>
-        <p data-i18n={`home.items.${index}.1`}>{item[1]}</p>
-        <a class="inline-link" href={`${basePath}${routes[index]}`}><span data-i18n="home.explore">{t.home.explore}</span><i aria-hidden="true">↗</i></a>
+        <h3 data-i18n={`home.items.${sourceIndex}.0`}>{item[0]}</h3>
+        <p data-i18n={`home.items.${sourceIndex}.1`}>{item[1]}</p>
+        <a class="inline-link" href={`${basePath}${route}`}><span data-i18n="home.explore">{t.home.explore}</span><i aria-hidden="true">↗</i></a>
       </article>
     ))}
   </div>

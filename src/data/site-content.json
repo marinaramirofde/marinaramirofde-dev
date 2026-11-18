@@ -1,4 +1,18 @@
 {
+  "sectionVisibility": {
+    "about": true,
+    "experience": true,
+    "projects": true,
+    "research": true,
+    "events": true,
+    "talks": true,
+    "youtube": true,
+    "services": true,
+    "gallery": true,
+    "recommendations": true,
+    "community": true,
+    "contact": true
+  },
   "es": {
     "meta": {
       "title": "Marina Ramiro Fernández · Ingeniera Informática y Desarrolladora XR",
