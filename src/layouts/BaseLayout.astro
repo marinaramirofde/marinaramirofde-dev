@@ -17,7 +17,7 @@ const publicUrl = Astro.site ? new URL(basePath, Astro.site).toString() : `https
 ---
 
 <!doctype html>
-<html lang={locale}>
+<html lang={locale} data-base-path={basePath}>
   <head>
     <meta charset="utf-8" />
     <script is:inline>document.documentElement.classList.add("has-js");</script>

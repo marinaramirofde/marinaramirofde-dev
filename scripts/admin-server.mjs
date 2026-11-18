@@ -31,8 +31,16 @@ const mimeTypes = {
   ".webp": "image/webp"
 };
 
-function send(response, status, body, contentType = "application/json; charset=utf-8") {
-  response.writeHead(status, { "Content-Type": contentType, "Cache-Control": "no-store" });
+function corsHeaders(request) {
+  const origin = request.headers.origin;
+  const allowed = new Set(["http://127.0.0.1:4321", "http://localhost:4321"]);
+  return origin && allowed.has(origin)
+    ? { "Access-Control-Allow-Origin": origin, "Access-Control-Allow-Headers": "Content-Type", "Access-Control-Allow-Methods": "GET, POST, OPTIONS", Vary: "Origin" }
+    : {};
+}
+
+function send(response, status, body, contentType = "application/json; charset=utf-8", headers = {}) {
+  response.writeHead(status, { "Content-Type": contentType, "Cache-Control": "no-store", ...headers });
   response.end(Buffer.isBuffer(body) ? body : typeof body === "string" ? body : JSON.stringify(body));
 }
 
@@ -135,24 +143,29 @@ async function serveStatic(requestPath, response) {
 
 const server = http.createServer(async (request, response) => {
   const url = new URL(request.url, `http://${host}:${port}`);
+  const headers = corsHeaders(request);
   try {
+    if (request.method === "OPTIONS" && url.pathname.startsWith("/api/")) {
+      response.writeHead(204, headers);
+      return response.end();
+    }
     if (url.pathname === "/api/content" && request.method === "GET") {
-      return send(response, 200, JSON.parse(await readFile(contentPath, "utf8")));
+      return send(response, 200, JSON.parse(await readFile(contentPath, "utf8")), undefined, headers);
     }
     if (url.pathname === "/api/content" && request.method === "POST") {
       await saveContent(await readBody(request));
-      return send(response, 200, { message: "Cambios guardados en el proyecto." });
+      return send(response, 200, { message: "Cambios guardados en el proyecto." }, undefined, headers);
     }
     if (url.pathname === "/api/upload" && request.method === "POST") {
-      return send(response, 200, { path: await uploadImage(await readBody(request)) });
+      return send(response, 200, { path: await uploadImage(await readBody(request)) }, undefined, headers);
     }
     if (url.pathname === "/api/publish" && request.method === "POST") {
-      return send(response, 200, await publish());
+      return send(response, 200, await publish(), undefined, headers);
     }
-    if (url.pathname === "/api/health") return send(response, 200, { ok: true, preview: "http://127.0.0.1:4321" });
+    if (url.pathname === "/api/health") return send(response, 200, { ok: true, preview: "http://127.0.0.1:4321/?adminEdit=1" }, undefined, headers);
     return await serveStatic(url.pathname, response);
   } catch (error) {
-    send(response, 500, { error: error instanceof Error ? error.message : "Error inesperado." });
+    send(response, 500, { error: error instanceof Error ? error.message : "Error inesperado." }, undefined, headers);
   }
 });
 
@@ -174,8 +187,10 @@ server.listen(port, host, () => {
   startPreview();
   const url = `http://${host}:${port}`;
   console.log(`\nPanel de administración: ${url}`);
-  console.log("Vista previa de la web: http://127.0.0.1:4321\n");
-  setTimeout(() => openBrowser(url), 500);
+  const editorUrl = "http://127.0.0.1:4321/?adminEdit=1";
+  console.log(`Editor visual: ${editorUrl}`);
+  console.log(`Panel avanzado: ${url}\n`);
+  setTimeout(() => openBrowser(editorUrl), 900);
 });
 
 function close() {

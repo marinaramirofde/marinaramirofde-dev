@@ -13,6 +13,8 @@
     "community": true,
     "contact": true
   },
+  "textOverrides": {},
+  "assetOverrides": {},
   "es": {
     "meta": {
       "title": "Marina Ramiro Fernández · Ingeniera Informática y Desarrolladora XR",

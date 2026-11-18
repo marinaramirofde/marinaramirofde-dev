@@ -2,6 +2,7 @@ import { dictionaries } from "../i18n";
 import { portfolioConfig } from "../config/portfolio.config";
 import { animationsConfig } from "../config/animations.config";
 import type { Locale } from "../types/portfolio";
+import { applyStoredOverrides, initInlineEditor } from "./inline-editor";
 
 const localeKey = "marina-preferred-locale";
 
@@ -62,6 +63,8 @@ function applyLocale(locale: Locale) {
     const isOpen = toggle.getAttribute("aria-expanded") === "true";
     toggle.setAttribute("aria-label", isOpen ? dictionary.nav.close : dictionary.nav.menu);
   }
+
+  applyStoredOverrides();
 }
 
 function initNavigation() {
@@ -271,4 +274,6 @@ export function initSite() {
       if (portfolioConfig.supportedLocales.includes(locale)) applyLocale(locale);
     });
   });
+
+  void initInlineEditor();
 }
