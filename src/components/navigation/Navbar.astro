@@ -16,8 +16,8 @@ const contentItems = [
   ["recomendados", `${basePath}contenido#recomendados`, t.nav.recommendations]
 ];
 const contactItems = [
-  ["community", `${basePath}contacto#community`, t.nav.community],
-  ["contact", `${basePath}contacto#contact`, t.nav.form]
+  ["contact", `${basePath}contacto#contact`, t.nav.contact],
+  ["community", `${basePath}contacto#community`, t.nav.community]
 ];
 const linkedinHref = portfolioConfig.socialLinks.linkedin || `${basePath}#contact`;
 const instagramHref = portfolioConfig.socialLinks.instagram || `${basePath}#contact`;
@@ -64,7 +64,7 @@ const emailHref = portfolioConfig.socialLinks.email ? `mailto:${portfolioConfig.
         </button>
         <div class="nav-dropdown__menu nav-dropdown__menu--right">
           {contactItems.map(([id, href, label]) => (
-            <a href={href} data-section-link={id} data-i18n={`nav.${id === "contact" ? "form" : id}`}>{label}</a>
+            <a href={href} data-section-link={id} data-i18n={`nav.${id}`}>{label}</a>
           ))}
         </div>
       </div>
