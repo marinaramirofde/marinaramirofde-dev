@@ -146,7 +146,7 @@ export const en = {
   },
   community: {
     eyebrow: "Community / Together", visualAi: "AI", visualHealth: "HEALTH", title: "Connected Tech Women",
-    text: "A network for women in computer science and women interested in technology, XR, programming and innovation: sharing knowledge, support, resources and opportunities to grow together.",
+    text: "A network for women interested in innovation, technology, computer science and engineering. A space to connect, share knowledge, support, resources and opportunities, and grow together.",
     members: "An open community to grow together", cta: "Join on WhatsApp",
     qrTitle: "QR pending", qrText: "The access QR will go here when you send it.",
     widgetCommunity: "WhatsApp Community", widgetIdeasTitle: "Inclusive community", widgetIdeasText: "Shared knowledge", widgetProjectTitle: "Events and meetups", widgetProjectText: "Connections to grow",
