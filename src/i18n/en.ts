@@ -2,6 +2,16 @@ import { selectedHomeEn } from "./selected-home";
 export const en = {
   selectedHome: selectedHomeEn,
   support: { text: "Want to brighten my morning?", cta: "Treat me to a coffee" },
+  youtubeShowcase: {
+    title: "On YouTube", intro: "A space where I share how I learn, create and develop: from studying together to demonstrations of extended reality and 3D visualisation.",
+    featured: "From development to experience", featuredText: "Showing a working project is a way to share what I have learned. This VREHABILITAR demonstration explores how virtual reality becomes an interactive rehabilitation experience.",
+    study: "Study with me", studyText: "Sessions to study, code or work together. Focus time, Pomodoro routines and a glimpse of my everyday life behind the screen.",
+    rendering: "Rendering and XR experiences", renderingText: "My latest medical visualisation and 3D interaction demonstrations: from brain volume rendering to anatomical model exploration with Unity and HoloLens 2.",
+    studyTitles: ["Study with me · Meet Mango", "Silent focus · 2 hours", "Pomodoro session · 30/5"],
+    studyDescriptions: ["An hour of studying and working together, featuring Mango.", "A session without narration to keep you company while you work.", "Thirty-minute focus blocks with five-minute breaks."],
+    xrTitles: ["Brain volume rendering", "Lumbar anatomical visualisation", "Interacting with a 3D lumbar model"],
+    xrDescriptions: ["An augmented reality prototype in Unity to explore a brain volume with HoloLens 2.", "Exploring a 3D anatomical model with HoloLens 2, Unity and MRTK3.", "An augmented reality scene for manipulating a three-dimensional lumbar model."]
+  },
   meta: {
     title: "Marina Ramiro Fernández · Software Engineer & XR Developer",
     description: "Professional portfolio for Marina Ramiro Fernández, software engineer focused on XR, health, research and medical visualization."

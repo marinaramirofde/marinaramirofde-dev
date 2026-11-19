@@ -3,15 +3,44 @@ import BaseLayout from "../layouts/BaseLayout.astro";
 import PageHeading from "../components/layout/PageHeading.astro";
 import { getDictionary } from "../i18n";
 import { portfolioConfig } from "../config/portfolio.config";
-
 const t = getDictionary(portfolioConfig.defaultLocale);
-
+const y = t.youtubeShowcase;
+const groups = [
+  { id: "study", title: y.study, text: y.studyText, titles: y.studyTitles, descriptions: y.studyDescriptions, titleKey: "studyTitles", descriptionKey: "studyDescriptions", videos: ["g8rjhTnHLlY", "JBDh_ODmGe8", "xtmLr13_HfU"] },
+  { id: "rendering", title: y.rendering, text: y.renderingText, titles: y.xrTitles, descriptions: y.xrDescriptions, titleKey: "xrTitles", descriptionKey: "xrDescriptions", videos: ["pLfhQ909XoI", "7febTrS1ro0", "2XY_ZrMMvx0"] }
+];
 ---
-<BaseLayout title={`${t.youtube.title} · ${portfolioConfig.brandName}`}>
-  <article class="content-page content-page--wide landing-page content-landing page-heading-host">
-    <PageHeading eyebrow={t.nav.content} title={t.youtube.title} description={t.youtube.text} eyebrowKey="nav.content" titleKey="youtube.title" descriptionKey="youtube.text" />
-    <section class="landing-panel" id="youtube" data-reveal><div><a class="button button--primary" href={portfolioConfig.socialLinks.youtube} target="_blank" rel="noreferrer" data-i18n="youtube.cta">{t.youtube.cta}</a></div>
-      <div class="youtube__video"><iframe src="https://www.youtube-nocookie.com/embed/TLWXkF8STxI?rel=0" title={t.youtube.videoTitle} loading="lazy" allowfullscreen></iframe></div>
+<BaseLayout title={`${y.title} · ${portfolioConfig.brandName}`} description={y.intro}>
+  <article class="youtube-page page-heading-host">
+    <PageHeading eyebrow={t.nav.content} title={y.title} description={y.intro} eyebrowKey="nav.content" titleKey="youtubeShowcase.title" descriptionKey="youtubeShowcase.intro" />
+    <section class="channel-feature" id="youtube" aria-labelledby="channel-feature-title">
+      <div class="channel-feature__copy"><span class="channel-handle">@marinaramirofde</span><h2 id="channel-feature-title" data-i18n="youtubeShowcase.featured">{y.featured}</h2><p data-i18n="youtubeShowcase.featuredText">{y.featuredText}</p><a class="channel-button" href={portfolioConfig.socialLinks.youtube} target="_blank" rel="noopener noreferrer" data-i18n="youtube.cta">{t.youtube.cta}</a></div>
+      <iframe src="https://www.youtube-nocookie.com/embed/TLWXkF8STxI?rel=0" title={t.youtube.videoTitle} data-i18n-title="youtube.videoTitle" loading="lazy" allowfullscreen></iframe>
     </section>
+    {groups.map(group => <section class="video-section" aria-labelledby={`${group.id}-title`}>
+      <header><h2 id={`${group.id}-title`} data-i18n={`youtubeShowcase.${group.id}`}>{group.title}</h2><p data-i18n={`youtubeShowcase.${group.id}Text`}>{group.text}</p></header>
+      <div class="video-grid">{group.videos.map((id, i) => <article class="video-card"><iframe src={`https://www.youtube-nocookie.com/embed/${id}?rel=0`} title={group.titles[i]} data-i18n-title={`youtubeShowcase.${group.titleKey}.${i}`} loading="lazy" allowfullscreen></iframe><div><h3 data-i18n={`youtubeShowcase.${group.titleKey}.${i}`}>{group.titles[i]}</h3><p data-i18n={`youtubeShowcase.${group.descriptionKey}.${i}`}>{group.descriptions[i]}</p></div></article>)}</div>
+    </section>)}
   </article>
 </BaseLayout>
+<style>
+.youtube-page { max-width:1240px;margin-inline:auto;padding:144px 32px 80px;font-family:"Manrope",system-ui,sans-serif;color:#363e4f; }
+.channel-feature { display:grid;grid-template-columns:.85fr 1.15fr;gap:36px;align-items:center;padding:32px;border-radius:20px;background:#e7f1f4; }
+.channel-handle { font-size:.85rem;font-weight:700;color:#285e70; }
+.youtube-page h2 { font-family:inherit;font-size:clamp(1.7rem,2.7vw,2.4rem);line-height:1.25;letter-spacing:-.035em;margin:12px 0 18px;text-wrap:balance; }
+.youtube-page p { color:#535d68;line-height:1.8;font-size:1rem;margin:0; }
+.youtube-page iframe { display:block;width:100%;aspect-ratio:16/9;border:0;border-radius:12px;background:#17252d; }
+.channel-button { display:inline-flex;align-items:center;min-height:48px;padding:10px 20px;border-radius:8px;background:#344c4b;color:white;text-decoration:none;font-weight:700;margin-top:24px; }
+.channel-button:hover { background:#243f50; }
+.channel-button:focus-visible { outline:3px solid #285e70;outline-offset:4px; }
+.video-section { margin-top:64px; }
+.video-section header { max-width:760px;margin-bottom:28px; }
+.video-grid { display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:24px; }
+.video-card { border:1px solid #d9dfe3;border-radius:14px;overflow:hidden;background:white; }
+.video-card iframe { border-radius:0; }
+.video-card > div { padding:22px; }
+.video-card h3 { font-family:inherit;font-size:1.15rem;line-height:1.4;letter-spacing:-.02em;margin:0 0 12px; }
+.video-card p { font-size:.9rem; }
+@media(max-width:900px){.channel-feature{grid-template-columns:1fr;}.video-grid{grid-template-columns:repeat(2,minmax(0,1fr));}}
+@media(max-width:600px){.youtube-page{padding-inline:20px;}.channel-feature{padding:24px;gap:24px;}.video-grid{grid-template-columns:1fr;}.video-section{margin-top:48px;}}
+</style>

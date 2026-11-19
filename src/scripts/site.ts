@@ -27,6 +27,13 @@ function applyLocale(locale: Locale) {
   document.documentElement.lang = locale;
   localStorage.setItem(localeKey, locale);
 
+  document.querySelectorAll<HTMLElement>("[data-i18n-title]").forEach((element) => {
+    const key = element.dataset.i18nTitle;
+    if (!key) return;
+    const value = getNestedValue(dictionary, key);
+    if (typeof value === "string") element.title = value;
+  });
+
   document.querySelectorAll<HTMLImageElement>("[data-i18n-alt]").forEach((element) => {
     const key = element.dataset.i18nAlt;
     if (!key) return;

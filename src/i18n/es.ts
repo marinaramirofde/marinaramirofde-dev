@@ -2,6 +2,16 @@ import { selectedHomeEs } from "./selected-home";
 export const es = {
   selectedHome: selectedHomeEs,
   support: { text: "¿Quieres hacerme la mañana más amena?", cta: "Invítame a un cafelito" },
+  youtubeShowcase: {
+    title: "Presencia en YouTube", intro: "Un espacio donde comparto mi forma de aprender, crear y desarrollar: desde sesiones de estudio en compañía hasta demostraciones de realidad extendida y visualización 3D.",
+    featured: "Del desarrollo a la experiencia", featuredText: "Enseñar un proyecto en funcionamiento es una forma de compartir lo aprendido. En esta demostración de VREHABILITAR puedes descubrir cómo la realidad virtual se convierte en una experiencia de rehabilitación interactiva.",
+    study: "Study with me", studyText: "Sesiones para estudiar, programar o trabajar en compañía. Momentos de concentración, rutinas Pomodoro y un poco de mi día a día detrás de la pantalla.",
+    rendering: "Rendering y experiencias XR", renderingText: "Mis últimas demostraciones de visualización médica e interacción 3D: del renderizado volumétrico cerebral a la exploración de modelos anatómicos con Unity y HoloLens 2.",
+    studyTitles: ["Estudia conmigo · Conoce a Mango", "Concentración en silencio · 2 horas", "Sesión Pomodoro · 30/5"],
+    studyDescriptions: ["Una hora de estudio y trabajo en compañía, con una aparición de Mango.", "Una sesión sin voz para acompañarte mientras avanzas en tus tareas.", "Bloques de concentración de 30 minutos con descansos de 5 minutos."],
+    xrTitles: ["Rendering volumétrico cerebral", "Visualización anatómica lumbar", "Interacción con un modelo lumbar 3D"],
+    xrDescriptions: ["Prototipo de realidad aumentada en Unity para explorar un volumen cerebral con HoloLens 2.", "Exploración de un modelo anatómico 3D con HoloLens 2, Unity y MRTK3.", "Una escena de realidad aumentada para manipular una representación tridimensional de la zona lumbar."]
+  },
   meta: {
     title: "Marina Ramiro Fernández · Ingeniera Informática y Desarrolladora XR",
     description: "Portfolio profesional de Marina Ramiro Fernández, ingeniera informática especializada en XR, salud, investigación y visualización médica."
