@@ -5,9 +5,9 @@ export const es = {
     title: "Marina Ramiro Fernández · Ingeniera Informática y Desarrolladora XR",
     description: "Portfolio profesional de Marina Ramiro Fernández, ingeniera informática especializada en XR, salud, investigación y visualización médica."
   },
-  nav: { home: "Inicio", about: "Sobre mí", trajectory: "Trayectoria", projects: "Proyectos", research: "Investigación", events: "Eventos", talks: "Charlas", youtube: "YouTube", services: "Servicios", gallery: "Galería", recommendations: "Recomendados", faq: "FAQ", content: "Contenido", contact: "Contacto", community: "Comunidad", form: "Formulario", menu: "Abrir menú", close: "Cerrar menú", linkedin: "LinkedIn", instagram: "Instagram", gmail: "Escribir por Gmail" },
+  nav: { home: "Inicio", about: "Sobre mí", trajectory: "Trayectoria", projects: "Proyectos", research: "Investigación", events: "Eventos", talks: "Charlas", youtube: "YouTube", services: "Habilidades", gallery: "Galería", recommendations: "Recomendados", faq: "FAQ", content: "Contenido", contact: "Contacto", community: "Comunidad", form: "Formulario", menu: "Abrir menú", close: "Cerrar menú", linkedin: "LinkedIn", instagram: "Instagram", gmail: "Escribir por Gmail" },
   intro: { skip: "Saltar introducción", label: "Entrada XR al portfolio" },
-  home: { eyebrow: "Explora / Portfolio", title: "Lo más destacado", text: "Una selección de mi perfil, trayectoria, proyectos, servicios, contenido y comunidad. Entra en cada área para descubrirla completa.", explore: "Ver sección", items: [["Sobre mí", "Especialización, enfoque y forma de trabajar."], ["Formación y experiencia", "Estudios, trabajo en XR y certificaciones profesionales."], ["Proyectos", "Casos de estudio y experiencias XR seleccionadas."], ["Servicios", "Formas de colaboración, desarrollo y prototipado."], ["Contenido", "Vídeos, galería, eventos y recomendaciones."], ["Contacto", "Comunidad profesional y formulario de contacto."]] },
+  home: { eyebrow: "Explora / Portfolio", title: "Lo más destacado", text: "Una selección de mi perfil, trayectoria, proyectos, servicios, contenido y comunidad. Entra en cada área para descubrirla completa.", explore: "Ver sección", items: [["Sobre mí", "Especialización, enfoque y forma de trabajar."], ["Formación y experiencia", "Estudios, trabajo en XR y certificaciones profesionales."], ["Proyectos", "Casos de estudio y experiencias XR seleccionadas."], ["Habilidades", "Formas de colaboración, desarrollo y prototipado."], ["Contenido", "Vídeos, galería, eventos y recomendaciones."], ["Contacto", "Comunidad profesional y formulario de contacto."]] },
   hero: {
     title: "Marina Ramiro",
     role: "Ingeniera Informática · Desarrolladora de Realidad Extendida (XR)",
@@ -117,8 +117,10 @@ export const es = {
     cta: "Ir al canal", videoTitle: "Video destacado de Marina Ramiro"
   },
   services: {
-    eyebrow: "Tecnología / Colaboración", title: "Mis servicios",
-    text: "De la idea a la aplicación práctica: ingeniería, innovación y experiencias inmersivas para resolver necesidades reales.",
+    eyebrow: "Tecnología / Experiencia", title: "Habilidades",
+    text: "Conocimientos técnicos, experiencia práctica y capacidades que aporto al desarrollo de proyectos tecnológicos, desde la identificación de necesidades hasta la implementación y validación de soluciones innovadoras.",
+    areasTitle: "Áreas de especialización", competenciesTitle: "Competencias profesionales",
+    areas: ["Innovación tecnológica", "Desarrollo integral de proyectos", "Tecnologías inmersivas XR", "Visualización 3D e imagen médica", "Ingeniería de software", "Colaboración multidisciplinar"],
     contact: "Hablemos de tu proyecto", contactText: "¿Tienes una idea o un reto tecnológico? Conectemos para darle forma.",
     items: ["Innovación y soluciones tecnológicas", "Desarrollo integral de proyectos tecnológicos", "Desarrollo de aplicaciones XR", "Visualización 3D e imagen médica", "Ingeniería de software e integración de sistemas", "Prototipado, pruebas y validación", "Colaboración y coordinación técnica", "Presentaciones y demostraciones tecnológicas"],
     descriptions: [
@@ -173,7 +175,7 @@ export const es = {
     submit: "Enviar mensaje", note: "El endpoint del formulario se configurará cuando se proporcione el servicio elegido."
   },
   footer: {
-    services: "Servicios", social: "Redes", cv: "CV", community: "Comunidad", menu: "Menú", contact: "Contacto", legal: "Legal", email: "Email",
+    services: "Habilidades", social: "Redes", cv: "CV", community: "Comunidad", menu: "Menú", contact: "Contacto", legal: "Legal", email: "Email",
     availability: "Disponible para proyectos con propósito", privacy: "Privacidad", copyright: "Todos los derechos reservados."
   },
   pages: {

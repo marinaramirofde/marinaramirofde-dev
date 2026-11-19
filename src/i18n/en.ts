@@ -5,9 +5,9 @@ export const en = {
     title: "Marina Ramiro Fernández · Software Engineer & XR Developer",
     description: "Professional portfolio for Marina Ramiro Fernández, software engineer focused on XR, health, research and medical visualization."
   },
-  nav: { home: "Home", about: "About", trajectory: "Background", projects: "Projects", research: "Research", events: "Events", talks: "Talks", youtube: "YouTube", services: "Services", gallery: "Gallery", recommendations: "Recommended", faq: "FAQ", content: "Content", contact: "Contact", community: "Community", form: "Form", menu: "Open menu", close: "Close menu", linkedin: "LinkedIn", instagram: "Instagram", gmail: "Write by Gmail" },
+  nav: { home: "Home", about: "About", trajectory: "Background", projects: "Projects", research: "Research", events: "Events", talks: "Talks", youtube: "YouTube", services: "Skills", gallery: "Gallery", recommendations: "Recommended", faq: "FAQ", content: "Content", contact: "Contact", community: "Community", form: "Form", menu: "Open menu", close: "Close menu", linkedin: "LinkedIn", instagram: "Instagram", gmail: "Write by Gmail" },
   intro: { skip: "Skip intro", label: "XR entrance to the portfolio" },
-  home: { eyebrow: "Explore / Portfolio", title: "Featured areas", text: "A selection of my profile, background, projects, services, content and community. Enter each area to discover it in full.", explore: "View section", items: [["About", "Expertise, focus and the way I work."], ["Education & experience", "Studies, XR work and professional certifications."], ["Projects", "Selected case studies and XR experiences."], ["Services", "Ways to collaborate, develop and prototype."], ["Content", "Videos, gallery, events and recommendations."], ["Contact", "Professional community and contact form."]] },
+  home: { eyebrow: "Explore / Portfolio", title: "Featured areas", text: "A selection of my profile, background, projects, services, content and community. Enter each area to discover it in full.", explore: "View section", items: [["About", "Expertise, focus and the way I work."], ["Education & experience", "Studies, XR work and professional certifications."], ["Projects", "Selected case studies and XR experiences."], ["Skills", "Ways to collaborate, develop and prototype."], ["Content", "Videos, gallery, events and recommendations."], ["Contact", "Professional community and contact form."]] },
   hero: {
     title: "Marina Ramiro",
     role: "Software Engineer · Extended Reality (XR) Developer",
@@ -117,8 +117,10 @@ export const en = {
     cta: "Go to channel", videoTitle: "Featured video by Marina Ramiro"
   },
   services: {
-    eyebrow: "Technology / Collaboration", title: "My services",
-    text: "From idea to practical application: engineering, innovation and immersive experiences that address real needs.",
+    eyebrow: "Technology / Experience", title: "Skills",
+    text: "Technical knowledge, practical experience and capabilities I bring to technology projects, from identifying needs to implementing and validating innovative solutions.",
+    areasTitle: "Areas of specialisation", competenciesTitle: "Professional competencies",
+    areas: ["Technological innovation", "End-to-end project development", "Immersive XR technologies", "3D visualisation and medical imaging", "Software engineering", "Multidisciplinary collaboration"],
     contact: "Let’s talk about your project", contactText: "Have an idea or a technology challenge? Let’s connect and shape it together.",
     items: ["Innovation and technology solutions", "End-to-end technology project development", "XR application development", "3D visualisation and medical imaging", "Software engineering and systems integration", "Prototyping, testing and validation", "Collaboration and technical coordination", "Technology presentations and demonstrations"],
     descriptions: [
@@ -173,7 +175,7 @@ export const en = {
     submit: "Send message", note: "The form endpoint will be configured when the chosen service is provided."
   },
   footer: {
-    services: "Services", social: "Social", cv: "CV", community: "Community", menu: "Menu", contact: "Contact", legal: "Legal", email: "Email",
+    services: "Skills", social: "Social", cv: "CV", community: "Community", menu: "Menu", contact: "Contact", legal: "Legal", email: "Email",
     availability: "Open to meaningful projects", privacy: "Privacy", copyright: "All rights reserved."
   },
   pages: {
