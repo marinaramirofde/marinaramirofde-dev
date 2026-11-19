@@ -1,0 +1,17 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import PageHeading from "../components/layout/PageHeading.astro";
+import { getDictionary } from "../i18n";
+import { portfolioConfig } from "../config/portfolio.config";
+
+const t = getDictionary(portfolioConfig.defaultLocale);
+
+---
+<BaseLayout title={`${t.youtube.title} · ${portfolioConfig.brandName}`}>
+  <article class="content-page content-page--wide landing-page content-landing page-heading-host">
+    <PageHeading eyebrow={t.nav.content} title={t.youtube.title} description={t.youtube.text} eyebrowKey="nav.content" titleKey="youtube.title" descriptionKey="youtube.text" />
+    <section class="landing-panel" id="youtube" data-reveal><div><a class="button button--primary" href={portfolioConfig.socialLinks.youtube} target="_blank" rel="noreferrer" data-i18n="youtube.cta">{t.youtube.cta}</a></div>
+      <div class="youtube__video"><iframe src="https://www.youtube-nocookie.com/embed/TLWXkF8STxI?rel=0" title={t.youtube.videoTitle} loading="lazy" allowfullscreen></iframe></div>
+    </section>
+  </article>
+</BaseLayout>

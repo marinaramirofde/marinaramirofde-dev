@@ -1,0 +1,17 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import PageHeading from "../components/layout/PageHeading.astro";
+import { getDictionary } from "../i18n";
+import { portfolioConfig } from "../config/portfolio.config";
+import { recommendedProducts } from "../data/recommended";
+const t = getDictionary(portfolioConfig.defaultLocale);
+
+---
+<BaseLayout title={`${t.recommendations.title} · ${portfolioConfig.brandName}`}>
+  <article class="content-page content-page--wide landing-page content-landing page-heading-host">
+    <PageHeading eyebrow={t.nav.content} title={t.recommendations.title} description={t.recommendations.text} eyebrowKey="nav.content" titleKey="recommendations.title" descriptionKey="recommendations.text" />
+    <section class="landing-panel landing-panel--stack" id="recomendados" data-reveal>
+      <div class="recommendations__grid">{recommendedProducts.slice(0, 3).map((product) => <a class={`recommended-card recommended-card--${product.visual}`} href={product.href} target="_blank" rel="noreferrer sponsored"><span class="recommended-card__category">{product.category}</span><span class="recommended-card__visual"><i></i></span><span class="recommended-card__content"><strong>{product.title}</strong><span>{product.description}</span></span></a>)}</div>
+    </section>
+  </article>
+</BaseLayout>

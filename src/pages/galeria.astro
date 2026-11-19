@@ -1,0 +1,17 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import PageHeading from "../components/layout/PageHeading.astro";
+import { getDictionary } from "../i18n";
+import { portfolioConfig } from "../config/portfolio.config";
+
+const t = getDictionary(portfolioConfig.defaultLocale);
+const galleryItems = t.gallery.items as Array<[string, string]>;
+---
+<BaseLayout title={`${t.gallery.title} · ${portfolioConfig.brandName}`}>
+  <article class="content-page content-page--wide landing-page content-landing page-heading-host">
+    <PageHeading eyebrow={t.nav.content} title={t.gallery.title} description={t.gallery.text} eyebrowKey="nav.content" titleKey="gallery.title" descriptionKey="gallery.text" />
+    <section class="landing-panel landing-panel--stack" id="gallery" data-reveal>
+      <div class="gallery__grid">{galleryItems.map((item, index) => <figure class={`gallery-item gallery-item--${["blue", "orange", "rose"][index]}`}><div class="gallery-item__visual"><i></i></div><figcaption><strong>{item[0]}</strong><span>{item[1]}</span></figcaption></figure>)}</div>
+    </section>
+  </article>
+</BaseLayout>
