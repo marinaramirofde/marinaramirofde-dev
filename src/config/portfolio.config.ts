@@ -32,10 +32,10 @@ export const portfolioConfig: PortfolioConfig = {
     cv: ""
   },
   sections: [
-    { id: "hero", enabled: true, order: 1, variant: "light" },
-    { id: "dashboard", enabled: true, order: 2, variant: "dark" },
-    { id: "technologies", enabled: true, order: 3, variant: "soft" },
-    { id: "home-highlights", enabled: true, order: 4, variant: "light" },
+    { id: "hero", enabled: false, order: 1, variant: "light" },
+    { id: "dashboard", enabled: false, order: 2, variant: "dark" },
+    { id: "technologies", enabled: false, order: 3, variant: "soft" },
+    { id: "home-highlights", enabled: false, order: 4, variant: "light" },
     { id: "about", enabled: true, order: 5, variant: "soft" },
     { id: "projects", enabled: true, order: 6, variant: "light" },
     { id: "research", enabled: true, order: 7, variant: "dark" },
