@@ -1,17 +1,46 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
 import PageHeading from "../components/layout/PageHeading.astro";
+import TechIcon from "../components/home/TechIcon.astro";
 import { getDictionary } from "../i18n";
 import { portfolioConfig } from "../config/portfolio.config";
 import { recommendedProducts } from "../data/recommended";
 const t = getDictionary(portfolioConfig.defaultLocale);
-
 ---
 <BaseLayout title={`${t.recommendations.title} · ${portfolioConfig.brandName}`}>
-  <article class="content-page content-page--wide landing-page content-landing page-heading-host">
+  <article class="product-page page-heading-host">
     <PageHeading eyebrow={t.nav.content} title={t.recommendations.title} description={t.recommendations.text} eyebrowKey="nav.content" titleKey="recommendations.title" descriptionKey="recommendations.text" />
-    <section class="landing-panel landing-panel--stack" id="recomendados" data-reveal>
-      <div class="recommendations__grid">{recommendedProducts.slice(0, 3).map((product) => <a class={`recommended-card recommended-card--${product.visual}`} href={product.href} target="_blank" rel="noreferrer sponsored"><span class="recommended-card__category">{product.category}</span><span class="recommended-card__visual"><i></i></span><span class="recommended-card__content"><strong>{product.title}</strong><span>{product.description}</span></span></a>)}</div>
-    </section>
+    <aside class="affiliate-notice"><strong data-i18n="recommendations.affiliate">{t.recommendations.affiliate}</strong><p data-i18n="recommendations.affiliateNotice">{t.recommendations.affiliateNotice}</p></aside>
+    <div class="product-grid" id="recomendados">
+      {recommendedProducts.map((product, i) => <article class={`product-card product-card--${i}`}>
+        <div class="product-card__photo">
+          {product.image ? <img src={product.image} alt={product.title} width="720" height="600" loading="lazy" /> : <div class="product-card__placeholder"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><rect x="7" y="9" width="34" height="30" rx="5"/><circle cx="18" cy="19" r="3"/><path d="m8 33 10-9 7 6 7-10 9 13"/></svg><span data-i18n="recommendations.imagePending">{t.recommendations.imagePending}</span></div>}
+        </div>
+        <div class="product-card__body"><h2>{product.title}</h2><a href={product.affiliateHref || product.href} target="_blank" rel={product.affiliateHref ? "noopener noreferrer sponsored" : "noopener noreferrer"}><span data-i18n="recommendations.amazon">{t.recommendations.amazon}</span><TechIcon kind="next" /></a>{product.affiliateHref && <small data-i18n="recommendations.affiliate">{t.recommendations.affiliate}</small>}</div>
+      </article>)}
+    </div>
   </article>
 </BaseLayout>
+<style>
+.product-page { max-width: 1240px; margin-inline: auto; padding: 144px 32px 80px; font-family: "Manrope",system-ui,sans-serif; color:#363e4f; }
+.affiliate-notice { max-width: 760px; margin: 0 auto 40px; padding: 16px 20px; border-radius: 12px; background: #edf3f6; color: #405b69; font-size: .85rem; line-height: 1.7; text-align: center; }
+.affiliate-notice strong { color: #285e70; }
+.affiliate-notice p { margin: 4px 0 0; }
+.product-grid { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:24px; }
+.product-card { overflow:hidden; border-radius:20px; background:#f3f4f5; min-width:0; display:flex; flex-direction:column; }
+.product-card:nth-child(3n+2) { background:#e7f1f4; }
+.product-card:nth-child(3n) { background:#f6f2ef; }
+.product-card__photo { aspect-ratio: 6 / 5; padding:24px; display:grid; place-items:center; }
+.product-card__photo img { width:100%;height:100%;object-fit:contain;mix-blend-mode:multiply; }
+.product-card__placeholder { display:flex;flex-direction:column;align-items:center;gap:14px;color:#637586;text-align:center;font-size:.8rem; }
+.product-card__placeholder svg { width:76px;height:76px; }
+.product-card__body { padding:0 26px 26px; display:flex;flex-direction:column;align-items:flex-start;flex:1; }
+.product-card h2 { font-family:inherit;font-size:clamp(1.25rem,2vw,1.65rem);letter-spacing:-.035em;line-height:1.3;margin:0 0 22px;color:#363e4f; }
+.product-card a { display:inline-flex;align-items:center;gap:16px;min-height:44px;padding:10px 16px;border-radius:24px;background:#344c4b;color:#fff;text-decoration:none;font-weight:700;font-size:.85rem;margin-top:auto; }
+.product-card a:hover { background:#243f50; }
+.product-card a:focus-visible { outline:3px solid #285e70;outline-offset:4px; }
+.product-card :global(svg.clean-tech-icon) { width:18px;height:18px; }
+.product-card small { font-size:.75rem;color:#405b69;margin-top:12px; }
+@media(max-width:900px){.product-grid{grid-template-columns:repeat(2,minmax(0,1fr));}}
+@media(max-width:600px){.product-page{padding-inline:20px;}.product-grid{grid-template-columns:1fr;gap:20px;}}
+</style>

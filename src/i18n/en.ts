@@ -142,6 +142,7 @@ export const en = {
     items: [["XR health interface", "Prototype"], ["Medical visualization scene", "Research"], ["Immersive learning space", "Community"]]
   },
   recommendations: {
+    amazon: "View on Amazon", imagePending: "Product photograph coming soon", affiliate: "Affiliate links", affiliateNotice: "Links marked as affiliate links may earn a commission on purchases, at no additional cost to you.",
     title: "Recommended",
     text: "Products and accessories I use day to day to work, create and test ideas.",
     note: "*affiliate links"

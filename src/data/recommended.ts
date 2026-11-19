@@ -3,6 +3,8 @@ export interface RecommendedProduct {
   category: string;
   description: string;
   href: string;
+  image?: string;
+  affiliateHref?: string;
   visual: "headset" | "mouse" | "audio" | "hub" | "reader" | "storage";
 }
 
