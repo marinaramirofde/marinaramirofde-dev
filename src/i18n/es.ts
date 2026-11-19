@@ -142,6 +142,7 @@ export const es = {
     items: [["Interfaz XR para salud", "Prototipo"], ["Escena de visualización médica", "Investigación"], ["Espacio de aprendizaje inmersivo", "Comunidad"]]
   },
   recommendations: {
+    shop: "Visitar mi tienda en Amazon",
     amazon: "Ver en Amazon", imagePending: "Fotografía del producto pendiente", affiliate: "Enlaces de afiliados", affiliateNotice: "Los enlaces identificados como afiliados pueden generar una comisión por las compras realizadas, sin coste adicional para ti.",
     title: "Recomendados",
     text: "Productos y accesorios que utilizo en mi día a día para trabajar, crear y probar ideas.",

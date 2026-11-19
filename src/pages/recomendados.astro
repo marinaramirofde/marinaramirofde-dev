@@ -10,7 +10,7 @@ const t = getDictionary(portfolioConfig.defaultLocale);
 <BaseLayout title={`${t.recommendations.title} · ${portfolioConfig.brandName}`}>
   <article class="product-page page-heading-host">
     <PageHeading eyebrow={t.nav.content} title={t.recommendations.title} description={t.recommendations.text} eyebrowKey="nav.content" titleKey="recommendations.title" descriptionKey="recommendations.text" />
-    <aside class="affiliate-notice"><strong data-i18n="recommendations.affiliate">{t.recommendations.affiliate}</strong><p data-i18n="recommendations.affiliateNotice">{t.recommendations.affiliateNotice}</p></aside>
+    <aside class="affiliate-notice"><strong data-i18n="recommendations.affiliate">{t.recommendations.affiliate}</strong><p data-i18n="recommendations.affiliateNotice">{t.recommendations.affiliateNotice}</p><a class="amazon-shop" href="https://www.amazon.es/shop/marinaramirofde" target="_blank" rel="noopener noreferrer sponsored"><span data-i18n="recommendations.shop">{t.recommendations.shop}</span><TechIcon kind="next" /></a></aside>
     <div class="product-grid" id="recomendados">
       {recommendedProducts.map((product, i) => <article class={`product-card product-card--${i}`}>
         <div class="product-card__photo">
@@ -26,6 +26,9 @@ const t = getDictionary(portfolioConfig.defaultLocale);
 .affiliate-notice { max-width: 760px; margin: 0 auto 40px; padding: 16px 20px; border-radius: 12px; background: #edf3f6; color: #405b69; font-size: .85rem; line-height: 1.7; text-align: center; }
 .affiliate-notice strong { color: #285e70; }
 .affiliate-notice p { margin: 4px 0 0; }
+.amazon-shop { display:inline-flex;align-items:center;gap:12px;min-height:44px;margin-top:12px;color:#285e70;font-weight:700;text-decoration:underline;text-underline-offset:4px; }
+.amazon-shop :global(svg) { width:18px;height:18px; }
+.amazon-shop:focus-visible { outline:3px solid #285e70;outline-offset:4px; }
 .product-grid { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:24px; }
 .product-card { overflow:hidden; border-radius:20px; background:#f3f4f5; min-width:0; display:flex; flex-direction:column; }
 .product-card:nth-child(3n+2) { background:#e7f1f4; }
