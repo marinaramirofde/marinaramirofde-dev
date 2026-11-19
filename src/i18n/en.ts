@@ -1,6 +1,7 @@
 import { selectedHomeEn } from "./selected-home";
 export const en = {
   selectedHome: selectedHomeEn,
+  support: { text: "Finding what I share useful?", cta: "Buy me a coffee" },
   meta: {
     title: "Marina Ramiro Fernández · Software Engineer & XR Developer",
     description: "Professional portfolio for Marina Ramiro Fernández, software engineer focused on XR, health, research and medical visualization."

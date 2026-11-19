@@ -1,11 +1,20 @@
 ---
 import { portfolioConfig } from "../../config/portfolio.config";
+import { getDictionary } from "../../i18n";
+const t = getDictionary(portfolioConfig.defaultLocale);
 const basePath = import.meta.env.BASE_URL.endsWith("/") ? import.meta.env.BASE_URL : `${import.meta.env.BASE_URL}/`;
 const youtubeHref = portfolioConfig.socialLinks.youtube || `${basePath}#youtube`;
 const linkedinHref = portfolioConfig.socialLinks.linkedin || `${basePath}#contact`;
 const instagramHref = portfolioConfig.socialLinks.instagram || `${basePath}#contact`;
 ---
 
+<aside class="coffee-support">
+  <span data-i18n="support.text">{t.support.text}</span>
+  <a href="https://ko-fi.com/marinaramirofde" target="_blank" rel="noopener noreferrer">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M4 8h12v7a5 5 0 0 1-5 5H9a5 5 0 0 1-5-5Zm12 1h2a3 3 0 0 1 0 6h-2M8 3v2m4-2v2M3 22h15"/></svg>
+    <span data-i18n="support.cta">{t.support.cta}</span>
+  </a>
+</aside>
 <footer class="footer footer--scenic">
   <div class="footer__scenery" aria-hidden="true">
     <span class="footer__sun"></span>
@@ -30,3 +39,10 @@ const instagramHref = portfolioConfig.socialLinks.instagram || `${basePath}#cont
     <strong class="footer__simple-name">Marina Ramiro</strong>
   </div>
 </footer>
+<style>
+  .coffee-support { display:flex; align-items:center; justify-content:center; flex-wrap:wrap; gap:8px 16px; padding:24px 20px; background:#fff; color:#535d68; font-family:"Manrope",system-ui,sans-serif; font-size:.85rem; line-height:1.6; text-align:center; }
+  .coffee-support a { display:inline-flex; align-items:center; gap:9px; min-height:44px; color:#285e70; font-weight:700; text-decoration:none; }
+  .coffee-support svg { width:22px; height:22px; flex-shrink:0; }
+  .coffee-support a:hover { text-decoration:underline; text-underline-offset:4px; }
+  .coffee-support a:focus-visible { outline:3px solid #285e70; outline-offset:4px; border-radius:4px; }
+</style>
