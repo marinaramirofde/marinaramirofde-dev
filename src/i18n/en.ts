@@ -121,7 +121,7 @@ export const en = {
     text: "Technical knowledge, practical experience and capabilities I bring to technology projects, from identifying needs to implementing and validating innovative solutions.",
     areasTitle: "Areas of specialisation", competenciesTitle: "Professional competencies",
     areas: ["Technological innovation", "End-to-end project development", "Immersive XR technologies", "3D visualisation and medical imaging", "Software engineering", "Multidisciplinary collaboration"],
-    contact: "Let’s connect", contactText: "I’m interested in environments where I can contribute, keep growing and drive innovation. If you see an opportunity that fits my profile, let’s talk.",
+    contact: "Let’s connect", contactText: "I’m interested in environments where I can contribute, keep growing and drive innovation. Open to professional opportunities aligned with my experience and technological vision.",
     items: ["Innovation and technology solutions", "End-to-end technology project development", "XR application development", "3D visualisation and medical imaging", "Software engineering and systems integration", "Prototyping, testing and validation", "Collaboration and technical coordination", "Technology presentations and demonstrations"],
     descriptions: [
       "Needs analysis, evaluation of technology alternatives and development of innovative solutions to real problems, from the initial idea to practical application.",
