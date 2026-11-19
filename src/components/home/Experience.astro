@@ -1,0 +1,10 @@
+---
+import Copy from "./Copy.astro";
+import type { selectedHomeEs } from "../../i18n/selected-home";
+interface Props { t: typeof selectedHomeEs; }
+const { t } = Astro.props;
+---
+<section class="clean-section clean-shell clean-summary" id="experience" aria-labelledby="work-title">
+  <h2 id="work-title" data-i18n="selectedHome.workTitle">{t.workTitle}</h2>
+  <div class="clean-summary__body"><p class="clean-meta" data-i18n="selectedHome.workOrg">{t.workOrg}</p><h3 data-i18n="selectedHome.workRole">{t.workRole}</h3><p><Copy value={t.work} path="selectedHome.work" /></p></div>
+</section>

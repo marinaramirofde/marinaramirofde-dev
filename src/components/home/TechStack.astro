@@ -1,0 +1,12 @@
+---
+import { technologies } from "../../data/technologies";
+import type { selectedHomeEs } from "../../i18n/selected-home";
+interface Props { t: typeof selectedHomeEs; base: string; }
+const { t, base } = Astro.props;
+const names = ["Unity", "C#", "OpenXR", "MRTK", "Meta Quest", "HoloLens", "3D Slicer", "JavaScript", "Git", "Jira"];
+const stack = names.map(name => technologies.find(item => item.name === name)!);
+---
+<section class="clean-stack clean-shell" id="technologies" aria-labelledby="stack-title">
+  <div class="clean-stack__heading"><h2 id="stack-title" data-i18n="selectedHome.stackTitle">{t.stackTitle}</h2><p data-i18n="selectedHome.stackIntro">{t.stackIntro}</p></div>
+  <ul class="clean-tech-list">{stack.map(item => <li><img src={`${base}${item.logo.replace(/^\//, "")}`} alt="" width="24" height="24" loading="lazy" /><span>{item.name}</span></li>)}</ul>
+</section>

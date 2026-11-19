@@ -2,24 +2,27 @@
 import BaseLayout from "../layouts/BaseLayout.astro";
 import { getDictionary } from "../i18n";
 import { portfolioConfig } from "../config/portfolio.config";
-import Hero from "../components/sections/Hero.astro";
-import Dashboard from "../components/sections/Dashboard.astro";
-import HomeHighlights from "../components/sections/HomeHighlights.astro";
-import Technologies from "../components/sections/Technologies.astro";
+import Welcome from "../components/home/Welcome.astro";
+import TechStack from "../components/home/TechStack.astro";
+import About from "../components/home/About.astro";
+import Experience from "../components/home/Experience.astro";
+import Education from "../components/home/Education.astro";
+import Training from "../components/home/Training.astro";
+import FeaturedProjects from "../components/home/FeaturedProjects.astro";
+import "../styles/selected-home.css";
 
-const t = getDictionary(portfolioConfig.defaultLocale);
-const homeRegistry = {
-  hero: Hero,
-  dashboard: Dashboard,
-  technologies: Technologies,
-  "home-highlights": HomeHighlights
-};
-const homeSections = portfolioConfig.sections
-  .filter((section) => section.enabled && section.id in homeRegistry)
-  .sort((a, b) => a.order - b.order)
-  .map((section) => homeRegistry[section.id as keyof typeof homeRegistry]);
+const t = getDictionary(portfolioConfig.defaultLocale).selectedHome;
+const base = `${import.meta.env.BASE_URL.replace(/\/$/, "")}/`;
 ---
 
 <BaseLayout>
-  {homeSections.map((Section) => <Section t={t} />)}
+  <div class="clean-home">
+    <Welcome t={t} base={base} />
+    <TechStack t={t} base={base} />
+    <About t={t} />
+    <Experience t={t} />
+    <Education t={t} base={base} />
+    <Training t={t} base={base} />
+    <FeaturedProjects t={t} base={base} />
+  </div>
 </BaseLayout>

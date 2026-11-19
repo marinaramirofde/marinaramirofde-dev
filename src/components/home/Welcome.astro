@@ -1,0 +1,20 @@
+---
+import type { selectedHomeEs } from "../../i18n/selected-home";
+interface Props { t: typeof selectedHomeEs; base: string; }
+const { t, base } = Astro.props;
+---
+<section class="clean-welcome clean-shell" aria-labelledby="welcome-title">
+  <div class="clean-welcome__copy">
+    <p class="clean-kicker" data-i18n="selectedHome.welcome">{t.welcome}</p>
+    <h1 id="welcome-title" data-i18n="selectedHome.headline">{t.headline}</h1>
+    <p class="clean-intro" data-i18n="selectedHome.intro">{t.intro}</p>
+    <div class="clean-actions">
+      <a class="clean-button" href={`${base}proyectos`}><span data-i18n="selectedHome.projectsCta">{t.projectsCta}</span><span aria-hidden="true">↗</span></a>
+      <a class="clean-button clean-button--secondary" href="#connect" data-i18n="selectedHome.connectCta">{t.connectCta}</a>
+    </div>
+  </div>
+  <figure class="clean-portrait">
+    <div class="clean-portrait__placeholder"><span class="clean-portrait__monogram" aria-hidden="true">mr.</span><p data-i18n="selectedHome.photo">{t.photo}</p></div>
+    <figcaption data-i18n="selectedHome.photoNote">{t.photoNote}</figcaption>
+  </figure>
+</section>

@@ -1,4 +1,6 @@
+import { selectedHomeEn } from "./selected-home";
 export const en = {
+  selectedHome: selectedHomeEn,
   meta: {
     title: "Marina Ramiro Fernández · Software Engineer & XR Developer",
     description: "Professional portfolio for Marina Ramiro Fernández, software engineer focused on XR, health, research and medical visualization."

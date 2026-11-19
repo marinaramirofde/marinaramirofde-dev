@@ -1,0 +1,14 @@
+---
+import Copy from "./Copy.astro";
+import type { selectedHomeEs } from "../../i18n/selected-home";
+interface Props { t: typeof selectedHomeEs; base: string; }
+const { t, base } = Astro.props;
+---
+<section class="clean-section clean-education" id="education" aria-labelledby="education-title">
+  <div class="clean-shell clean-summary"><h2 id="education-title" data-i18n="selectedHome.educationTitle">{t.educationTitle}</h2>
+    <div class="clean-summary__body"><article><p class="clean-meta" data-i18n="selectedHome.university">{t.university}</p><h3 data-i18n="selectedHome.degree">{t.degree}</h3><p data-i18n="selectedHome.degreeText">{t.degreeText}</p></article>
+      <article class="clean-thesis"><span class="clean-distinction" data-i18n="selectedHome.distinction">{t.distinction}</span><h3 data-i18n="selectedHome.thesis">{t.thesis}</h3><p><Copy value={t.thesisText} path="selectedHome.thesisText" /></p></article>
+      <a class="clean-text-link" href={`${base}formacion-experiencia#education-title`}><span data-i18n="selectedHome.moreBackground">{t.moreBackground}</span><span aria-hidden="true">↗</span></a>
+    </div>
+  </div>
+</section>

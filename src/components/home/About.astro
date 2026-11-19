@@ -1,0 +1,13 @@
+---
+import Copy from "./Copy.astro";
+import type { selectedHomeEs } from "../../i18n/selected-home";
+interface Props { t: typeof selectedHomeEs; }
+const { t } = Astro.props;
+---
+<section class="clean-section clean-about" id="about" aria-labelledby="about-title">
+  <div class="clean-shell clean-about__grid">
+    <header><p class="clean-kicker" data-i18n="selectedHome.aboutTitle">{t.aboutTitle}</p><h2 id="about-title" data-i18n="selectedHome.aboutLead">{t.aboutLead}</h2></header>
+    <div class="clean-prose">{t.about.map((parts, i) => <p><Copy value={parts} path={`selectedHome.about.${i}`} /></p>)}<p class="clean-belief"><strong data-i18n="selectedHome.belief">{t.belief}</strong></p></div>
+    <address id="connect" class="clean-contact"><h3 data-i18n="selectedHome.contactTitle">{t.contactTitle}</h3><a href="mailto:marinaramirofde@gmail.com"><span data-i18n="selectedHome.emailLabel">{t.emailLabel}</span>marinaramirofde@gmail.com</a><a href="tel:+34661195808"><span data-i18n="selectedHome.phoneLabel">{t.phoneLabel}</span>+34 661 195 808</a></address>
+  </div>
+</section>

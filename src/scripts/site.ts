@@ -17,7 +17,7 @@ function getInitialLocale(): Locale {
   const stored = localStorage.getItem(localeKey) as Locale | null;
   if (stored && portfolioConfig.supportedLocales.includes(stored)) return stored;
 
-  const browserLocale: Locale = navigator.language.toLowerCase().startsWith("en") ? "en" : "es";
+  const browserLocale: Locale = portfolioConfig.defaultLocale;
   localStorage.setItem(localeKey, browserLocale);
   return browserLocale;
 }
@@ -26,6 +26,13 @@ function applyLocale(locale: Locale) {
   const dictionary = dictionaries[locale];
   document.documentElement.lang = locale;
   localStorage.setItem(localeKey, locale);
+
+  document.querySelectorAll<HTMLImageElement>("[data-i18n-alt]").forEach((element) => {
+    const key = element.dataset.i18nAlt;
+    if (!key) return;
+    const value = getNestedValue(dictionary, key);
+    if (typeof value === "string") element.alt = value;
+  });
 
   // Update all translated text nodes from the central dictionaries.
   document.querySelectorAll<HTMLElement>("[data-i18n]").forEach((element) => {

@@ -1,0 +1,5 @@
+---
+interface Props { value: string[]; path: string; }
+const { value, path } = Astro.props;
+---
+{value.map((part, i) => i % 2 ? <strong data-i18n={`${path}.${i}`}>{part}</strong> : <span data-i18n={`${path}.${i}`}>{part}</span>)}
