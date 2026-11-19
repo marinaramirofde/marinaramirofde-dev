@@ -1,9 +1,11 @@
 ---
+import TechIcon from "./TechIcon.astro";
 import Copy from "./Copy.astro";
 import type { selectedHomeEs } from "../../i18n/selected-home";
 interface Props { t: typeof selectedHomeEs; }
 const { t } = Astro.props;
 ---
+
 <section class="clean-section clean-shell clean-summary" id="experience" aria-labelledby="work-title">
   <h2 id="work-title" data-i18n="selectedHome.workTitle">{t.workTitle}</h2>
   <div class="clean-summary__body">
@@ -11,8 +13,8 @@ const { t } = Astro.props;
     <h3 data-i18n="selectedHome.workRole">{t.workRole}</h3>
     <p><Copy value={t.work} path="selectedHome.work" /></p>
     <div class="clean-experience-links">
-      <a class="clean-text-link" href="https://artemisapro.com/" target="_blank" rel="noopener noreferrer"><span data-i18n="selectedHome.artemisaWebsite">{t.artemisaWebsite}</span><span aria-hidden="true">↗</span></a>
-      <a class="clean-text-link" href="https://fisabio.san.gva.es/es/apoyo-a-la-investigacion/areas-de-gestion/proyectos-i-d-i/fichas-proyectos-avi-ivace-i/artemisa/" target="_blank" rel="noopener noreferrer"><span data-i18n="selectedHome.artemisaFisabio">{t.artemisaFisabio}</span><span aria-hidden="true">↗</span></a>
+      <a class="clean-text-link" href="https://artemisapro.com/" target="_blank" rel="noopener noreferrer"><span data-i18n="selectedHome.artemisaWebsite">{t.artemisaWebsite}</span><TechIcon /></a>
+      <a class="clean-text-link" href="https://fisabio.san.gva.es/es/apoyo-a-la-investigacion/areas-de-gestion/proyectos-i-d-i/fichas-proyectos-avi-ivace-i/artemisa/" target="_blank" rel="noopener noreferrer"><span data-i18n="selectedHome.artemisaFisabio">{t.artemisaFisabio}</span><TechIcon /></a>
     </div>
   </div>
 </section>

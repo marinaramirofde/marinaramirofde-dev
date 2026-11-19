@@ -49,7 +49,6 @@
 }
 .clean-about .clean-belief { border-left-color: #7aa9b5; }
 .clean-about .clean-contact { border-top-color: #c1d8df; }
-.clean-about .clean-contact__icon { background: #d5e7ed; border-color: #93b8c4; }
 .clean-about__grid { display: grid; grid-template-columns: .8fr 1.3fr; gap: 36px 85px; }
 .clean-about header h2 { max-width: 13ch; }
 .clean-prose p + p { margin-top: 20px; }
@@ -62,9 +61,10 @@
 .clean-contact a span { display: block; color: var(--home-muted); font-size: .75rem; font-weight: 500; }
 .clean-contact .clean-contact__page { display: inline-flex; align-items: center; gap: 16px; color: var(--home-accent); }
 .clean-contact .clean-contact__page span { color: inherit; font-size: inherit; font-weight: 700; }
-.clean-contact__icon { width: 36px; height: 36px; padding: 7px; border: 1px solid #b0c0cc; border-radius: 8px; background: #e9efef; flex-shrink: 0; }
+.clean-tech-icon { width: 20px; height: 20px; flex-shrink: 0; }
+.clean-tech-icon--chat { width: 32px; height: 32px; }
 .clean-contact .clean-contact__page:hover { text-decoration: none; }
-.clean-contact__page:hover .clean-contact__icon { background: #d9dfe3; border-color: var(--home-accent); }
+.clean-contact__page:hover .clean-tech-icon { color: #163f50; }
 .clean-contact a:hover { text-decoration: underline; text-underline-offset: 4px; }
 .clean-summary { display: grid; grid-template-columns: .8fr 1.3fr; gap: 36px 85px; }
 .clean-summary__body > p,.clean-summary__body article > p { color: var(--home-muted); margin-top: 16px; }
