@@ -1,7 +1,7 @@
 export const selectedHomeEs = {
-  welcome: "Hola, soy Marina.", headline: "Conecto tecnología, ideas y personas.",
+  welcome: "Hola, soy Marina.", headline: "Marina Ramiro",
   intro: "Ingeniera Informática del Software especializada en realidad extendida (XR), desarrollo de software e innovación tecnológica.",
-  projectsCta: "Ver proyectos", connectCta: "Conectar", photo: "Un espacio para mi próxima foto", photoNote: "Marina Ramiro · Ingeniería e innovación",
+  projectsCta: "Ver proyectos", connectCta: "Conectar", photo: "Un espacio para mi próxima foto", photoNote: "Desarrolladora de software · Innovación y liderazgo técnico",
   stackTitle: "Tecnologías y herramientas", stackIntro: "Mi base para diseñar, desarrollar y dar forma a nuevas soluciones.",
   aboutTitle: "Sobre mí", aboutLead: "Ideas con propósito. Tecnología con impacto.",
   about: [
@@ -24,9 +24,9 @@ export const selectedHomeEs = {
   ]
 };
 export const selectedHomeEn: typeof selectedHomeEs = {
-  welcome: "Hi, I’m Marina.", headline: "Connecting technology, ideas and people.",
+  welcome: "Hi, I’m Marina.", headline: "Marina Ramiro",
   intro: "Software Engineer specialising in extended reality (XR), software development and technological innovation.",
-  projectsCta: "View projects", connectCta: "Connect", photo: "A space for my upcoming photo", photoNote: "Marina Ramiro · Engineering and innovation",
+  projectsCta: "View projects", connectCta: "Connect", photo: "A space for my upcoming photo", photoNote: "Software Developer · Innovation and Technical Leadership",
   stackTitle: "Technologies and tools", stackIntro: "The foundation I use to design, develop and shape new solutions.",
   aboutTitle: "About me", aboutLead: "Ideas with purpose. Technology with impact.",
   about: [
