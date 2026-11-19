@@ -9,7 +9,7 @@ const t = getDictionary(portfolioConfig.defaultLocale);
 const base = `${import.meta.env.BASE_URL.replace(/\/$/, "")}/`;
 ---
 <BaseLayout title={`${t.events.title} · ${portfolioConfig.brandName}`} description={t.events.text}>
-  <div class="news-page">
+  <div class="news-page page-heading-host">
     <PageHeading eyebrow={t.events.newsroom} title={t.events.title} description={t.events.text} eyebrowKey="events.newsroom" titleKey="events.title" descriptionKey="events.text" />
     <section aria-labelledby="news-latest">
       <h2 class="news-section-title" id="news-latest" data-i18n="events.latest">{t.events.latest}</h2>

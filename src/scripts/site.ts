@@ -102,8 +102,6 @@ function initNavigation() {
   });
 
   dropdowns.forEach((dropdown) => {
-    let closeTimer: number | undefined;
-
     dropdown.querySelector<HTMLButtonElement>("[data-nav-dropdown-toggle]")?.addEventListener("click", (event) => {
       event.stopPropagation();
       const shouldOpen = !dropdown.classList.contains("is-open");
@@ -111,18 +109,12 @@ function initNavigation() {
       setDropdownOpen(dropdown, shouldOpen);
     });
 
-    dropdown.addEventListener("pointerenter", (event) => {
-      if (event.pointerType === "touch" || closeTimer === undefined) return;
-      window.clearTimeout(closeTimer);
-      closeTimer = undefined;
-    });
-
-    dropdown.addEventListener("pointerleave", (event) => {
-      if (event.pointerType === "touch") return;
-      closeTimer = window.setTimeout(() => {
-        setDropdownOpen(dropdown, false);
-        closeTimer = undefined;
-      }, 180);
+    dropdown.querySelector<HTMLButtonElement>("[data-nav-dropdown-toggle]")?.addEventListener("keydown", (event) => {
+      if (event.key !== "ArrowDown") return;
+      event.preventDefault();
+      closeDropdowns(dropdown);
+      setDropdownOpen(dropdown, true);
+      dropdown.querySelector<HTMLAnchorElement>(".nav-dropdown__menu a")?.focus();
     });
   });
 

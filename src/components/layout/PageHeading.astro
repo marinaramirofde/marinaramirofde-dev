@@ -17,18 +17,14 @@ const { eyebrow, title, description, eyebrowKey, titleKey, descriptionKey, id } 
 </header>
 <style>
   :global(:root) { --page-heading-offset: 144px; }
-  :global(.content-page:has(> .page-heading)),
-  :global(.projects-portfolio:has(> .page-heading)),
-  :global(.services-page:has(> .page-heading)),
-  :global(.news-page:has(> .page-heading)),
-  :global(.trajectory-hero:has(.page-heading)) {
+  :global(.page-heading-host) {
     padding-top: var(--page-heading-offset) !important;
     margin-top: 0 !important;
   }
   :global(.content-page:has(> .page-heading)) { margin-inline: auto; }
   .page-heading { width: 100%; max-width: 760px; margin: 0 auto 44px; text-align: center; font-family: "Manrope", system-ui, sans-serif; }
   .page-heading .page-heading__eyebrow { color: #285e70; font-size: .85rem; font-weight: 700; line-height: 1.6; letter-spacing: normal; text-transform: none; margin: 0 0 16px; }
-  .page-heading h1 { font-family: inherit; color: #363e4f; font-size: clamp(2.8rem, 5vw, 4.5rem); font-weight: 800; line-height: 1.12; letter-spacing: -.05em; margin: 0 0 22px; text-wrap: balance; overflow-wrap: break-word; }
+  .page-heading h1 { font-family: "Manrope", system-ui, sans-serif !important; color: #363e4f; font-size: clamp(2.8rem, 5vw, 4.5rem) !important; font-weight: 800 !important; line-height: 1.12 !important; letter-spacing: -.05em !important; margin: 0 0 22px !important; text-wrap: balance; overflow-wrap: break-word; }
   .page-heading .page-heading__description { font-size: 1.05rem; font-weight: 500; color: #535d68; line-height: 1.8; margin: 0; max-width: none; }
   @media (max-width: 680px) { :global(:root) { --page-heading-offset: 112px; } }
 </style>
