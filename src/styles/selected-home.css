@@ -52,6 +52,9 @@
 .clean-contact h3 { margin-right: auto; }
 .clean-contact a { overflow-wrap: anywhere; font-weight: 600; min-height: 48px; }
 .clean-contact a span { display: block; color: var(--home-muted); font-size: .75rem; font-weight: 500; }
+.clean-contact .clean-contact__page { display: inline-flex; align-items: center; gap: 16px; color: var(--home-accent); }
+.clean-contact .clean-contact__page span { color: inherit; font-size: inherit; font-weight: 700; }
+.clean-contact__page span:first-child { text-decoration: underline; text-underline-offset: 6px; }
 .clean-contact a:hover { text-decoration: underline; text-underline-offset: 4px; }
 .clean-summary { display: grid; grid-template-columns: .8fr 1.3fr; gap: 36px 85px; }
 .clean-summary__body > p,.clean-summary__body article > p { color: var(--home-muted); margin-top: 16px; }
