@@ -1,7 +1,7 @@
 export const selectedHomeEs = {
   welcome: "Hola, soy Marina.", headline: "Marina Ramiro",
   intro: "Ingeniera Informática del Software especializada en realidad extendida (XR), desarrollo de software e innovación tecnológica.",
-  projectsCta: "Ver proyectos", connectCta: "Conectar", photo: "Un espacio para mi próxima foto", photoNote: "Desarrolladora de software · Innovación y liderazgo técnico",
+  projectsCta: "Ver proyectos", connectCta: "Conectar", photo: "Un espacio para mi próxima foto", photoNote: "Desarrolladora de Software · Innovación y liderazgo técnico",
   stackTitle: "Tecnologías y herramientas", stackIntro: "Mi base para diseñar, desarrollar y dar forma a nuevas soluciones.",
   aboutTitle: "Sobre mí", aboutLead: "Ideas con propósito. Tecnología con impacto.",
   about: [
