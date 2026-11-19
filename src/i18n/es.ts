@@ -117,9 +117,20 @@ export const es = {
     cta: "Ir al canal", videoTitle: "Video destacado de Marina Ramiro"
   },
   services: {
-    eyebrow: "Servicios / Colaboración", title: "Servicios",
-    text: "Servicios configurables para colaboraciones profesionales, demos técnicas y experiencias inmersivas.",
-    items: ["Prototipos XR e interfaces inmersivas", "Experiencias de visualización médica", "Desarrollo de producto con Unity y WebXR", "Demos de investigación y narrativa técnica", "Sistemas visuales interactivos basados en datos"]
+    eyebrow: "Tecnología / Colaboración", title: "Mis servicios",
+    text: "De la idea a la aplicación práctica: ingeniería, innovación y experiencias inmersivas para resolver necesidades reales.",
+    contact: "Hablemos de tu proyecto", contactText: "¿Tienes una idea o un reto tecnológico? Conectemos para darle forma.",
+    items: ["Innovación y soluciones tecnológicas", "Desarrollo integral de proyectos tecnológicos", "Desarrollo de aplicaciones XR", "Visualización 3D e imagen médica", "Ingeniería de software e integración de sistemas", "Prototipado, pruebas y validación", "Colaboración y coordinación técnica", "Presentaciones y demostraciones tecnológicas"],
+    descriptions: [
+      "Análisis de necesidades, evaluación de alternativas tecnológicas y desarrollo de soluciones innovadoras para resolver problemas reales, desde la idea inicial hasta su aplicación práctica.",
+      "Participación en todas las fases del proyecto: definición de requisitos, diseño, arquitectura, implementación, integración, pruebas y validación, tomando decisiones técnicas y adaptando las soluciones a las necesidades del usuario.",
+      "Creación de aplicaciones de realidad virtual, aumentada y mixta con Unity y C#, incluyendo interacción 3D, interfaces inmersivas y experiencias para dispositivos Meta Quest y Microsoft HoloLens.",
+      "Integración y visualización de imágenes médicas DICOM y NIfTI, renderizado volumétrico, segmentaciones anatómicas y desarrollo de herramientas interactivas de exploración y medición tridimensional.",
+      "Diseño y desarrollo de componentes de software, arquitecturas modulares e integración de servicios mediante APIs REST, JSON y sistemas de información clínica como openEHR.",
+      "Desarrollo de prototipos funcionales, diseño de pruebas con usuarios, recogida de feedback e implementación de mejoras de usabilidad, rendimiento y experiencia de usuario.",
+      "Comunicación directa con profesionales sanitarios, especialistas técnicos y socios tecnológicos para definir funcionalidades, resolver necesidades y facilitar el desarrollo de proyectos multidisciplinares.",
+      "Preparación y realización de demostraciones funcionales, talleres y presentaciones técnicas en congresos, eventos profesionales y entornos de investigación, tanto en español como en inglés."
+    ]
   },
   skills: { eyebrow: "Tecnologías / Herramientas", title: "Tecnologías y habilidades" },
   technologies: { eyebrow: "Stack / Experiencia técnica", title: "Tecnologías que utilizo", text: "Herramientas, estándares y dispositivos con los que diseño y desarrollo experiencias web, 3D y de realidad extendida.", groups: { development: "Desarrollo", xr: "XR y 3D", devices: "Dispositivos", workflow: "Flujo de trabajo" } },

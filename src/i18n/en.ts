@@ -117,9 +117,20 @@ export const en = {
     cta: "Go to channel", videoTitle: "Featured video by Marina Ramiro"
   },
   services: {
-    eyebrow: "Services / Collaboration", title: "Services",
-    text: "Configurable services for professional collaborations, technical demos and immersive experiences.",
-    items: ["XR prototypes and immersive interfaces", "Medical visualization experiences", "Unity and WebXR product development", "Research demos and technical storytelling", "Data-driven interactive visual systems"]
+    eyebrow: "Technology / Collaboration", title: "My services",
+    text: "From idea to practical application: engineering, innovation and immersive experiences that address real needs.",
+    contact: "Let’s talk about your project", contactText: "Have an idea or a technology challenge? Let’s connect and shape it together.",
+    items: ["Innovation and technology solutions", "End-to-end technology project development", "XR application development", "3D visualisation and medical imaging", "Software engineering and systems integration", "Prototyping, testing and validation", "Collaboration and technical coordination", "Technology presentations and demonstrations"],
+    descriptions: [
+      "Needs analysis, evaluation of technology alternatives and development of innovative solutions to real problems, from the initial idea to practical application.",
+      "Participation in every project phase: requirements, design, architecture, implementation, integration, testing and validation, making technical decisions and adapting solutions to user needs.",
+      "Creation of virtual, augmented and mixed reality applications with Unity and C#, including 3D interaction, immersive interfaces and experiences for Meta Quest and Microsoft HoloLens devices.",
+      "Integration and visualisation of DICOM and NIfTI medical images, volume rendering, anatomical segmentations and interactive tools for three-dimensional exploration and measurement.",
+      "Design and development of software components, modular architectures and service integration using REST APIs, JSON and clinical information systems such as openEHR.",
+      "Development of functional prototypes, user test design, feedback collection and improvements to usability, performance and user experience.",
+      "Direct communication with healthcare professionals, technical specialists and technology partners to define features, address needs and support multidisciplinary project development.",
+      "Preparation and delivery of functional demonstrations, workshops and technical presentations at conferences, professional events and research settings, in both Spanish and English."
+    ]
   },
   skills: { eyebrow: "Stack / Toolkit", title: "Technologies and skills" },
   technologies: { eyebrow: "Stack / Technical experience", title: "Technologies I use", text: "Tools, standards and devices I use to design and develop web, 3D and extended reality experiences.", groups: { development: "Development", xr: "XR and 3D", devices: "Devices", workflow: "Workflow" } },
