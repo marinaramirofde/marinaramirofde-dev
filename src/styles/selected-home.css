@@ -41,7 +41,15 @@
 .clean-tech-list { list-style: none; display: flex; flex-wrap: wrap; gap: 10px; padding: 0; margin: 20px 0 0; }
 .clean-tech-list li { display: inline-flex; align-items: center; gap: 9px; padding: 9px 13px; background: #f6f7f7; border: 1px solid #e5e8e8; border-radius: 7px; font-size: .85rem; font-weight: 600; }
 .clean-tech-list img { object-fit: contain; }
-.clean-about { background: var(--home-surface); }
+.clean-about {
+  --home-ink: #243f50;
+  --home-muted: #405b69;
+  --home-accent: #285e70;
+  background: #e7f1f4;
+}
+.clean-about .clean-belief { border-left-color: #7aa9b5; }
+.clean-about .clean-contact { border-top-color: #c1d8df; }
+.clean-about .clean-contact__icon { background: #d5e7ed; border-color: #93b8c4; }
 .clean-about__grid { display: grid; grid-template-columns: .8fr 1.3fr; gap: 36px 85px; }
 .clean-about header h2 { max-width: 13ch; }
 .clean-prose p + p { margin-top: 20px; }
