@@ -73,11 +73,12 @@ export const es = {
     diagram: ["DATOS", "3D", "XR"]
   },
   events: {
-    eyebrow: "Agenda / Comunidad", title: "Eventos",
+    eyebrow: "Agenda / Comunidad", title: "Noticias y eventos",
+    readMore: "Leer más",
     text: "Crónicas de los lugares donde la tecnología sale de la pantalla: encuentros, demostraciones, conversaciones y experiencias XR compartidas en comunidad.",
     newsroom: "Actualidad · XR, salud y tecnología",
     featured: "Evento destacado",
-    latest: "Últimos encuentros",
+    latest: "Últimas publicaciones",
     items: [
       ["Divulgación · 2025/26", "European Researchers’ Night", "Una noche para acercar la realidad extendida y la investigación sanitaria a nuevas miradas."],
       ["Ecosistema tecnológico · 2025/26", "VDS", "Innovación, talento y conexiones que impulsan el futuro digital."],
