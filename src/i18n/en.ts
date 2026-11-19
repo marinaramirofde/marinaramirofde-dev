@@ -145,12 +145,12 @@ export const en = {
     ]
   },
   community: {
-    eyebrow: "Community / Together", visualAi: "AI", visualHealth: "HEALTH", title: "Connected Tech Girls",
-    text: "A network for women in computer science and girls interested in technology, XR, programming and innovation: sharing knowledge, support, resources and opportunities to grow together.",
+    eyebrow: "Community / Together", visualAi: "AI", visualHealth: "HEALTH", title: "Connected Tech Women",
+    text: "A network for women in computer science and women interested in technology, XR, programming and innovation: sharing knowledge, support, resources and opportunities to grow together.",
     members: "An open community to grow together", cta: "Join on WhatsApp",
     qrTitle: "QR pending", qrText: "The access QR will go here when you send it.",
     widgetCommunity: "WhatsApp Community", widgetIdeasTitle: "Inclusive community", widgetIdeasText: "Shared knowledge", widgetProjectTitle: "Events and meetups", widgetProjectText: "Connections to grow",
-    highlights: [["Support", "Questions, encouragement and guidance"], ["Learning", "Resources, courses and materials"], ["Networking", "Connection with girls in tech"], ["Opportunities", "Events, challenges and collaborations"], ["Resources", "Shared tools and guides"], ["Growth", "Learning and moving forward together"]]
+    highlights: [["Support", "Questions, encouragement and guidance"], ["Learning", "Resources, courses and materials"], ["Networking", "Connection with women in tech"], ["Opportunities", "Events, challenges and collaborations"], ["Resources", "Shared tools and guides"], ["Growth", "Learning and moving forward together"]]
   },
   contact: {
     eyebrow: "Contact / Let's talk", title: "Contact",
