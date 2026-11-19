@@ -124,7 +124,7 @@ export const en = {
     descriptions: [
       "Needs analysis, evaluation of technology alternatives and development of innovative solutions to real problems, from the initial idea to practical application.",
       "Participation in every project phase: requirements, design, architecture, implementation, integration, testing and validation, making technical decisions and adapting solutions to user needs.",
-      "Creation of virtual, augmented and mixed reality applications with Unity and C#, including 3D interaction, immersive interfaces and experiences for Meta Quest and Microsoft HoloLens devices.",
+      "Creation of virtual, augmented and mixed reality applications with Unity and C#, including 3D interaction, immersive interfaces and experiences for Meta Quest, PICO and Microsoft HoloLens devices. Evaluation and adoption of new technologies and devices to develop solutions tailored to each project’s needs.",
       "Integration and visualisation of DICOM and NIfTI medical images, volume rendering, anatomical segmentations and interactive tools for three-dimensional exploration and measurement.",
       "Design and development of software components, modular architectures and service integration using REST APIs, JSON and clinical information systems such as openEHR.",
       "Development of functional prototypes, user test design, feedback collection and improvements to usability, performance and user experience.",

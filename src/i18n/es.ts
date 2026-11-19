@@ -124,7 +124,7 @@ export const es = {
     descriptions: [
       "Análisis de necesidades, evaluación de alternativas tecnológicas y desarrollo de soluciones innovadoras para resolver problemas reales, desde la idea inicial hasta su aplicación práctica.",
       "Participación en todas las fases del proyecto: definición de requisitos, diseño, arquitectura, implementación, integración, pruebas y validación, tomando decisiones técnicas y adaptando las soluciones a las necesidades del usuario.",
-      "Creación de aplicaciones de realidad virtual, aumentada y mixta con Unity y C#, incluyendo interacción 3D, interfaces inmersivas y experiencias para dispositivos Meta Quest y Microsoft HoloLens.",
+      "Creación de aplicaciones de realidad virtual, aumentada y mixta con Unity y C#, incluyendo interacción 3D, interfaces inmersivas y experiencias para dispositivos Meta Quest, PICO y Microsoft HoloLens. Estudio y adopción de nuevas tecnologías y dispositivos para desarrollar soluciones adaptadas a las necesidades de cada proyecto.",
       "Integración y visualización de imágenes médicas DICOM y NIfTI, renderizado volumétrico, segmentaciones anatómicas y desarrollo de herramientas interactivas de exploración y medición tridimensional.",
       "Diseño y desarrollo de componentes de software, arquitecturas modulares e integración de servicios mediante APIs REST, JSON y sistemas de información clínica como openEHR.",
       "Desarrollo de prototipos funcionales, diseño de pruebas con usuarios, recogida de feedback e implementación de mejoras de usabilidad, rendimiento y experiencia de usuario.",
