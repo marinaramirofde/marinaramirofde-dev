@@ -1,7 +1,7 @@
 import { selectedHomeEs } from "./selected-home";
 export const es = {
   selectedHome: selectedHomeEs,
-  support: { text: "¿Te resulta útil lo que comparto?", cta: "Invítame a un café" },
+  support: { text: "¿Quieres hacerme la mañana más amena?", cta: "Invítame a un cafelito" },
   meta: {
     title: "Marina Ramiro Fernández · Ingeniera Informática y Desarrolladora XR",
     description: "Portfolio profesional de Marina Ramiro Fernández, ingeniera informática especializada en XR, salud, investigación y visualización médica."
