@@ -10,7 +10,7 @@ const { t, base } = Astro.props;
   <div class="clean-shell clean-summary"><h2 id="education-title" data-i18n="selectedHome.educationTitle">{t.educationTitle}</h2>
     <div class="clean-summary__body"><article><p class="clean-meta" data-i18n="selectedHome.university">{t.university}</p><h3 data-i18n="selectedHome.degree">{t.degree}</h3><p data-i18n="selectedHome.degreeText">{t.degreeText}</p></article>
       <article class="clean-thesis"><span class="clean-distinction" data-i18n="selectedHome.distinction">{t.distinction}</span><h3 data-i18n="selectedHome.thesis">{t.thesis}</h3><p><Copy value={t.thesisText} path="selectedHome.thesisText" /></p></article>
-      <a class="clean-text-link" href={`${base}formacion-experiencia#education-title`}><span data-i18n="selectedHome.moreBackground">{t.moreBackground}</span><TechIcon /></a>
+      <a class="clean-text-link" href={`${base}formacion-experiencia#education-title`}><span data-i18n="selectedHome.moreBackground">{t.moreBackground}</span><TechIcon kind="next" /></a>
     </div>
   </div>
 </section>

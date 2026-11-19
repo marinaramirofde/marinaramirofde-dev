@@ -1,8 +1,14 @@
 ---
-interface Props { kind?: "link" | "chat"; }
+interface Props { kind?: "link" | "chat" | "projects" | "next"; }
 const { kind = "link" } = Astro.props;
 ---
-{kind === "chat" ? (
+{kind === "projects" ? (
+  <svg class="clean-tech-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">
+    <rect x="3" y="3" width="7" height="7" rx="1.5" /><rect x="14" y="3" width="7" height="7" rx="1.5" /><rect x="3" y="14" width="7" height="7" rx="1.5" /><rect x="14" y="14" width="7" height="7" rx="1.5" />
+  </svg>
+) : kind === "next" ? (
+  <svg class="clean-tech-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="m9 5 7 7-7 7" /></svg>
+) : kind === "chat" ? (
   <svg class="clean-tech-icon clean-tech-icon--chat" viewBox="0 0 32 32" fill="currentColor" aria-hidden="true" focusable="false">
     <path d="M12 3h14a4 4 0 0 1 4 4v16a1 1 0 0 1-1.7.7L23 19H12a4 4 0 0 1-4-4V7a4 4 0 0 1 4-4Z" />
     <path d="M5 9h1v6a6 6 0 0 0 6 6h7a4 4 0 0 1-4 4H8l-4.3 3.7A1 1 0 0 1 2 28V12a3 3 0 0 1 3-3Z" />
