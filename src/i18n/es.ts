@@ -121,7 +121,7 @@ export const es = {
     text: "Conocimientos técnicos, experiencia práctica y capacidades que aporto al desarrollo de proyectos tecnológicos, desde la identificación de necesidades hasta la implementación y validación de soluciones innovadoras.",
     areasTitle: "Áreas de especialización", competenciesTitle: "Competencias profesionales",
     areas: ["Innovación tecnológica", "Desarrollo integral de proyectos", "Tecnologías inmersivas XR", "Visualización 3D e imagen médica", "Ingeniería de software", "Colaboración multidisciplinar"],
-    contact: "Hablemos de tu proyecto", contactText: "¿Tienes una idea o un reto tecnológico? Conectemos para darle forma.",
+    contact: "Conectemos", contactText: "Me interesan los entornos donde aportar, seguir creciendo e impulsar la innovación. Si ves una oportunidad que encaje con mi perfil, hablemos.",
     items: ["Innovación y soluciones tecnológicas", "Desarrollo integral de proyectos tecnológicos", "Desarrollo de aplicaciones XR", "Visualización 3D e imagen médica", "Ingeniería de software e integración de sistemas", "Prototipado, pruebas y validación", "Colaboración y coordinación técnica", "Presentaciones y demostraciones tecnológicas"],
     descriptions: [
       "Análisis de necesidades, evaluación de alternativas tecnológicas y desarrollo de soluciones innovadoras para resolver problemas reales, desde la idea inicial hasta su aplicación práctica.",
