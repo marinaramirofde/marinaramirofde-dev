@@ -11,7 +11,7 @@ const { t, base } = Astro.props;
     <p class="clean-intro" data-i18n="selectedHome.intro">{t.intro}</p>
     <div class="clean-actions">
       <a class="clean-button" href={`${base}proyectos`}><span data-i18n="selectedHome.projectsCta">{t.projectsCta}</span><TechIcon kind="projects" /></a>
-      <a class="clean-button clean-button--secondary" href="#connect" data-i18n="selectedHome.connectCta">{t.connectCta}</a>
+      <a class="clean-button clean-button--secondary" href={`${base}contacto`} data-i18n="selectedHome.connectCta">{t.connectCta}</a>
     </div>
   </div>
   <figure class="clean-portrait">
