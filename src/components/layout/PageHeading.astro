@@ -1,0 +1,23 @@
+---
+interface Props {
+  eyebrow: string;
+  title: string;
+  description: string;
+  eyebrowKey: string;
+  titleKey: string;
+  descriptionKey: string;
+  id?: string;
+}
+const { eyebrow, title, description, eyebrowKey, titleKey, descriptionKey, id } = Astro.props;
+---
+<header class="page-heading">
+  <p class="page-heading__eyebrow" data-i18n={eyebrowKey}>{eyebrow}</p>
+  <h1 id={id} data-i18n={titleKey}>{title}</h1>
+  <p class="page-heading__description" data-i18n={descriptionKey}>{description}</p>
+</header>
+<style>
+  .page-heading { width: 100%; max-width: 760px; margin: 0 auto 44px; text-align: center; font-family: "Manrope", system-ui, sans-serif; }
+  .page-heading .page-heading__eyebrow { color: #285e70; font-size: .85rem; font-weight: 700; line-height: 1.6; letter-spacing: normal; text-transform: none; margin: 0 0 16px; }
+  .page-heading h1 { font-family: inherit; color: #363e4f; font-size: clamp(2.8rem, 5vw, 4.5rem); font-weight: 800; line-height: 1.12; letter-spacing: -.05em; margin: 0 0 22px; text-wrap: balance; overflow-wrap: break-word; }
+  .page-heading .page-heading__description { font-size: 1.05rem; font-weight: 500; color: #535d68; line-height: 1.8; margin: 0; max-width: none; }
+</style>

@@ -1,5 +1,6 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
+import PageHeading from "../components/layout/PageHeading.astro";
 import { getDictionary } from "../i18n";
 import { portfolioConfig } from "../config/portfolio.config";
 import { eventProfiles } from "../data/events";
@@ -9,11 +10,7 @@ const base = `${import.meta.env.BASE_URL.replace(/\/$/, "")}/`;
 ---
 <BaseLayout title={`${t.events.title} · ${portfolioConfig.brandName}`} description={t.events.text}>
   <div class="news-page">
-    <header class="news-heading">
-      <p class="news-kicker" data-i18n="events.newsroom">{t.events.newsroom}</p>
-      <h1 data-i18n="events.title">{t.events.title}</h1>
-      <p data-i18n="events.text">{t.events.text}</p>
-    </header>
+    <PageHeading eyebrow={t.events.newsroom} title={t.events.title} description={t.events.text} eyebrowKey="events.newsroom" titleKey="events.title" descriptionKey="events.text" />
     <section aria-labelledby="news-latest">
       <h2 class="news-section-title" id="news-latest" data-i18n="events.latest">{t.events.latest}</h2>
       <div class="news-grid">
@@ -38,10 +35,6 @@ const base = `${import.meta.env.BASE_URL.replace(/\/$/, "")}/`;
 </BaseLayout>
 <style>
   .news-page { --news-ink: #363e4f; --news-muted: #535d68; --news-accent: #285e70; max-width: 1224px; margin-inline: auto; padding: clamp(100px, 10vw, 144px) 32px 80px; font-family: "Manrope", system-ui, sans-serif; color: var(--news-ink); }
-  .news-heading { max-width: 740px; margin-bottom: 56px; }
-  .news-kicker { font-size: .85rem; font-weight: 700; color: var(--news-accent); margin: 0 0 16px; }
-  .news-heading h1 { font-family: inherit; font-size: clamp(2.6rem, 5.5vw, 4.6rem); font-weight: 800; line-height: 1.12; letter-spacing: -.05em; margin: 0 0 24px; text-wrap: balance; }
-  .news-heading > p:last-child { color: var(--news-muted); font-size: 1.1rem; line-height: 1.8; margin: 0; }
   .news-section-title { font-family: inherit; font-size: 1.1rem; margin: 0 0 24px; letter-spacing: -.02em; }
   .news-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 40px 28px; }
   .news-card { min-width: 0; display: flex; flex-direction: column; border-bottom: 1px solid #d9dfe3; padding-bottom: 24px; }

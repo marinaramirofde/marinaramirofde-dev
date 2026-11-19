@@ -1,5 +1,6 @@
 ---
 import BaseLayout from "../../layouts/BaseLayout.astro";
+import PageHeading from "../../components/layout/PageHeading.astro";
 import { getDictionary } from "../../i18n";
 import { portfolioConfig } from "../../config/portfolio.config";
 import { projects } from "../../data/projects";
@@ -9,11 +10,7 @@ const basePath = import.meta.env.BASE_URL.endsWith("/") ? import.meta.env.BASE_U
 
 <BaseLayout title={`Proyectos · ${portfolioConfig.brandName}`}>
   <article class="projects-portfolio">
-    <header class="projects-portfolio__header" data-reveal>
-      <p class="eyebrow" data-i18n="pages.selectedWork">{t.pages.selectedWork}</p>
-      <h1 data-i18n="projects.title">{t.projects.title}</h1>
-      <p data-i18n="projects.text">{t.projects.text}</p>
-    </header>
+    <PageHeading eyebrow={t.pages.selectedWork} title={t.projects.title} description={t.projects.text} eyebrowKey="pages.selectedWork" titleKey="projects.title" descriptionKey="projects.text" />
 
     <div class="project-portfolio-grid" aria-label="Casos de estudio">
       {projects.map((project, index) => (

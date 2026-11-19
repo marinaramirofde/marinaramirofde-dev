@@ -1,12 +1,13 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
+import PageHeading from "../components/layout/PageHeading.astro";
 import { getDictionary } from "../i18n";
 import { portfolioConfig } from "../config/portfolio.config";
 const t = getDictionary(portfolioConfig.defaultLocale);
 ---
 <BaseLayout title={`Investigación · ${portfolioConfig.brandName}`}>
   <article class="content-page">
-    <header class="content-page__hero" data-reveal><p class="eyebrow" data-i18n="pages.researchEyebrow">{t.pages.researchEyebrow}</p><h1 data-i18n="research.title">{t.research.title}</h1><p data-i18n="research.text">{t.research.text}</p></header>
+    <PageHeading eyebrow={t.pages.researchEyebrow} title={t.research.title} description={t.research.text} eyebrowKey="pages.researchEyebrow" titleKey="research.title" descriptionKey="research.text" />
     <div class="content-page__visual content-page__visual--line" aria-hidden="true" data-reveal><span>DATOS</span><span>XR</span><span>SALUD</span><span>3D</span><i></i></div>
   </article>
 </BaseLayout>

@@ -1,5 +1,6 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
+import PageHeading from "../components/layout/PageHeading.astro";
 import { getDictionary } from "../i18n";
 import { portfolioConfig } from "../config/portfolio.config";
 
@@ -16,15 +17,7 @@ const courseCodes = ["12504402", "125095103", "125097103", "125096103"];
   <article class="trajectory-page" id="trajectory">
     <section class="trajectory-hero" aria-labelledby="trajectory-title">
       <div class="trajectory-shell">
-        <p class="trajectory-kicker" data-i18n="experience.eyebrow">{experience.eyebrow}</p>
-        <div class="trajectory-hero__heading">
-          <h1 id="trajectory-title">
-            <span data-i18n="experience.titleStart">{experience.titleStart}</span>
-            <em>&amp;</em>
-            <span data-i18n="experience.titleEnd">{experience.titleEnd}</span>
-          </h1>
-          <p data-i18n="experience.intro">{experience.intro}</p>
-        </div>
+        <PageHeading eyebrow={experience.eyebrow} title={t.nav.trajectory} description={experience.intro} eyebrowKey="experience.eyebrow" titleKey="nav.trajectory" descriptionKey="experience.intro" id="trajectory-title" />
         <div class="trajectory-hero__meta" aria-label="Áreas de especialización">
           <span data-i18n="experience.focus">{experience.focus}</span>
           <span data-i18n="experience.location">{experience.location}</span>

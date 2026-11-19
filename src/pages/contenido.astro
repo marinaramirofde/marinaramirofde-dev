@@ -1,5 +1,6 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
+import PageHeading from "../components/layout/PageHeading.astro";
 import { getDictionary } from "../i18n";
 import { portfolioConfig } from "../config/portfolio.config";
 import { recommendedProducts } from "../data/recommended";
@@ -10,11 +11,7 @@ const galleryItems = t.gallery.items as Array<[string, string]>;
 
 <BaseLayout title={`Contenido · ${portfolioConfig.brandName}`}>
   <article class="content-page content-page--wide landing-page content-landing">
-    <header class="content-page__hero" data-reveal>
-      <p class="eyebrow" data-i18n="nav.content">{t.nav.content}</p>
-      <h1 data-i18n="youtube.title">{t.youtube.title}</h1>
-      <p data-i18n="youtube.text">{t.youtube.text}</p>
-    </header>
+    <PageHeading eyebrow={t.nav.content} title={t.nav.content} description={t.youtube.text} eyebrowKey="nav.content" titleKey="nav.content" descriptionKey="youtube.text" />
 
     <section class="landing-panel" id="youtube" data-reveal>
       <div><p class="eyebrow">YouTube</p><h2 data-i18n="youtube.title">{t.youtube.title}</h2><p data-i18n="youtube.text">{t.youtube.text}</p><a class="button button--primary" href={portfolioConfig.socialLinks.youtube} target="_blank" rel="noreferrer" data-i18n="youtube.cta">{t.youtube.cta}</a></div>

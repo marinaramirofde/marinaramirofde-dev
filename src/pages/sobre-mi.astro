@@ -1,5 +1,6 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
+import PageHeading from "../components/layout/PageHeading.astro";
 import { getDictionary } from "../i18n";
 import { portfolioConfig } from "../config/portfolio.config";
 const t = getDictionary(portfolioConfig.defaultLocale);
@@ -7,10 +8,7 @@ const t = getDictionary(portfolioConfig.defaultLocale);
 
 <BaseLayout title={`Sobre mí · ${portfolioConfig.brandName}`}>
   <article class="content-page">
-    <header class="content-page__hero" data-reveal>
-      <p class="eyebrow">MRF / <span data-i18n="pages.profile">{t.pages.profile}</span></p>
-      <h1 data-i18n="about.title">{t.about.title}</h1><p data-i18n="about.text">{t.about.text}</p>
-    </header>
+    <PageHeading eyebrow={t.about.eyebrow} title={t.about.title} description={t.about.text} eyebrowKey="about.eyebrow" titleKey="about.title" descriptionKey="about.text" />
     <div class="content-page__visual" aria-hidden="true" data-reveal>
       <span>XR</span><span data-i18n="pages.software">{t.pages.software}</span><span data-i18n="pages.health">{t.pages.health}</span><span data-i18n="pages.research">{t.pages.research}</span><i></i>
     </div>
